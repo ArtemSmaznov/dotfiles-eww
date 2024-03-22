@@ -1,0 +1,33 @@
+(defwidget charge-levels []
+           (box :class "charge-levels"
+                :orientation "v"
+                :space-evenly true
+                :spacing 10
+                :width 300
+                :height 300
+
+                (radial-battery :device-name "PS Magma"
+                                :device-icon "gamepad"
+                                :charge 35)
+
+                (radial-battery :device-name "PS Onyx"
+                                :device-icon "gamepad"
+                                :charge 75)
+                ))
+
+(defwidget radial-battery [?device-name ?device-icon ?charge]
+           (revealer :transition "slideup"
+                     :duration revealer-duration
+                     :reveal { device-name != "" }
+                     (box :class "glass-module radial-battery"
+                          :orientation "v"
+
+                          (overlay
+                           (circular-progress :clockwise true
+                                              :thickness 2.0
+                                              :start-at 75
+                                              :value charge)
+
+                           (box :orientation "v"
+                                (icon :icon device-icon)
+                                (label :text device-name))))))
