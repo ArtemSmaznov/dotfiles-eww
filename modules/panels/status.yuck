@@ -2,11 +2,10 @@
            :namespace "status-panel"
            :monitor 1
            :stacking "bottom"
-           :geometry (geometry :anchor "bottom left"
-                               :x "50px"
-                               :y "50px"
-                               :width "100px"
-                               :height "100px")
+           ;; :exclusive true
+           :geometry (geometry :anchor "top left"
+                               :x "40px"
+                               :y "40px")
 
            (box :class "status-panel"
                 :orientation "v"
