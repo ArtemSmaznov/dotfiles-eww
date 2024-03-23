@@ -12,7 +12,7 @@
                 :halign "center"
                 :valign "center"
                 :space-evenly false
-                :spacing 15
+                :spacing 15 ;; FIXME still applies with hidden widgets
                 :active true
 
                 (charge-levels)

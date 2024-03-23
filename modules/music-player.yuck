@@ -1,32 +1,35 @@
 (defwidget music-player []
-           (box :class "glass-module music-player"
-                :orientation "h"
-                :space-evenly false
-                :spacing 15
-                :width 600
-                ;; :style "background: ${music-album-cover-color};"
-
-                (music-player-album-art)
-
-                (revealer :transition "slideleft"
-                          :duration revealer-duration
-                          :reveal { music-play-count > 0 || music-skip-count > 0 }
-                          (music-player-rating-bar))
-
-                (box :class "music-player-content"
-                     :orientation "v"
-                     :space-evenly false
-                     :hexpand true
-
-                     (box :orientation "h"
-                          :hexpand true
-                          :vexpand true
+           (revealer :transition "slidedown"
+                     :duration revealer-duration
+                     :reveal { music-title != "" }
+                     (box :class "glass-module music-player"
+                          :orientation "h"
                           :space-evenly false
-                          :spacing 50
-                          (music-player-track-info)
-                          (box))
+                          :spacing 15
+                          :width 600
+                          ;; :style "background: ${music-album-cover-color};"
 
-                     (music-player-controls))))
+                          (music-player-album-art)
+
+                          (revealer :transition "slideleft"
+                                    :duration revealer-duration
+                                    :reveal { music-play-count > 0 || music-skip-count > 0 }
+                                    (music-player-rating-bar))
+
+                          (box :class "music-player-content"
+                               :orientation "v"
+                               :space-evenly false
+                               :hexpand true
+
+                               (box :orientation "h"
+                                    :hexpand true
+                                    :vexpand true
+                                    :space-evenly false
+                                    :spacing 50
+                                    (music-player-track-info)
+                                    (box))
+
+                               (music-player-controls)))))
 
 
 (defwidget music-player-album-art []

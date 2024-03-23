@@ -1307,7 +1307,7 @@ Key Chord
                 :halign "center"
                 :valign "center"
                 :space-evenly false
-                :spacing 15
+                :spacing 15 ;; FIXME still applies with hidden widgets
                 :active true
 
                 (charge-levels)
@@ -1315,10 +1315,11 @@ Key Chord
                 ))
 #+end_src
 
-** TODO notification tray
+** PROJ Which Key
+** IDEA notification tray
 ** IDEA launcher
-** TODO quick settings
-** TODO profile
+** PROJ quick settings
+** IDEA profile
 ** IDEA office
 *** idea clock
 *** idea calendar
@@ -1472,34 +1473,37 @@ calendar:selected {
 *** widgets
 #+begin_src yuck :tangle modules/music-player.yuck
 (defwidget music-player []
-           (box :class "glass-module music-player"
-                :orientation "h"
-                :space-evenly false
-                :spacing 15
-                :width 600
-                ;; :style "background: ${music-album-cover-color};"
-
-                (music-player-album-art)
-
-                (revealer :transition "slideleft"
-                          :duration revealer-duration
-                          :reveal { music-play-count > 0 || music-skip-count > 0 }
-                          (music-player-rating-bar))
-
-                (box :class "music-player-content"
-                     :orientation "v"
-                     :space-evenly false
-                     :hexpand true
-
-                     (box :orientation "h"
-                          :hexpand true
-                          :vexpand true
+           (revealer :transition "slidedown"
+                     :duration revealer-duration
+                     :reveal { music-title != "" }
+                     (box :class "glass-module music-player"
+                          :orientation "h"
                           :space-evenly false
-                          :spacing 50
-                          (music-player-track-info)
-                          (box))
+                          :spacing 15
+                          :width 600
+                          ;; :style "background: ${music-album-cover-color};"
 
-                     (music-player-controls))))
+                          (music-player-album-art)
+
+                          (revealer :transition "slideleft"
+                                    :duration revealer-duration
+                                    :reveal { music-play-count > 0 || music-skip-count > 0 }
+                                    (music-player-rating-bar))
+
+                          (box :class "music-player-content"
+                               :orientation "v"
+                               :space-evenly false
+                               :hexpand true
+
+                               (box :orientation "h"
+                                    :hexpand true
+                                    :vexpand true
+                                    :space-evenly false
+                                    :spacing 50
+                                    (music-player-track-info)
+                                    (box))
+
+                               (music-player-controls)))))
 
 
 (defwidget music-player-album-art []
@@ -1656,21 +1660,24 @@ calendar:selected {
 *** widgets
 #+begin_src yuck :tangle modules/charge-levels.yuck
 (defwidget charge-levels []
-           (box :class "charge-levels"
-                :orientation "v"
-                :space-evenly true
-                :spacing 10
-                :width 300
-                :height 300
+           (revealer :transition "slidedown"
+                     :duration revealer-duration
+                     :reveal false
+                     (box :class "charge-levels"
+                          :orientation "v"
+                          :space-evenly true
+                          :spacing 10
+                          :width 300
+                          :height 300
 
-                (radial-battery :device-name "PS Magma"
-                                :device-icon "gamepad"
-                                :charge 35)
+                          (radial-battery :device-name "PS4 Magma"
+                                          :device-icon "gamepad"
+                                          :charge 35)
 
-                (radial-battery :device-name "PS Onyx"
-                                :device-icon "gamepad"
-                                :charge 75)
-                ))
+                          (radial-battery :device-name "PS4 Onyx"
+                                          :device-icon "gamepad"
+                                          :charge 75)
+                          )))
 
 (defwidget radial-battery [?device-name ?device-icon ?charge]
            (revealer :transition "slideup"
