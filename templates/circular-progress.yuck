@@ -1,0 +1,10 @@
+(defwidget circular [icon value]
+  (box :orientation "h"
+       :class "progress status-widget"
+       :space-evenly false
+       (icon :icon icon)
+       (circular-progress :value value
+                          :start-at 0
+                          :thickness 7
+                          :clockwise true
+                          )))

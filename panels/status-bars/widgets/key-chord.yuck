@@ -1,0 +1,6 @@
+(defwidget key-chord []
+           (revealer :transition "slideleft"
+                     :duration revealer-duration
+                     :reveal { wm-key-chord != "" }
+                     (label :class "widget key-chord"
+                            :text wm-key-chord)))

@@ -1,0 +1,9 @@
+(defwidget battery []
+  (revealer :transition "slideright"
+            :duration revealer-duration
+            :reveal {present == "yes" ? true : false}
+            (box :class "widget colored battery"
+                (slider :icon "gamepad"
+                    :value charge
+                    :onchange ""
+                    ))))

@@ -1,0 +1,3 @@
+(defwidget window-title []
+  (label :limit-width 40
+         :text window-title))

@@ -1,39 +1,38 @@
+;; variables
+;;------------------------------------------------------------------------------
 (include "vars/states.yuck")
-
 (include "vars/theme.yuck")
-
 (include "vars/images.yuck")
-
 (include "vars/scripts.yuck")
-
 (include "vars/player.yuck")
-
 (include "vars/music.yuck")
-
 (include "vars/time.yuck")
-
 (include "vars/systray.yuck")
-
 (include "vars/keyboard.yuck")
-
 (include "vars/system.yuck")
-
 (include "vars/wm.yuck")
 
-(include "modules/status-bars/primary.yuck")
+;; panels: status bars
+;;------------------------------------------------------------------------------
+(include "panels/status-bars/primary.yuck")
+(include "panels/status-bars/secondary.yuck")
+(include "panels/status-bars/widgets.yuck")
 
-(include "modules/status-bars/secondary.yuck")
+;; panels
+;;------------------------------------------------------------------------------
+(include "panels/powermenu.yuck")
+(include "panels/status.yuck")
+(include "panels/calendar.yuck")
 
-(include "modules/status-bars/widgets.yuck")
-
-(include "modules/panels/powermenu.yuck")
-
-(include "modules/panels/status.yuck")
-
-(include "modules/panels/calendar.yuck")
-
+;; modules
+;;------------------------------------------------------------------------------
 (include "modules/music-player.yuck")
-
 (include "modules/charge-levels.yuck")
-
 (include "modules/updates-list.yuck")
+
+;; templates
+;;------------------------------------------------------------------------------
+(include "templates/icon.yuck")
+(include "templates/slider.yuck")
+(include "templates/circular-progress.yuck")
+(include "templates/confirmation-window.yuck")

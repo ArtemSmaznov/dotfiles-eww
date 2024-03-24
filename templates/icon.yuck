@@ -1,0 +1,3 @@
+(defwidget icon [?icon]
+  (label :class "icon"
+         :text icon))

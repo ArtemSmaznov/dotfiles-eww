@@ -22,7 +22,7 @@
                            :space-evenly false
                            :halign "start"
                            :spacing 5
-                           (logo)
+                           (start-logo)
                            (time)
                            (separator)
                            (workspaces)
@@ -37,7 +37,7 @@
                            :space-evenly false
                            :halign "end"
                            :spacing 5
-                           (kbd)
+                           (language)
                            (separator)
                            (battery)
                            (cpu-thermal)

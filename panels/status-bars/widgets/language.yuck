@@ -1,0 +1,9 @@
+(defwidget language []
+  (box :orientation "h"
+       :space-evenly false
+       :class "widget language"
+       (flag :lang kbd)))
+
+(defwidget flag [?lang]
+  (image :image-height "18"
+         :path "/usr/share/iso-flag-png/${lang}.png"))

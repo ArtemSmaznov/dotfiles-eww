@@ -1,5 +1,9 @@
+* { all: unset }
+
 @import "themes/base16.scss";
 
+// global vars
+//------------------------------------------------------------------------------
 $text-font: "Hack Nerd Font",
             "Source Han Sans JP",
             "Font Awesome 6 Free Solid",
@@ -10,10 +14,8 @@ $icon-font: "Font Awesome 6 Free Solid";
 $indicator-line-width: 3px;
 $accent-line-width: 2px;
 
-* {
-    all: unset;
-}
-
+// global styles
+//==============================================================================
 .main-bar,
 .second-bar,
 .powermenu-panel {
@@ -41,29 +43,15 @@ button:hover {
     transition-duration: .35s;
 }
 
-@import "modules/status-bars/style.scss";
-
-@import "modules/panels/powermenu.scss";
-
-@import "modules/panels/status.scss";
+// imports
+//------------------------------------------------------------------------------
+@import "panels/status-bars/style.scss";
+@import "panels/powermenu.scss";
+@import "panels/status.scss";
 
 @import "modules/style.scss";
-
 @import "modules/music-player.scss";
-
 @import "modules/charge-levels.scss";
-
 // @import "modules/updates-list.scss";
 
-.slider scale trough {
-  background-color: $base02;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-}
-
-.slider scale trough highlight {
-  background-color: $base0E;
-  color: $base07;
-  border-radius: 10px;
-}
+@import "templates/slider.scss";

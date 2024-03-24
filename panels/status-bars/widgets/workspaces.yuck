@@ -1,0 +1,18 @@
+(defwidget workspaces []
+           (box :class "bar-widget bar-widget-workspaces"
+                :space-evenly false
+                :spacing status-bar-widget-spacing
+
+                (for workspace in listen_workspaces
+                     (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+                               (box :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"} ${workspace.monitor == 0 ? "monitor_0": ""} ${workspace.monitor == 1 ? "monitor_1": ""}"
+                                    (label :text { workspace.name == 1 ? "globe"        :
+                                                   workspace.name == 2 ? "gamepad"      :
+                                                   workspace.name == 3 ? "keyboard"     :
+                                                   workspace.name == 4 ? "folder"       :
+                                                   workspace.name == 5 ? "headphones"   :
+                                                   workspace.name == 6 ? "camera"       :
+                                                   workspace.name == 7 ? "comment"      :
+                                                   workspace.name == 8 ? "server"       :
+                                                   workspace.name == 9 ? "chart-simple" :
+                                                                          workspace.name }))))))

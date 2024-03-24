@@ -1,0 +1,12 @@
+(defwidget cpu []
+           (box :class "status-widget colored cpu"
+                (slider :icon "microchip"
+                        :value {EWW_CPU.avg}
+                        :onchange "")))
+
+(defwidget cpu-thermal []
+           (box :class "status-widget colored cpu-thermal"
+                :spacing status-bar-icon-spacing
+                (icon :icon "")
+                { round(EWW_TEMPS.K10TEMP_TCTL, 0) }
+                "°C"))

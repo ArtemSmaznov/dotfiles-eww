@@ -1,0 +1,5 @@
+(defwidget ram []
+           (box :class "status-widget colored ram"
+                (slider :icon "memory"
+                        :value {EWW_RAM.used_mem_perc}
+                        :onchange "")))

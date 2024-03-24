@@ -1,0 +1,20 @@
+(defwidget time []
+  (box :class "widget time"
+       :orientation "h"
+       :space-evenly false
+    {time}))
+
+(defwidget date []
+  (eventbox :onclick "eww open --toggle --screen $(/home/artem/.config/hypr/scripts/get-current-monitor.sh id) calendar-window"
+            :cursor "pointer"
+            (box :class "widget date"
+                 :orientation "h"
+                 :space-evenly false
+                 :halign "center"
+                 :spacing status-bar-icon-spacing
+
+                 (icon :icon { matches(date, "20 apr") ? "cannabis" :
+                               matches(date, "25 dec") ? "candy-cane" :
+                               matches(date, "31 dec") ? "champagne-glasses" :
+                                                         "calendar" })
+                 {date})))

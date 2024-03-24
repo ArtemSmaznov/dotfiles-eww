@@ -1,0 +1,12 @@
+(defwidget slider [icon value onchange]
+           (box :class "slider status-widget"
+                :orientation "h"
+                :space-evenly false
+                :spacing status-bar-icon-spacing
+
+                (icon :icon icon)
+                (scale :min 0
+                       :max 100
+                       :active {onchange != ""}
+                       :value value
+                       :onchange onchange)))
