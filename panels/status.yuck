@@ -1,20 +1,23 @@
-(defwindow status-panel
-           :namespace "status-panel"
-           :monitor 1
-           :stacking "bottom"
-           ;; :exclusive true
-           :geometry (geometry :anchor "top left"
-                               :x "40px"
-                               :y "40px")
+(defwindow
+ status-panel
+ :namespace "status-panel"
+ :monitor 1
+ :stacking "fg"
+ :exclusive true
 
-           (box :class "status-panel"
-                :orientation "v"
-                :halign "center"
-                :valign "center"
-                :space-evenly false
-                :spacing 15 ;; FIXME still applies with hidden widgets
-                :active true
+ :geometry (geometry
+            :anchor "center left"
+            :x "40px"
+            :y "40px")
 
-                (charge-levels)
-                (music-player)
-                ))
+ (box :class "status-panel"
+      :orientation "v"
+      :halign "center"
+      :valign "center"
+      :space-evenly false
+      :spacing 15 ;; FIXME still applies with hidden widgets
+      :active true
+
+      (charge-levels)
+      (music-player)
+      ))
