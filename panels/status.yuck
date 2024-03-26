@@ -13,10 +13,13 @@
  (box :class "status-panel"
       :orientation "v"
       :halign "center"
-      :valign "center"
+      :valign "start"
+      :vexpand true
       :space-evenly false
-      :spacing 15 ;; FIXME still applies with hidden widgets
       :active true
+
+      :spacing 15 ;; FIXME still applies with hidden widgets
+      ;; :style "border: 2px solid"
 
       (charge-levels)
       (music-player)

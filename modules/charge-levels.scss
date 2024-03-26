@@ -1,1 +1,16 @@
+.radial-battery .progress {
+    transition-duration: 3s;
 
+    .content {
+        margin: 10px;
+        padding: 15px;
+
+        .icon {
+            font-size: 16pt;
+        }
+
+        .label {
+            font-size: 10pt;
+        }
+    }
+}

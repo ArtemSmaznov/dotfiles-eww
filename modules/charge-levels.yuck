@@ -1,22 +1,25 @@
 (defwidget charge-levels []
            (revealer :transition "slidedown"
                      :duration revealer-duration
-                     :reveal false
+                     :reveal true
                      (box :class "charge-levels"
-                          :orientation "v"
+                          :orientation "h"
                           :space-evenly true
                           :spacing 10
-                          :width 300
-                          :height 300
 
-                          (radial-battery :device-name "PS4 Magma"
+                          (radial-battery :device-name "headset-1"
+                                          :device-icon "headset"
+                                          :charge 60)
+
+                          (radial-battery :device-name "controller-1"
                                           :device-icon "gamepad"
                                           :charge 35)
 
-                          (radial-battery :device-name "PS4 Onyx"
+                          (radial-battery :device-name "controller-2"
                                           :device-icon "gamepad"
-                                          :charge 75)
+                                          :charge 90)
                           )))
+
 
 (defwidget radial-battery [?device-name ?device-icon ?charge]
            (revealer :transition "slideup"
@@ -24,13 +27,18 @@
                      :reveal { device-name != "" }
                      (box :class "glass-module radial-battery"
                           :orientation "v"
+                          (circular-progress :class "progress"
+                                             :clockwise true
+                                             :thickness 3.0
+                                             :start-at 75
+                                             :value charge
 
-                          (overlay
-                           (circular-progress :clockwise true
-                                              :thickness 2.0
-                                              :start-at 75
-                                              :value charge)
-
-                           (box :orientation "v"
-                                (icon :icon device-icon)
-                                (label :text device-name))))))
+                                             (box :class "content"
+                                                  :orientation "v"
+                                                  :spacing 10
+                                                  (label :class "icon"
+                                                         :valign "end"
+                                                         :text device-icon)
+                                                  (label :class "label"
+                                                         :valign "start"
+                                                         :text device-name))))))
