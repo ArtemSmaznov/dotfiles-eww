@@ -2,7 +2,7 @@
  second-bar
  ;; :namespace "status-bar"
  :monitor 1
- :stacking "bg"
+ :stacking "bottom"
  :exclusive true
 
  :geometry (geometry

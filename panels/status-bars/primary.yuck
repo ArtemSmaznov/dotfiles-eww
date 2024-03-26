@@ -2,7 +2,7 @@
  main-bar
  ;; :namespace "status-bar"
  :monitor 0
- :stacking "bg"
+ :stacking "bottom"
  :exclusive true
 
  :geometry (geometry
