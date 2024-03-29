@@ -1,3 +1,9 @@
+(defvar battery-devices '[
+                          ["headset", "headset", 60],
+                          ["controller-1", "gamepad", 35],
+                          ["controller-2", "gamepad", 90]
+                          ]')
+
 (defwidget charge-levels []
            (revealer :transition "slidedown"
                      :duration revealer-duration
@@ -7,18 +13,10 @@
                           :space-evenly true
                           :spacing 10
 
-                          (radial-battery :device-name "headset-1"
-                                          :device-icon "headset"
-                                          :charge 60)
-
-                          (radial-battery :device-name "controller-1"
-                                          :device-icon "gamepad"
-                                          :charge 35)
-
-                          (radial-battery :device-name "controller-2"
-                                          :device-icon "gamepad"
-                                          :charge 90)
-                          )))
+                          (for device in battery-devices
+                               (radial-battery :device-name "${device[0]}"
+                                               :device-icon "${device[1]}"
+                                               :charge "${device[2]}")))))
 
 
 (defwidget radial-battery [?device-name ?device-icon ?charge]
