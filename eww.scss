@@ -46,8 +46,9 @@ button:hover {
 // imports
 //------------------------------------------------------------------------------
 @import "panels/status-bars/style.scss";
+
 @import "panels/powermenu.scss";
-@import "panels/status.scss";
+@import "panels/quick-settings.scss";
 
 @import "modules/style.scss";
 @import "modules/music-player.scss";

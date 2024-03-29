@@ -20,9 +20,9 @@
 
 ;; panels
 ;;------------------------------------------------------------------------------
-(include "panels/powermenu.yuck")
-(include "panels/status.yuck")
 (include "panels/calendar.yuck")
+(include "panels/powermenu.yuck")
+(include "panels/quick-settings.yuck")
 
 ;; modules
 ;;------------------------------------------------------------------------------
