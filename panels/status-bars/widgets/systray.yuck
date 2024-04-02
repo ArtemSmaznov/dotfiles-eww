@@ -1,7 +1,7 @@
-(defwidget systray []
-  (box :orientation "h"
-       :visible { trayer-width != 0 ? true : false }
-       :space-evenly false
-       (separator)
-       (box :orientation "h"
-            :width trayer-width)))
+(defwidget
+ system-tray []
+ (systray :orientation "h"
+          :prepend-new true
+          :space-evenly true
+          :spacing 5
+          :icon-size 20))

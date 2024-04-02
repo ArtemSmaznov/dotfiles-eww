@@ -44,7 +44,8 @@
                  :halign "end"
                  :spacing 5
                  (language)
-                 (systray)
+                 (separator)
+                 (system-tray)
                  (separator)
                  (battery)
                  (updates)
