@@ -14,6 +14,8 @@
          :iniitial ""
          "~/.local/bin/get-wm-layout.sh")
 
+(defvar current-keymap "")
+
 (deflisten wm-key-chord
            :initial ""
            "bash ~/.config/hypr/scripts/listen-submap.sh")

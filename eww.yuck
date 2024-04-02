@@ -23,6 +23,7 @@
 (include "panels/calendar.yuck")
 (include "panels/powermenu.yuck")
 (include "panels/quick-settings.yuck")
+(include "panels/which-key.yuck")
 
 ;; modules
 ;;------------------------------------------------------------------------------
