@@ -1,22 +1,17 @@
-.key-binding-chord {
-    font-family: Hack Nerd Font;
-    font-size: 24pt;
-    color: $base04;
+.which-key {
+    .key-chord {
+        font-family: $text-font;
+        font-size: 24pt;
+        color: $base04;
+    }
+
+    .key-map {
+        font-family: $text-font;
+        font-size: 18pt;
+
+        .keys         { color: $base0B; }
+        .separators   { color: $base03; font-family: $icon-font; }
+        .descriptions { color: $base0D; }
+    }
 }
 
-.key-binding-entry {
-    font-family: Hack Nerd Font;
-    font-size: 18pt;
-}
-
-.key-binding-entry .key-binding-key {
-    color: $base0B;
-}
-
-.key-binding-entry .key-binding-separator {
-    color: $base03;
-}
-
-.key-binding-entry .key-binding-description {
-    color: $base0D;
-}

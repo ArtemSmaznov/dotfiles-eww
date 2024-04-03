@@ -2,8 +2,7 @@
 
 @import "themes/base16.scss";
 
-// global vars
-//------------------------------------------------------------------------------
+// global vars -----------------------------------------------------------------
 $text-font: "Hack Nerd Font",
             "Source Han Sans JP",
             "Font Awesome 6 Free Solid",
@@ -14,8 +13,7 @@ $icon-font: "Font Awesome 6 Free Solid";
 $indicator-line-width: 3px;
 $accent-line-width: 2px;
 
-// global styles
-//==============================================================================
+// global styles ===============================================================
 .main-bar,
 .second-bar,
 .powermenu-panel {
@@ -43,8 +41,7 @@ button:hover {
     transition-duration: .35s;
 }
 
-// imports
-//------------------------------------------------------------------------------
+// imports ---------------------------------------------------------------------
 @import "panels/status-bars/style.scss";
 
 @import "panels/powermenu.scss";

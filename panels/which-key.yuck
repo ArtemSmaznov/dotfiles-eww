@@ -7,8 +7,7 @@
 
  :geometry (geometry
             :anchor "bottom center"
-            :y "5%"
-            )
+            :y "5%")
 
  (box :class "glass-module which-key"
       :orientation "v"
@@ -17,29 +16,36 @@
       :spacing 18
       :active false
 
-      (label :class "key-binding-chord"
+      (label :class "key-chord"
              :text wm-key-chord)
 
-      (box :class "keymap"
-           :orientation "v"
-           :space-evenly true
-           :spacing 6
-           (for keybind in current-keymap
-                (box :class "key-binding-entry"
-                     :space-evenly false
-                     :spacing 14
+      (box :class "key-map"
+           :orientation "h"
+           :space-evenly false
+           :spacing 18
 
-                     (label :class "key-binding-key"
+           (box :class "keys"
+                :orientation "v"
+                :space-evenly true
+                :spacing 6
+                (for keybind in current-keymap
+                     (label :xalign 1
                             :truncate-left true
                             :unindent true
-                            :xalign 1
-                            :text { keybind[0] == "" ? keybind[1] : "${keybind[0]} ${keybind[1]}" })
+                            :text { keybind[0] == "" ? keybind[1] : "${keybind[0]}-${keybind[1]}" } )))
 
-                     (label :class "key-binding-separator"
-                            :text "➙")
+           (box :class "separators"
+                :orientation "v"
+                :space-evenly true
+                (for keybind in current-keymap
+                     (label :xalign 0.5
+                            :text "➙" )))
 
-                     (label :class "key-binding-description"
+           (box :class "descriptions"
+                :orientation "v"
+                :space-evenly true
+                (for keybind in current-keymap
+                     (label :xalign 0
                             :truncate-left true
                             :unindent true
-                            :xalign 0
-                            :text { keybind[2] }))))))
+                            :text { keybind[2] } ))))))
