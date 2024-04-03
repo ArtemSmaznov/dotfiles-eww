@@ -85,4 +85,5 @@
            "~/.local/bin/listen-player.sh cover_file mpd")
 
 (deflisten music-album-cover-color
-         "~/.local/bin/listen-player.sh cover_color mpd")
+           :initial "78,78,78"
+           "~/.local/bin/listen-player.sh cover_color mpd")
