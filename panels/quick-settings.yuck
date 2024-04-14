@@ -21,6 +21,7 @@
       :spacing 15 ;; FIXME still applies with hidden widgets
       ;; :style "border: 2px solid"
 
+      (quick-toggles)
       (charge-levels)
       (music-player)
       ))

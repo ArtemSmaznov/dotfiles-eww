@@ -1,15 +1,16 @@
 ;; variables
 ;;------------------------------------------------------------------------------
-(include "vars/states.yuck")
-(include "vars/theme.yuck")
+(include "vars/connectivity.yuck")
 (include "vars/images.yuck")
-(include "vars/scripts.yuck")
-(include "vars/player.yuck")
-(include "vars/music.yuck")
-(include "vars/time.yuck")
-(include "vars/systray.yuck")
 (include "vars/keyboard.yuck")
+(include "vars/music.yuck")
+(include "vars/player.yuck")
+(include "vars/scripts.yuck")
+(include "vars/states.yuck")
 (include "vars/system.yuck")
+(include "vars/systray.yuck")
+(include "vars/theme.yuck")
+(include "vars/time.yuck")
 (include "vars/wm.yuck")
 
 ;; panels: status bars
@@ -27,8 +28,9 @@
 
 ;; modules
 ;;------------------------------------------------------------------------------
-(include "modules/music-player.yuck")
 (include "modules/charge-levels.yuck")
+(include "modules/music-player.yuck")
+(include "modules/quick-toggles.yuck")
 (include "modules/updates-list.yuck")
 
 ;; templates

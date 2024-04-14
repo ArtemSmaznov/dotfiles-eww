@@ -1,0 +1,11 @@
+;; ethernet
+;; wifi
+
+;; vpn
+(deflisten vpn-status
+           :initial "Disconnected"
+           "piactl monitor connectionstate")
+
+(deflisten vpn-region "piactl monitor region")
+
+;; bluetooth

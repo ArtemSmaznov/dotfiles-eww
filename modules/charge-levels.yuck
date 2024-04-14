@@ -10,6 +10,7 @@
                      :reveal true
                      (box :class "charge-levels"
                           :orientation "h"
+                          :halign "end"
                           :space-evenly true
                           :spacing 10
 
@@ -24,6 +25,7 @@
                      :duration revealer-duration
                      :reveal { device-name != "" }
                      (box :class "glass-module radial-battery"
+                          :halign "end"
                           :orientation "v"
                           (circular-progress :class "progress"
                                              :clockwise true

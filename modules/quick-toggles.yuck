@@ -1,0 +1,52 @@
+(defwidget quick-toggles []
+           (box :class "quick-toggles"
+                :orientation "h"
+                :space-evenly true
+                :spacing 10
+
+                (quick-toggle :icon "ethernet"
+                              :tooltip "Ethernet"
+                              :state "on"
+                              :action ""
+                              :label "" )
+
+                (quick-toggle :icon "wifi"
+                              :tooltip "Wi-Fi"
+                              :state "off"
+                              :action ""
+                              :label "" )
+
+                (quick-toggle :icon "arrow-down-up-lock"
+                              :tooltip "VPN"
+                              :state { vpn-status == "Disconnected" ? "off" :
+                                       vpn-status == "Connected"    ? "on" : "switching" }
+                              :action { vpn-status == "Disconnected" ? "piactl connect" :
+                                        vpn-status == "Connected"    ? "piactl disconnect" : "" }
+                              :label { vpn-status =~ "^Connect" ? vpn-region : "" } )
+
+                (quick-toggle :icon ""
+                              :tooltip "Bluetooth"
+                              :state "on"
+                              :action ""
+                              :label "" )))
+
+
+(defwidget quick-toggle [?icon ?tooltip ?state ?action ?label]
+           (eventbox :class "glass-module"
+                     :cursor "pointer"
+                     (button :class "glass-module quick-toggle ${ state }"
+                             :tooltip tooltip
+                             :onclick action
+
+                             (box :orientation "v"
+                                  :valign "center"
+                                  :space-evenly false
+                                  :spacing { label != "" ? 5 : 0 }
+
+                                  (label :class "icon"
+                                         :text icon)
+                                  (revealer :transition "slidedown"
+                                            :duration revealer-duration
+                                            :reveal { label != "" }
+                                            (label :class ""
+                                                   :text label))))))
