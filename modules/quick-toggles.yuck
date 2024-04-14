@@ -26,9 +26,9 @@
 
                 (quick-toggle :icon ""
                               :tooltip "Bluetooth"
-                              :state "on"
-                              :action ""
-                              :label "" )))
+                              :state bt-status
+                              :action "~/.local/bin/toggle-bt-state.sh"
+                              :label bt-devices )))
 
 
 (defwidget quick-toggle [?icon ?tooltip ?state ?action ?label]

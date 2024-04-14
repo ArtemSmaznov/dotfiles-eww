@@ -9,3 +9,22 @@
 (deflisten vpn-region "piactl monitor region")
 
 ;; bluetooth
+(defpoll bt-status
+         :initial "off"
+         :interval "2s"
+         "~/.local/bin/get-bt-state.sh")
+
+(defpoll bt-devices
+         :initial ""
+         :interval "2s"
+         "~/.local/bin/get-bt-devices.sh")
+
+(defpoll bt-devices-json
+         :initial ""
+         :interval "2s"
+         "~/.config/eww/scripts/get-bt-devices.sh")
+
+;; battery devices
+(defpoll battery-devices-json
+         :interval "5s"
+         "~/.config/eww/scripts/get-battery-devices-list.sh")
