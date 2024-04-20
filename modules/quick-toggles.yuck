@@ -27,7 +27,7 @@
                 (quick-toggle :icon ""
                               :tooltip "Bluetooth"
                               :state bt-status
-                              :action "~/.local/bin/toggle-bt-state.sh"
+                              :action "~/.local/bin/btctl.sh toggle"
                               :label bt-devices )))
 
 

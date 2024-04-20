@@ -13,12 +13,12 @@
 (defpoll bt-status
          :initial "off"
          :interval "2s"
-         "~/.local/bin/get-bt-state.sh")
+         "~/.local/bin/btctl.sh status")
 
 (defpoll bt-devices
          :initial ""
          :interval "2s"
-         "~/.local/bin/get-bt-devices.sh")
+         "~/.local/bin/btctl.sh get devices")
 
 (defpoll bt-devices-json
          :initial ""
