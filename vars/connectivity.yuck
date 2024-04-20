@@ -4,9 +4,10 @@
 ;; vpn
 (deflisten vpn-status
            :initial "Disconnected"
-           "piactl monitor connectionstate")
+           "~/.local/bin/vpnctl.sh monitor status")
 
-(deflisten vpn-region "piactl monitor region")
+(deflisten vpn-region
+           "~/.local/bin/vpnctl.sh monitor region")
 
 ;; bluetooth
 (defpoll bt-status

@@ -19,9 +19,9 @@
                 (quick-toggle :icon "arrow-down-up-lock"
                               :tooltip "VPN"
                               :state { vpn-status == "Disconnected" ? "off" :
-                                       vpn-status == "Connected"    ? "on" : "switching" }
-                              :action { vpn-status == "Disconnected" ? "piactl connect" :
-                                        vpn-status == "Connected"    ? "piactl disconnect" : "" }
+                                       vpn-status == "Connected"    ? "on"  :
+                                                                      "switching" }
+                              :action "~/.local/bin/vpnctl.sh toggle"
                               :label { vpn-status =~ "^Connect" ? vpn-region : "" } )
 
                 (quick-toggle :icon ""
