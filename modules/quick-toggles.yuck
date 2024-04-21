@@ -4,40 +4,38 @@
                 :space-evenly true
                 :spacing 10
 
-                (quick-toggle :icon "ethernet"
-                              :tooltip "Ethernet"
+                (quick-toggle :tooltip "Ethernet"
+                              :icon "ethernet"
                               :state { eth-status == 0 ? "off" :
                                        eth-status == 1 ? "on"  :
                                                          "switching" }
-                              :action "~/.local/bin/netctl.sh toggle ethernet"
-                              :label "" )
+                              :action "~/.local/bin/netctl.sh toggle ethernet")
 
-                (quick-toggle :icon "wifi"
-                              :tooltip "Wi-Fi"
+                (quick-toggle :tooltip "Wi-Fi"
+                              :icon "wifi"
                               :state { wifi-status == 0 ? "off" :
                                        wifi-status == 1 ? "on"  :
                                                           "switching" }
                               :action "~/.local/bin/netctl.sh toggle wifi"
                               :label { wifi-status == 1 ? wifi-connection : "" } )
 
-                (quick-toggle :icon "arrow-down-up-lock"
-                              :tooltip "VPN"
-                              :state { vpn-status == "Disconnected" ? "off" :
-                                       vpn-status == "Connected"    ? "on"  :
-                                                                      "switching" }
+                (quick-toggle :tooltip "VPN"
+                              :icon "arrow-down-up-lock"
+                              :state { vpn-status == 0 ? "off" :
+                                       vpn-status == 1 ? "on"  :
+                                                         "switching" }
                               :action "~/.local/bin/vpnctl.sh toggle"
-                              :label { vpn-status =~ "^Connect" ? vpn-region : "" } )
+                              :label { vpn-status > 0 ? vpn-region : "" } )
 
-                (quick-toggle :icon "headphones"
-                              :tooltip "Headphones"
+                (quick-toggle :tooltip "Headphones"
+                              :icon "headphones"
                               :state { bt-headphones-blocked == 0 ? "on"  :
                                        bt-headphones-blocked == 1 ? "off" :
-                                                                      "switching" }
-                              :action "~/.local/bin/toggle-headphones.sh"
-                              :label "" )
+                                                                    "switching" }
+                              :action "~/.local/bin/toggle-headphones.sh")
 
-                (quick-toggle :icon ""
-                              :tooltip "Bluetooth"
+                (quick-toggle :tooltip "Bluetooth"
+                              :icon ""
                               :state bt-status
                               :action "~/.local/bin/btctl.sh toggle"
                               :label bt-devices )))

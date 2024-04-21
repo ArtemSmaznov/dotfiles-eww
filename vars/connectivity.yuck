@@ -1,19 +1,13 @@
 ;; ethernet ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-(defpoll eth-status
-         :initial ""
-         :interval "2s"
-         "~/.local/bin/netctl.sh status ethernet")
+(deflisten eth-status
+         "~/.local/bin/netctl.sh monitor status ethernet")
 
 ;; wifi ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-(defpoll wifi-status
-         :initial ""
-         :interval "2s"
-         "~/.local/bin/netctl.sh status wifi")
+(deflisten wifi-status
+           "~/.local/bin/netctl.sh monitor status wifi")
 
-(defpoll wifi-connection
-         :initial ""
-         :interval "2s"
-         "~/.local/bin/netctl.sh get connection wifi")
+(deflisten wifi-connection
+           "~/.local/bin/netctl.sh monitor connection wifi")
 
 ;; vpn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (deflisten vpn-status
