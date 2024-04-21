@@ -18,7 +18,7 @@
                                        wifi-status == 1 ? "on"  :
                                                           "switching" }
                               :action "~/.local/bin/netctl.sh toggle wifi"
-                              :label "" )
+                              :label { wifi-status == 1 ? wifi-connection : "" } )
 
                 (quick-toggle :icon "arrow-down-up-lock"
                               :tooltip "VPN"

@@ -10,6 +10,11 @@
          :interval "2s"
          "~/.local/bin/netctl.sh status wifi")
 
+(defpoll wifi-connection
+         :initial ""
+         :interval "2s"
+         "~/.local/bin/netctl.sh get connection wifi")
+
 ;; vpn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (deflisten vpn-status
            :initial "Disconnected"
