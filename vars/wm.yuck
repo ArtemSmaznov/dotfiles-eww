@@ -16,6 +16,7 @@
 
 (defvar current-keymap "")
 
+(defvar wm-parent-key-chord "")
 (deflisten wm-key-chord
            :initial ""
            "bash ~/.config/hypr/scripts/listen-submap.sh")

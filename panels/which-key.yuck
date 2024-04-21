@@ -6,9 +6,9 @@
  :exclusive false
 
  :geometry (geometry
-            :anchor "bottom center"
-            :x "0%"
-            :y "5%")
+            :anchor "bottom left"
+            :x "25px"
+            :y "25px")
 
  (box :class "glass-module which-key"
       :orientation "v"
@@ -16,37 +16,58 @@
       :space-evenly false
       :spacing 18
       :active false
+      (key-map)
+      (key-chord)))
 
-      (label :class "key-chord"
-             :text wm-key-chord)
 
-      (box :class "key-map"
-           :orientation "h"
-           :space-evenly false
-           :spacing 18
+(defwidget
+ key-chord []
+ (box :class "key-chord"
+      :orientation "h"
+      :space-evenly false
 
-           (box :class "keys"
-                :orientation "v"
-                :space-evenly true
-                :spacing 6
-                (for keybind in current-keymap
-                     (label :xalign 1
-                            :show-truncated false
-                            :unindent true
-                            :text { keybind[0] == "" ? keybind[1] : "${keybind[0]}-${keybind[1]}" } )))
+      (revealer :transition "slideleft"
+                :duration revealer-duration
+                :reveal { wm-parent-key-chord != "" }
+                (label :class "parent"
+                       :xalign 0
+                       :text "${ wm-parent-key-chord }>" ))
 
-           (box :class "separators"
-                :orientation "v"
-                :space-evenly true
-                (for keybind in current-keymap
-                     (label :xalign 0.5
-                            :show-truncated false
-                            :text "➙" )))
+      (label :class "current"
+             :xalign 0
+             :text wm-key-chord)))
 
-           (box :orientation "v"
-                :space-evenly true
-                (for keybind in current-keymap
-                     (label :class { keybind[2] =~ "^\\+" ? "sub-chords" : "descriptions" }
-                            :show-truncated false
-                            :xalign 0
-                            :text { keybind[2] } ))))))
+
+(defwidget
+ key-map []
+ (box :class "key-map"
+      :orientation "h"
+      :space-evenly false
+      :spacing 18
+
+      (box :class "keys"
+           :orientation "v"
+           :space-evenly true
+           :spacing 6
+           (for keybind in current-keymap
+                (label :xalign 1
+                       :show-truncated false
+                       :unindent true
+                       :text { keybind[0] == "" ? keybind[1] : "${keybind[0]}-${keybind[1]}" } )))
+
+      (box :class "separators"
+           :orientation "v"
+           :space-evenly true
+           (for keybind in current-keymap
+                (label :xalign 0.5
+                       :show-truncated false
+                       :text "➙" )))
+
+      (box :orientation "v"
+           :space-evenly true
+           (for keybind in current-keymap
+                (label :class { keybind[2] =~ "^\\+" ? "sub-chords" : "descriptions" }
+                       :show-truncated false
+                       :xalign 0
+                       :text { keybind[2] } ))))
+ )

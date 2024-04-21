@@ -1,8 +1,9 @@
 .which-key {
     .key-chord {
         font-family: $text-font;
-        font-size: 24pt;
-        color: $base04;
+        font-size: 20pt;
+        .current { color: $base04 }
+        .parent  { color: $base03 }
     }
 
     .key-map {
