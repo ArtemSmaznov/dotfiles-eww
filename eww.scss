@@ -20,6 +20,7 @@ $accent-line-width: 2px;
     background-color: rgba($base00, 0.2);
 }
 
+.black                  { color: $base00; }
 .gray                   { color: $base04; }
 .white                  { color: $base07; }
 .red,    .state-urgent  { color: $base08; }

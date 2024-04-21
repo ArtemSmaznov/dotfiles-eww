@@ -1,6 +1,6 @@
 (defwidget
  charge-levels []
- (revealer :transition "slidedown"
+ (revealer :transition "slideup"
            :duration revealer-duration
            :reveal { battery-devices-json != "[]" }
            (box :class "quick-setting charge-levels"
@@ -10,31 +10,35 @@
                 :spacing 10
 
                 (for device in battery-devices-json
-                     (radial-battery :device-name "${device[0]}"
-                                     :device-icon "${device[1]}"
-                                     :charge "${device[2]}")))))
+                     (radial-battery :device-name  { device[0] }
+                                     :device-icon  { device[1] }
+                                     :charge-level { device[2] }
+                                     :charge-state { device[3] })))))
 
 
 (defwidget
- radial-battery [?device-name ?device-icon ?charge]
+ radial-battery [?device-name ?device-icon ?charge-level ?charge-state]
  (revealer :transition "slideleft"
            :duration revealer-duration
            :reveal { device-name != "" }
            (box :class "glass-module radial-battery"
                 :orientation "v"
                 :halign "end"
-                (circular-progress :class "progress"
-                                   :clockwise true
-                                   :thickness 3.0
-                                   :start-at 75
-                                   :value charge
 
-                                   (box :class "content"
-                                        :orientation "v"
-                                        :spacing 10
-                                        (label :class "icon"
-                                               :valign "end"
-                                               :text device-icon)
-                                        (label :class "label"
-                                               :valign "start"
-                                               :text device-name))))))
+                (circular-progress :class "progress ${ charge-state == 'fully-charged' ? 'white'  :
+                                                       charge-state == 'charging'      ? 'white'  :
+                                                       charge-level >=  80             ? 'green'  :
+                                                       charge-level >=  30             ? 'yellow' :
+                                                                                         'red'    }"
+                                   :clockwise true
+                                   :thickness 5.0
+                                   :start-at 75
+                                   :value charge-level
+
+                                   (label :class "content icon ${ device-name =~ 'magma'      ? 'red'   :
+                                                                  device-name =~ 'onyx'       ? 'black' :
+                                                                  device-name == 'momentum-4' ? 'white' :
+                                                                  device-name == 'pxc-550'    ? 'black' :
+                                                                                                'white' }"
+                                          :show-truncated false
+                                          :text device-icon)))))
