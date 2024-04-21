@@ -12,24 +12,18 @@
 
            (quick-toggle :tooltip "Ethernet"
                          :icon "ethernet"
-                         :state { eth-status == 0 ? "off" :
-                                  eth-status == 1 ? "on"  :
-                                                    "switching" }
+                         :state eth-status
                          :action "~/.local/bin/netctl.sh toggle ethernet")
 
            (quick-toggle :tooltip "Wi-Fi"
                          :icon "wifi"
-                         :state { wifi-status == 0 ? "off" :
-                                  wifi-status == 1 ? "on"  :
-                                                     "switching" }
+                         :state wifi-status
                          :action "~/.local/bin/netctl.sh toggle wifi"
                          :label { wifi-status > 0 ? wifi-connection : "" } )
 
            (quick-toggle :tooltip "VPN"
                          :icon "arrow-down-up-lock"
-                         :state { vpn-status == 0 ? "off" :
-                                  vpn-status == 1 ? "on"  :
-                                                    "switching" }
+                         :state vpn-status
                          :action "~/.local/bin/vpnctl.sh toggle"
                          :label { vpn-status > 0 ? vpn-region : "" } ))
 
@@ -40,9 +34,7 @@
 
            (quick-toggle :tooltip "Headphones"
                          :icon "headphones"
-                         :state { bt-headphones-blocked == 0 ? "on"  :
-                                  bt-headphones-blocked == 1 ? "off" :
-                                                               "switching" }
+                         :state { bt-headphones-blocked == 0 ? 1 : 0 }
                          :action "~/.local/bin/toggle-headphones.sh")
 
            (quick-toggle :tooltip "Bluetooth"
@@ -56,7 +48,9 @@
  quick-toggle [?icon ?tooltip ?state ?action ?label]
  (eventbox :class "glass-module"
            :cursor "pointer"
-           (button :class "glass-module quick-toggle ${ state }"
+           (button :class "glass-module quick-toggle ${ state == 0 ? 'off' :
+                                                        state == 1 ? 'on'  :
+                                                                     'switching' }"
                    :tooltip tooltip
                    :onclick action
 
