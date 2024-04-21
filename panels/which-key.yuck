@@ -7,6 +7,7 @@
 
  :geometry (geometry
             :anchor "bottom center"
+            :x "0%"
             :y "5%")
 
  (box :class "glass-module which-key"
@@ -30,7 +31,7 @@
                 :spacing 6
                 (for keybind in current-keymap
                      (label :xalign 1
-                            :truncate-left true
+                            :show-truncated false
                             :unindent true
                             :text { keybind[0] == "" ? keybind[1] : "${keybind[0]}-${keybind[1]}" } )))
 
@@ -39,13 +40,13 @@
                 :space-evenly true
                 (for keybind in current-keymap
                      (label :xalign 0.5
+                            :show-truncated false
                             :text "➙" )))
 
-           (box :class "descriptions"
-                :orientation "v"
+           (box :orientation "v"
                 :space-evenly true
                 (for keybind in current-keymap
-                     (label :xalign 0
-                            :truncate-left true
-                            :unindent true
+                     (label :class { keybind[2] =~ "^\\+" ? "sub-chords" : "descriptions" }
+                            :show-truncated false
+                            :xalign 0
                             :text { keybind[2] } ))))))
