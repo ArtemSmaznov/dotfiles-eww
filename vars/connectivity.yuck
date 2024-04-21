@@ -29,6 +29,12 @@
          :interval "2s"
          "~/.config/eww/scripts/get-bt-devices.sh")
 
+;; bluetooth devices
+(defpoll bt-headphones-blocked
+         :initial 1
+         :interval "5s"
+         "~/.local/bin/btctl.sh device blocked momentum-4")
+
 ;; battery devices
 (defpoll battery-devices-json
          :interval "5s"

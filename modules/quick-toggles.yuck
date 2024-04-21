@@ -26,6 +26,14 @@
                               :action "~/.local/bin/vpnctl.sh toggle"
                               :label { vpn-status =~ "^Connect" ? vpn-region : "" } )
 
+                (quick-toggle :icon "headphones"
+                              :tooltip "Headphones"
+                              :state { bt-headphones-blocked == "0" ? "on"  :
+                                       bt-headphones-blocked == "1" ? "off" :
+                                                                      "switching" }
+                              :action "~/.local/bin/toggle-headphones.sh"
+                              :label "" )
+
                 (quick-toggle :icon ""
                               :tooltip "Bluetooth"
                               :state bt-status
