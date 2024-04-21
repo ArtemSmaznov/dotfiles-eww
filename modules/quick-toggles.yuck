@@ -6,8 +6,10 @@
 
                 (quick-toggle :icon "ethernet"
                               :tooltip "Ethernet"
-                              :state "on"
-                              :action ""
+                              :state { eno-status == "disabled" ? "off" :
+                                       eno-status == "enabled"  ? "on"  :
+                                                                  "switching" }
+                              :action "~/.local/bin/netctl.sh toggle"
                               :label "" )
 
                 (quick-toggle :icon "wifi"

@@ -1,4 +1,8 @@
 ;; ethernet
+(defpoll eno-status
+         :initial "enabled"
+         :interval "2s"
+         "~/.local/bin/netctl.sh status")
 ;; wifi
 
 ;; vpn
