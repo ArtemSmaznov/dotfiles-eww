@@ -6,16 +6,18 @@
 
                 (quick-toggle :icon "ethernet"
                               :tooltip "Ethernet"
-                              :state { eno-status == "disabled" ? "off" :
-                                       eno-status == "enabled"  ? "on"  :
-                                                                  "switching" }
-                              :action "~/.local/bin/netctl.sh toggle"
+                              :state { eth-status == 0 ? "off" :
+                                       eth-status == 1 ? "on"  :
+                                                         "switching" }
+                              :action "~/.local/bin/netctl.sh toggle ethernet"
                               :label "" )
 
                 (quick-toggle :icon "wifi"
                               :tooltip "Wi-Fi"
-                              :state "off"
-                              :action ""
+                              :state { wifi-status == 0 ? "off" :
+                                       wifi-status == 1 ? "on"  :
+                                                          "switching" }
+                              :action "~/.local/bin/netctl.sh toggle wifi"
                               :label "" )
 
                 (quick-toggle :icon "arrow-down-up-lock"
@@ -28,8 +30,8 @@
 
                 (quick-toggle :icon "headphones"
                               :tooltip "Headphones"
-                              :state { bt-headphones-blocked == "0" ? "on"  :
-                                       bt-headphones-blocked == "1" ? "off" :
+                              :state { bt-headphones-blocked == 0 ? "on"  :
+                                       bt-headphones-blocked == 1 ? "off" :
                                                                       "switching" }
                               :action "~/.local/bin/toggle-headphones.sh"
                               :label "" )

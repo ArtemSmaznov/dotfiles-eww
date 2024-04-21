@@ -1,11 +1,16 @@
-;; ethernet
-(defpoll eno-status
-         :initial "enabled"
+;; ethernet ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defpoll eth-status
+         :initial ""
          :interval "2s"
-         "~/.local/bin/netctl.sh status")
-;; wifi
+         "~/.local/bin/netctl.sh status ethernet")
 
-;; vpn
+;; wifi ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defpoll wifi-status
+         :initial ""
+         :interval "2s"
+         "~/.local/bin/netctl.sh status wifi")
+
+;; vpn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (deflisten vpn-status
            :initial "Disconnected"
            "~/.local/bin/vpnctl.sh monitor status")
@@ -13,7 +18,7 @@
 (deflisten vpn-region
            "~/.local/bin/vpnctl.sh monitor region")
 
-;; bluetooth
+;; bluetooth ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll bt-status
          :initial "off"
          :interval "2s"
@@ -29,13 +34,13 @@
          :interval "2s"
          "~/.config/eww/scripts/get-bt-devices.sh")
 
-;; bluetooth devices
+;; bluetooth devices ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll bt-headphones-blocked
          :initial 1
          :interval "5s"
          "~/.local/bin/btctl.sh device blocked momentum-4")
 
-;; battery devices
+;; battery devices ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll battery-devices-json
          :interval "5s"
          "~/.config/eww/scripts/get-battery-devices-list.sh")
