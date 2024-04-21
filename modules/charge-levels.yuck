@@ -1,38 +1,40 @@
-(defwidget charge-levels []
-           (revealer :transition "slidedown"
-                     :duration revealer-duration
-                     :reveal true
-                     (box :class "charge-levels"
-                          :orientation "h"
-                          :halign "end"
-                          :space-evenly true
-                          :spacing 10
+(defwidget
+ charge-levels []
+ (revealer :transition "slidedown"
+           :duration revealer-duration
+           :reveal { battery-devices-json != "[]" }
+           (box :class "quick-setting charge-levels"
+                :orientation "h"
+                :halign "end"
+                :space-evenly true
+                :spacing 10
 
-                          (for device in battery-devices-json
-                               (radial-battery :device-name "${device[0]}"
-                                               :device-icon "${device[1]}"
-                                               :charge "${device[2]}")))))
+                (for device in battery-devices-json
+                     (radial-battery :device-name "${device[0]}"
+                                     :device-icon "${device[1]}"
+                                     :charge "${device[2]}")))))
 
 
-(defwidget radial-battery [?device-name ?device-icon ?charge]
-           (revealer :transition "slideleft"
-                     :duration revealer-duration
-                     :reveal { device-name != "" }
-                     (box :class "glass-module radial-battery"
-                          :halign "end"
-                          :orientation "v"
-                          (circular-progress :class "progress"
-                                             :clockwise true
-                                             :thickness 3.0
-                                             :start-at 75
-                                             :value charge
+(defwidget
+ radial-battery [?device-name ?device-icon ?charge]
+ (revealer :transition "slideleft"
+           :duration revealer-duration
+           :reveal { device-name != "" }
+           (box :class "glass-module radial-battery"
+                :orientation "v"
+                :halign "end"
+                (circular-progress :class "progress"
+                                   :clockwise true
+                                   :thickness 3.0
+                                   :start-at 75
+                                   :value charge
 
-                                             (box :class "content"
-                                                  :orientation "v"
-                                                  :spacing 10
-                                                  (label :class "icon"
-                                                         :valign "end"
-                                                         :text device-icon)
-                                                  (label :class "label"
-                                                         :valign "start"
-                                                         :text device-name))))))
+                                   (box :class "content"
+                                        :orientation "v"
+                                        :spacing 10
+                                        (label :class "icon"
+                                               :valign "end"
+                                               :text device-icon)
+                                        (label :class "label"
+                                               :valign "start"
+                                               :text device-name))))))

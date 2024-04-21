@@ -1,10 +1,11 @@
 (defwidget
  quick-toggles []
- (box :orientation "v"
+ (box :class "quick-setting quick-toggles"
+      :orientation "v"
       :space-evenly false
       :spacing 10
 
-      (box :class "quick-toggles network"
+      (box :class "network"
            :orientation "h"
            :space-evenly true
            :spacing 10
@@ -32,7 +33,7 @@
                          :action "~/.local/bin/vpnctl.sh toggle"
                          :label { vpn-status > 0 ? vpn-region : "" } ))
 
-      (box :class "quick-toggles other"
+      (box :class "other"
            :orientation "h"
            :space-evenly true
            :spacing 10

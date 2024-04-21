@@ -3,7 +3,7 @@
  (revealer :transition "slidedown"
            :duration revealer-duration
            :reveal { music-title != "" }
-           (box :class "glass-module music-player"
+           (box :class "glass-module quick-setting music-player"
                 :orientation "h"
                 :space-evenly false
                 :spacing 15
