@@ -1,62 +1,73 @@
-(defwidget quick-toggles []
-           (box :class "quick-toggles"
-                :orientation "h"
-                :space-evenly true
-                :spacing 10
+(defwidget
+ quick-toggles []
+ (box :orientation "v"
+      :space-evenly false
+      :spacing 10
 
-                (quick-toggle :tooltip "Ethernet"
-                              :icon "ethernet"
-                              :state { eth-status == 0 ? "off" :
-                                       eth-status == 1 ? "on"  :
-                                                         "switching" }
-                              :action "~/.local/bin/netctl.sh toggle ethernet")
+      (box :class "quick-toggles network"
+           :orientation "h"
+           :space-evenly true
+           :spacing 10
 
-                (quick-toggle :tooltip "Wi-Fi"
-                              :icon "wifi"
-                              :state { wifi-status == 0 ? "off" :
-                                       wifi-status == 1 ? "on"  :
-                                                          "switching" }
-                              :action "~/.local/bin/netctl.sh toggle wifi"
-                              :label { wifi-status == 1 ? wifi-connection : "" } )
+           (quick-toggle :tooltip "Ethernet"
+                         :icon "ethernet"
+                         :state { eth-status == 0 ? "off" :
+                                  eth-status == 1 ? "on"  :
+                                                    "switching" }
+                         :action "~/.local/bin/netctl.sh toggle ethernet")
 
-                (quick-toggle :tooltip "VPN"
-                              :icon "arrow-down-up-lock"
-                              :state { vpn-status == 0 ? "off" :
-                                       vpn-status == 1 ? "on"  :
-                                                         "switching" }
-                              :action "~/.local/bin/vpnctl.sh toggle"
-                              :label { vpn-status > 0 ? vpn-region : "" } )
+           (quick-toggle :tooltip "Wi-Fi"
+                         :icon "wifi"
+                         :state { wifi-status == 0 ? "off" :
+                                  wifi-status == 1 ? "on"  :
+                                                     "switching" }
+                         :action "~/.local/bin/netctl.sh toggle wifi"
+                         :label { wifi-status > 0 ? wifi-connection : "" } )
 
-                (quick-toggle :tooltip "Headphones"
-                              :icon "headphones"
-                              :state { bt-headphones-blocked == 0 ? "on"  :
-                                       bt-headphones-blocked == 1 ? "off" :
-                                                                    "switching" }
-                              :action "~/.local/bin/toggle-headphones.sh")
+           (quick-toggle :tooltip "VPN"
+                         :icon "arrow-down-up-lock"
+                         :state { vpn-status == 0 ? "off" :
+                                  vpn-status == 1 ? "on"  :
+                                                    "switching" }
+                         :action "~/.local/bin/vpnctl.sh toggle"
+                         :label { vpn-status > 0 ? vpn-region : "" } ))
 
-                (quick-toggle :tooltip "Bluetooth"
-                              :icon ""
-                              :state bt-status
-                              :action "~/.local/bin/btctl.sh toggle"
-                              :label bt-devices )))
+      (box :class "quick-toggles other"
+           :orientation "h"
+           :space-evenly true
+           :spacing 10
+
+           (quick-toggle :tooltip "Headphones"
+                         :icon "headphones"
+                         :state { bt-headphones-blocked == 0 ? "on"  :
+                                  bt-headphones-blocked == 1 ? "off" :
+                                                               "switching" }
+                         :action "~/.local/bin/toggle-headphones.sh")
+
+           (quick-toggle :tooltip "Bluetooth"
+                         :icon ""
+                         :state bt-status
+                         :action "~/.local/bin/btctl.sh toggle"
+                         :label bt-devices ))))
 
 
-(defwidget quick-toggle [?icon ?tooltip ?state ?action ?label]
-           (eventbox :class "glass-module"
-                     :cursor "pointer"
-                     (button :class "glass-module quick-toggle ${ state }"
-                             :tooltip tooltip
-                             :onclick action
+(defwidget
+ quick-toggle [?icon ?tooltip ?state ?action ?label]
+ (eventbox :class "glass-module"
+           :cursor "pointer"
+           (button :class "glass-module quick-toggle ${ state }"
+                   :tooltip tooltip
+                   :onclick action
 
-                             (box :orientation "v"
-                                  :valign "center"
-                                  :space-evenly false
-                                  :spacing { label != "" ? 5 : 0 }
+                   (box :orientation "v"
+                        :valign "center"
+                        :space-evenly false
+                        :spacing { label != "" ? 7 : 0 }
 
-                                  (label :class "icon"
-                                         :text icon)
-                                  (revealer :transition "slidedown"
-                                            :duration revealer-duration
-                                            :reveal { label != "" }
-                                            (label :class ""
-                                                   :text label))))))
+                        (label :class "icon"
+                               :text icon)
+                        (revealer :transition "slidedown"
+                                  :duration revealer-duration
+                                  :reveal { label != "" }
+                                  (label :class "label"
+                                         :text label))))))

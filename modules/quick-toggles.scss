@@ -1,21 +1,15 @@
 .quick-toggle {
+    padding: 15px;
     .icon {
         font-size: 18pt;
     }
+    .label {
+        font-family: $text-font;
+        font-size: 10pt;
+    }
 }
 
-.quick-toggle:hover {
-    background-color: rgba($base04, 0.4);
-}
-
-.quick-toggle.on {
-    background-color: rgba($base0E, 0.8);
-}
-
-.quick-toggle.on:hover {
-    background-color: rgba($base0E, 0.4);
-}
-
-.quick-toggle.switching {
-    background-color: rgba($base0E, 0.4);
-}
+.quick-toggle:hover     { background-color: rgba($base04, 0.4) }
+.quick-toggle.on        { background-color: rgba($base0E, 0.8) }
+.quick-toggle.on:hover  { background-color: rgba($base0E, 0.4) }
+.quick-toggle.switching { background-color: rgba($base0E, 0.4) }
