@@ -7,6 +7,7 @@
 
  :geometry (geometry
             :anchor "center left"
+            :height "90%"
             :x "40px"
             :y "40px")
 
