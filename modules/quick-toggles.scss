@@ -1,7 +1,7 @@
 .quick-toggle {
     padding: 15px;
     .icon {
-        font-size: 18pt;
+        font-size: 22pt;
     }
     .label {
         font-family: $text-font;
@@ -9,7 +9,9 @@
     }
 }
 
-.quick-toggle:hover     { background-color: rgba($base04, 0.4) }
-.quick-toggle.on        { background-color: rgba($accent-color, 0.8) }
-.quick-toggle.on:hover  { background-color: rgba($accent-color, 0.4) }
-.quick-toggle.switching { background-color: rgba($accent-color, 0.4) }
+.quick-toggle:hover     { background-color: rgba($base04, 0.4); }
+.quick-toggle.on        { color: $base02;
+                          // TODO box-shadow: 0px 0px 7px 2px $accent-color;
+                          background-color: rgba($accent-color, 0.8); }
+.quick-toggle.on:hover  { background-color: rgba($accent-color, 0.4); }
+.quick-toggle.switching { background-color: rgba($accent-color, 0.4); }

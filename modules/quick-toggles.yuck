@@ -45,7 +45,7 @@
 
 
 (defwidget
- quick-toggle [?icon ?tooltip ?state ?action ?label]
+ quick-toggle [icon ?tooltip state ?action ?label]
  (eventbox :class "glass-module"
            :cursor "pointer"
            (button :class "glass-module quick-toggle ${ state == 0 ? 'off' :
