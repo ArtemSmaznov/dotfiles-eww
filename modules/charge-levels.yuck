@@ -21,24 +21,26 @@
  (revealer :transition "slideleft"
            :duration revealer-duration
            :reveal { device-name != "" }
-           (box :class "glass-module radial-battery"
-                :orientation "v"
-                :halign "end"
+           (button :class "glass-module radial-battery"
+                   :orientation "v"
+                   :halign "end"
+                   :tooltip device-name
+                   :onmiddleclick "~/.local/bin/btctl.sh device toggle ${ device-name }"
 
-                (circular-progress :class "progress ${ charge-state == 'fully-charged' ? 'white'  :
-                                                       charge-state == 'charging'      ? 'white'  :
-                                                       charge-level >=  80             ? 'green'  :
-                                                       charge-level >=  30             ? 'yellow' :
-                                                                                         'red'    }"
-                                   :clockwise true
-                                   :thickness 5.0
-                                   :start-at 75
-                                   :value charge-level
+                   (circular-progress :class "progress ${ charge-state == 'fully-charged' ? 'white'  :
+                                                          charge-state == 'charging'      ? 'white'  :
+                                                          charge-level >=  80             ? 'green'  :
+                                                          charge-level >=  30             ? 'yellow' :
+                                                                                            'red'    }"
+                                      :clockwise true
+                                      :thickness 5.0
+                                      :start-at 75
+                                      :value charge-level
 
-                                   (label :class "content icon ${ device-name =~ 'magma'      ? 'red'   :
-                                                                  device-name =~ 'onyx'       ? 'black' :
-                                                                  device-name == 'momentum-4' ? 'white' :
-                                                                  device-name == 'pxc-550'    ? 'black' :
-                                                                                                'white' }"
-                                          :show-truncated false
-                                          :text device-icon)))))
+                                      (label :class "content icon ${ device-name =~ 'magma'      ? 'red'   :
+                                                                     device-name =~ 'onyx'       ? 'black' :
+                                                                     device-name == 'momentum-4' ? 'white' :
+                                                                     device-name == 'pxc-550'    ? 'black' :
+                                                                                                   'white' }"
+                                             :show-truncated false
+                                             :text device-icon)))))
