@@ -30,6 +30,7 @@
 ;;------------------------------------------------------------------------------
 (include "modules/charge-levels.yuck")
 (include "modules/music-player.yuck")
+(include "modules/quick-toggle-submenu.yuck")
 (include "modules/quick-toggles.yuck")
 (include "modules/updates-list.yuck")
 

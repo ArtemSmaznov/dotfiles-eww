@@ -1,0 +1,46 @@
+(defwidget
+ quick-toggles-submenu []
+ (revealer
+  :transition "slideup"
+  :duration revealer-duration
+  :reveal quick-setting-submenu
+  (box :class "glass-module quick-setting submenu"
+       :orientation "v"
+       :space-evenly false
+       :spacing 10
+
+       (label :class "title"
+              :text "Bluetooth")
+       (label :class "info"
+              :text { bt-status == 0 ? "Bluetooth is off" : "Tap to connect or disconnect a device" })
+
+       (box :class "toggle"
+            :orientation "h"
+            (label :halign "start"
+                   :text "Use Bluetooth")
+            (eventbox :cursor "pointer"
+                      (checkbox :halign "end"
+                                :checked { bt-status == 0 ? false : true }
+                                :onchecked "~/.local/bin/btctl.sh on"
+                                :onunchecked "~/.local/bin/btctl.sh off"
+                                )))
+
+       "your content was here..."
+
+       (box :class "controls"
+            :orientation "h"
+            (revealer
+             :transition "slideright"
+             :duration revealer-duration
+             :reveal { bt-status == 0 ? false : true }
+             (eventbox :cursor "pointer"
+                       (button :class "string outline"
+                               :halign "start"
+                               :onclick ""
+                               (label :text "Extra"))))
+
+            (eventbox :cursor "pointer"
+                      (button :class "string fill"
+                              :halign "end"
+                              :onclick "eww update quick-setting-submenu=false"
+                              (label :text "Done")))))))

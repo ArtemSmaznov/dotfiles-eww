@@ -1,51 +1,55 @@
 (defwidget
  quick-toggles []
- (box :class "quick-setting quick-toggles"
-      :orientation "v"
-      :space-evenly false
-      :spacing 10
+ (revealer :transition "slidedown"
+           :duration revealer-duration
+           :reveal { ! quick-setting-submenu }
+           (box :class "quick-setting quick-toggles"
+                :orientation "v"
+                :space-evenly false
+                :spacing 10
 
-      (box :class "network"
-           :orientation "h"
-           :space-evenly true
-           :spacing 10
+                (box :class "network"
+                     :orientation "h"
+                     :space-evenly true
+                     :spacing 10
 
-           (quick-toggle :tooltip "Ethernet"
-                         :icon "ethernet"
-                         :state eth-status
-                         :action "~/.local/bin/netctl.sh toggle ethernet")
+                     (quick-toggle :tooltip "Ethernet"
+                                   :icon "ethernet"
+                                   :state eth-status
+                                   :action "~/.local/bin/netctl.sh toggle ethernet")
 
-           (quick-toggle :tooltip "Wi-Fi"
-                         :icon "wifi"
-                         :state wifi-status
-                         :action "~/.local/bin/netctl.sh toggle wifi"
-                         :label { wifi-status > 0 ? wifi-connection : "" } )
+                     (quick-toggle :tooltip "Wi-Fi"
+                                   :icon "wifi"
+                                   :state wifi-status
+                                   :action "~/.local/bin/netctl.sh toggle wifi"
+                                   :label { wifi-status > 0 ? wifi-connection : "" } )
 
-           (quick-toggle :tooltip "VPN"
-                         :icon "arrow-down-up-lock"
-                         :state vpn-status
-                         :action "~/.local/bin/vpnctl.sh toggle"
-                         :label { vpn-status > 0 ? vpn-region : "" } ))
+                     (quick-toggle :tooltip "VPN"
+                                   :icon "arrow-down-up-lock"
+                                   :state vpn-status
+                                   :action "~/.local/bin/vpnctl.sh toggle"
+                                   :label { vpn-status > 0 ? vpn-region : "" } ))
 
-      (box :class "other"
-           :orientation "h"
-           :space-evenly true
-           :spacing 10
+                (box :class "other"
+                     :orientation "h"
+                     :space-evenly true
+                     :spacing 10
 
-           (quick-toggle :tooltip "Headphones"
-                         :icon "headphones"
-                         :state { bt-headphones-blocked == 0 ? 1 : 0 }
-                         :action "~/.local/bin/toggle-headphones.sh")
+                     (quick-toggle :tooltip "Headphones"
+                                   :icon "headphones"
+                                   :state { bt-headphones-blocked == 0 ? 1 : 0 }
+                                   :action "~/.local/bin/toggle-headphones.sh")
 
-           (quick-toggle :tooltip "Bluetooth"
-                         :icon ""
-                         :state bt-status
-                         :action "~/.local/bin/btctl.sh toggle"
-                         :label bt-devices ))))
+                     (quick-toggle :tooltip "Bluetooth"
+                                   :icon ""
+                                   :state bt-status
+                                   :action "~/.local/bin/btctl.sh toggle"
+                                   :label bt-devices
+                                   :onrightclick "eww update quick-setting-submenu=true" )))))
 
 
 (defwidget
- quick-toggle [icon ?tooltip state ?action ?label]
+ quick-toggle [icon ?tooltip state ?action ?label ?onrightclick]
  (eventbox :class "glass-module"
            :cursor "pointer"
            (button :class "glass-module quick-toggle ${ state == 0 ? 'off' :
@@ -53,6 +57,7 @@
                                                                      'switching' }"
                    :tooltip tooltip
                    :onclick action
+                   :onrightclick onrightclick
 
                    (box :orientation "v"
                         :valign "center"

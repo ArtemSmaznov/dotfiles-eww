@@ -20,5 +20,6 @@
       :active true
 
       (quick-toggles)
+      (quick-toggles-submenu)
       (charge-levels)
       (music-player)))
