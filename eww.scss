@@ -10,9 +10,14 @@ $text-font: "Hack Nerd Font",
             "Roboto";
 $icon-font: "Font Awesome 6 Free Solid";
 
-$indicator-line-width: 3px;
-$accent-line-width: 2px;
 $accent-color: $base0A;
+$accent-line-width: 2px;
+$indicator-line-width: 3px;
+
+$toggle-width: 30px;
+$toggle-gap: 3px;
+
+$transition-duration: .35s;
 
 // global styles ===============================================================
 .main-bar,
@@ -39,7 +44,7 @@ $accent-color: $base0A;
 .lock-screen { color: $base0C; }
 .log-out     { color: $base0B; }
 
-// buttons ---------------------------------------------------------------------
+// button ----------------------------------------------------------------------
 button.string {
     font-family: $text-font;
     font-size: 12pt;
@@ -59,7 +64,36 @@ button.outline {
 }
 
 button:hover {
-    transition-duration: .35s;
+    transition-duration: $transition-duration;
+}
+
+// checkbox --------------------------------------------------------------------
+checkbutton {
+    background-color: rgba($base04, 0.5);
+    border-radius: 1.5rem;
+    transition-duration: $transition-duration;
+    check {
+        color: transparent;
+        background-color: rgba($base02, 0.8);
+        padding: 5px;
+        border-radius: 1.5rem;
+        margin: $toggle-gap $toggle-width $toggle-gap $toggle-gap;
+        transition-duration: $transition-duration;
+    }
+}
+
+checkbutton:indeterminate {
+    check {
+        margin: $toggle-gap $toggle-width/2 $toggle-gap $toggle-width/2;
+    }
+}
+
+checkbutton:checked {
+    background-color: rgba($accent-color, 0.8);
+    check {
+        background-color: shade($accent-color, 0.5);
+        margin: $toggle-gap $toggle-gap $toggle-gap $toggle-width;
+    }
 }
 
 // imports ---------------------------------------------------------------------
