@@ -39,6 +39,25 @@ $accent-color: $base0A;
 .lock-screen { color: $base0C; }
 .log-out     { color: $base0B; }
 
+// buttons ---------------------------------------------------------------------
+button.string {
+    font-family: $text-font;
+    font-size: 12pt;
+
+    padding: 7px 20px;
+    border-radius: 1.5rem;
+}
+
+button.fill {
+    color: $base02;
+    background-color: rgba($accent-color, 0.8);
+}
+
+button.outline {
+    color: $accent-color;
+    border: 2px solid rgba($accent-color, 0.8);
+}
+
 button:hover {
     transition-duration: .35s;
 }
