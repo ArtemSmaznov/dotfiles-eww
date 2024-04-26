@@ -1,5 +1,14 @@
 (defwidget
- quick-toggles-submenu []
+ quick-toggles-submenu [status
+                        title
+                        ?info-on
+                        ?info-off
+                        ?toggle-label
+                        ?toggle-onchecked
+                        ?toggle-onunchecked
+                        ?extra-button-label
+                        ?extra-button-action
+                       ]
  (revealer
   :transition "slideup"
   :duration revealer-duration
@@ -9,37 +18,44 @@
        :space-evenly false
        :spacing 10
 
-       (label :class "title" :text "Bluetooth")
-       (label :class "info"
-              :text { bt-status == 0 ? "Bluetooth is off" : "Tap to connect or disconnect a device" })
+       (label :class "title" :text title)
+       (box :orientation "v"
+            :space-evenly false
+            (revealer :transition "slidedown"
+                      :duration revealer-duration
+                      :reveal { info-off != "" && ! status }
+                      (label :class "info"  :text info-off))
+            (revealer :transition "slideup"
+                      :duration revealer-duration
+                      :reveal { info-on != "" && status }
+                      (label :class "info"  :text info-on)))
 
        (box :class "toggle"
             :orientation "h"
             (label :halign "start"
-                   :text "Use Bluetooth")
+                   :text toggle-label)
             (eventbox :cursor "pointer"
                       (checkbox :halign "end"
-                                :checked { bt-status == 0 ? false : true }
-                                :onchecked "~/.local/bin/btctl.sh on"
-                                :onunchecked "~/.local/bin/btctl.sh off"
-                                )))
+                                :checked status
+                                :onchecked toggle-onchecked
+                                :onunchecked toggle-onunchecked )))
 
        (revealer :transition "slideup"
                  :duration revealer-duration
-                 :reveal { bt-status == 0 ? false : true }
-                 "your content was here...")
+                 :reveal status
+                 (children))
 
        (box :class "controls"
             :orientation "h"
             (revealer
              :transition "slideright"
              :duration revealer-duration
-             :reveal { bt-status == 0 ? false : true }
+             :reveal { extra-button-label != "" }
              (eventbox :cursor "pointer"
                        (button :class "string outline"
                                :halign "start"
-                               :onclick ""
-                               (label :text "Extra"))))
+                               :onclick extra-button-action
+                               (label :text extra-button-label ))))
 
             (eventbox :cursor "pointer"
                       (button :class "string fill"
