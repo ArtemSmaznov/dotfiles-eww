@@ -59,15 +59,23 @@
                    :onclick action
                    :onrightclick onrightclick
 
-                   (box :orientation "v"
-                        :valign "center"
-                        :space-evenly false
-                        :spacing { label != "" ? 7 : 0 }
+                   (overlay
+                    (box :orientation "v"
+                         :valign "center"
+                         :space-evenly false
+                         :spacing { label != "" ? 7 : 0 }
 
-                        (label :class "icon"
-                               :text icon)
-                        (revealer :transition "slidedown"
-                                  :duration revealer-duration
-                                  :reveal { label != "" }
-                                  (label :class "label"
-                                         :text label))))))
+                         (label :class "icon"
+                                :text icon)
+                         (revealer :transition "slidedown"
+                                   :duration revealer-duration
+                                   :reveal { label != "" }
+                                   (label :class "label"
+                                          :text label)))
+
+                    (revealer :transition "slideright"
+                              :duration revealer-duration
+                              :reveal { onrightclick != "" }
+                              :halign "end"
+                              (label :class "icon submenu-indicator"
+                                     :text "chevron-right"))))))

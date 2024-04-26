@@ -3,8 +3,13 @@
     .icon {
         font-size: 22pt;
     }
+
     .label {
         font-size: 10pt;
+    }
+
+    .submenu-indicator {
+        font-size: 16px;
     }
 }
 
@@ -14,3 +19,4 @@
                           background-color: rgba($accent-color, 0.8); }
 .quick-toggle.on:hover  { background-color: rgba($accent-color, 0.4); }
 .quick-toggle.switching { background-color: rgba($accent-color, 0.4); }
+
