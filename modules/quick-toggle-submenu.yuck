@@ -9,8 +9,7 @@
        :space-evenly false
        :spacing 10
 
-       (label :class "title"
-              :text "Bluetooth")
+       (label :class "title" :text "Bluetooth")
        (label :class "info"
               :text { bt-status == 0 ? "Bluetooth is off" : "Tap to connect or disconnect a device" })
 
@@ -25,7 +24,10 @@
                                 :onunchecked "~/.local/bin/btctl.sh off"
                                 )))
 
-       "your content was here..."
+       (revealer :transition "slideup"
+                 :duration revealer-duration
+                 :reveal { bt-status == 0 ? false : true }
+                 "your content was here...")
 
        (box :class "controls"
             :orientation "h"
