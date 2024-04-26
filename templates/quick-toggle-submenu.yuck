@@ -1,5 +1,5 @@
 (defwidget
- quick-toggles-submenu [status
+ quick-toggle-submenu [status
                         title
                         ?info-on
                         ?info-off

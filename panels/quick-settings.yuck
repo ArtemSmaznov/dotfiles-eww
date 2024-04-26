@@ -20,13 +20,13 @@
       :active true
 
       (quick-toggles)
-      (quick-toggles-submenu :status { bt-status == 0 ? false : true }
-                             :title "Bluetooth"
-                             :info-on "Tap to connect or disconnect a device"
-                             :info-off "Bluetooth is off"
-                             :toggle-label "Enable Bluetooth"
-                             :toggle-onchecked "~/.local/bin/btctl.sh on"
-                             :toggle-onunchecked "~/.local/bin/btctl.sh off"
-                             "your content was here...")
+      (quick-toggle-submenu :status { bt-status == 0 ? false : true }
+                            :title "Bluetooth"
+                            :info-on "Tap to connect or disconnect a device"
+                            :info-off "Bluetooth is off"
+                            :toggle-label "Enable Bluetooth"
+                            :toggle-onchecked "~/.local/bin/btctl.sh on"
+                            :toggle-onunchecked "~/.local/bin/btctl.sh off"
+                            "your content was here...")
       (charge-levels)
       (music-player)))
