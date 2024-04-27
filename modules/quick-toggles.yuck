@@ -44,7 +44,7 @@
                                    :icon ""
                                    :state bt-status
                                    :action "~/.local/bin/btctl.sh toggle"
-                                   :label bt-devices
+                                   :label bt-devices-connected
                                    :onrightclick "eww update quick-setting-submenu=true" )))))
 
 

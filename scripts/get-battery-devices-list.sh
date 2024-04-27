@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-devices=$("$HOME"/.local/bin/btctl.sh get devices)
+connected_devices=$("$HOME"/.local/bin/btctl.sh get devices connected)
 
 json_output="["
 
-for name in $devices ; do
+for name in $connected_devices ; do
     icon=$("$HOME"/.local/bin/btctl.sh get charge icon "$name")
     charge=$("$HOME"/.local/bin/btctl.sh get charge level "$name")
     state=$("$HOME"/.local/bin/btctl.sh get charge state "$name")
