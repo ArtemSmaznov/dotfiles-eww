@@ -20,3 +20,24 @@
 .quick-toggle.on:hover  { background-color: rgba($accent-color, 0.4); }
 .quick-toggle.switching { background-color: rgba($accent-color, 0.4); }
 
+
+.submenu {
+    font-family: "Roboto";
+    font-size: 14pt;
+
+    .title {
+        font-size: 18pt;
+    }
+
+    .info {
+        font-size: 11pt;
+    }
+
+    .toggle {
+        margin: 20px 50px;
+    }
+
+    .controls {
+        margin-top: 20px;
+    }
+}

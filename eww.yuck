@@ -38,5 +38,6 @@
 (include "templates/circular-progress.yuck")
 (include "templates/confirmation-window.yuck")
 (include "templates/icon.yuck")
+(include "templates/quick-toggle.yuck")
 (include "templates/quick-toggle-submenu.yuck")
 (include "templates/slider.yuck")

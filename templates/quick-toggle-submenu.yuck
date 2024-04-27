@@ -9,6 +9,7 @@
                         ?extra-button-label
                         ?extra-button-action
                        ]
+
  (revealer
   :transition "slideup"
   :duration revealer-duration

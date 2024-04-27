@@ -49,33 +49,12 @@
 
 
 (defwidget
- quick-toggle [icon ?tooltip state ?action ?label ?onrightclick]
- (eventbox :class "glass-module"
-           :cursor "pointer"
-           (button :class "glass-module quick-toggle ${ state == 0 ? 'off' :
-                                                        state == 1 ? 'on'  :
-                                                                     'switching' }"
-                   :tooltip tooltip
-                   :onclick action
-                   :onrightclick onrightclick
-
-                   (overlay
-                    (box :orientation "v"
-                         :valign "center"
-                         :space-evenly false
-                         :spacing { label != "" ? 7 : 0 }
-
-                         (label :class "icon"
-                                :text icon)
-                         (revealer :transition "slidedown"
-                                   :duration revealer-duration
-                                   :reveal { label != "" }
-                                   (label :class "label"
-                                          :text label)))
-
-                    (revealer :transition "slideright"
-                              :duration revealer-duration
-                              :reveal { onrightclick != "" }
-                              :halign "end"
-                              (label :class "icon submenu-indicator"
-                                     :text "chevron-right"))))))
+ quick-toggles-submenus []
+ (quick-toggle-submenu :title "Bluetooth"
+                       :status { bt-status == 0 ? false : true }
+                       :info-on "Tap to connect or disconnect a device"
+                       :info-off "Bluetooth is off"
+                       :toggle-label "Enable Bluetooth"
+                       :toggle-onchecked "~/.local/bin/btctl.sh on"
+                       :toggle-onunchecked "~/.local/bin/btctl.sh off"
+                       "your content was here..."))
