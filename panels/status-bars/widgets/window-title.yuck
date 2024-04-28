@@ -1,3 +1,4 @@
-(defwidget window-title []
-  (label :limit-width 40
-         :text window-title))
+(defwidget
+ bar-window-title []
+ (label :limit-width 40
+        :text window-title))

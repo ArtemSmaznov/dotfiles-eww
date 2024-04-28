@@ -1,6 +1,7 @@
-(defwidget start-logo []
-           (eventbox :cursor "pointer"
-                     :onclick "wofi --show drun"
-                     (image :class "status-bar-widget logo"
-                            :path "/home/artem/.local/share/icons/Papirus-Dark/64x64/apps/distributor-logo-archlinux.svg"
-                            :image-height "30")))
+(defwidget
+ bar-start-logo []
+ (eventbox :cursor "pointer"
+           :onclick "wofi --show drun"
+           (image :class "status-bar-widget logo"
+                  :path "/home/artem/.local/share/icons/Papirus-Dark/64x64/apps/distributor-logo-archlinux.svg"
+                  :image-height "30")))

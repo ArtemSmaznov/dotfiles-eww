@@ -1,4 +1,5 @@
-(defwidget disk_usage [?icon disk]
-    (slider :icon icon
-            :value {round((1 - (EWW_DISK[disk].free / EWW_DISK[disk].total)) * 100, 0)}
-            :onchange ""))
+(defwidget
+ bar-disk-usage [?icon disk]
+ (slider :icon icon
+         :value {round((1 - (EWW_DISK[disk].free / EWW_DISK[disk].total)) * 100, 0)}
+         :onchange ""))

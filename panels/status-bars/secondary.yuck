@@ -17,31 +17,31 @@
             :orientation "h"
 
             (box :class "leftside"
+                 :halign "start"
                  :orientation "h"
                  :space-evenly false
-                 :halign "start"
                  :spacing 5
-                 (start-logo)
-                 (time)
-                 (separator)
-                 (workspaces)
-                 (separator)
-                 (key-chord))
+                 (bar-start-logo)
+                 (bar-separator)
+                 (bar-time)
+                 (bar-separator)
+                 (bar-workspaces)
+                 (bar-key-chord))
 
             ;; center
-            (player)
+            (bar-player)
 
             (box :class "rightside"
+                 :halign "end"
                  :orientation "h"
                  :space-evenly false
-                 :halign "end"
                  :spacing 5
-                 (language)
-                 (separator)
-                 (battery)
-                 (cpu-thermal)
-                 (volume)
-                 (separator)
-                 (date)
-                 (separator)
-                 (uptime))))
+                 (bar-language)
+                 (bar-separator)
+                 (bar-battery)
+                 (bar-cpu-thermal)
+                 (bar-volume)
+                 (bar-separator)
+                 (bar-date)
+                 (bar-separator)
+                 (bar-uptime))))

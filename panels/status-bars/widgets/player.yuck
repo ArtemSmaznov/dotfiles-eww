@@ -1,40 +1,43 @@
-(defwidget player []
-           (box :class "widget player"
-                :orientation "h"
-                :space-evenly false
-                :spacing status-bar-icon-spacing
-                :halign "center"
+(defwidget
+ bar-player []
+ (box :class "widget player"
+      :orientation "h"
+      :space-evenly false
+      :spacing status-bar-icon-spacing
+      :halign "center"
 
-                (icon :icon { player-state == "stopped" ? "stop" :
-                                           player-state == "playing" ? "play" :
-                                           "pause" })
-                (label :text "·")
+      (icon :icon { player-state == "stopped" ? "stop" :
+                    player-state == "playing" ? "play" :
+                                                "pause" })
+      (label :text "·")
 
-                (revealer :transition "slideright"
-                          :duration revealer-duration
-                          :reveal { player-artist != "" }
-                          (box :orientation "h"
-                               :space-evenly false
-                               :spacing status-bar-icon-spacing
-                               (label :class "player-artist"
-                                      :limit-width 50
-                                      :text player-artist)
-                               (label :text "-")))
+      (revealer
+       :transition "slideright"
+       :duration revealer-duration
+       :reveal { player-artist != "" }
+       (box :orientation "h"
+            :space-evenly false
+            :spacing status-bar-icon-spacing
+            (label :class "player-artist"
+                   :limit-width 50
+                   :text player-artist)
+            (label :text "-")))
 
-                (label :class "player-title"
-                       :limit-width 50
-                       :text player-title)
+      (label :class "player-title"
+             :limit-width 50
+             :text player-title)
 
-                (revealer :transition "slideright"
-                          :duration revealer-duration
-                          :reveal { player-name == "mpd" }
-                          (box :orientation "h"
-                               :space-evenly false
-                               :spacing status-bar-icon-spacing
-                               (label :text "·")
-                               (label :class "music-flags"
-                                      :text music-flags)))
+      (revealer
+       :transition "slideright"
+       :duration revealer-duration
+       :reveal { player-name == "mpd" }
+       (box :orientation "h"
+            :space-evenly false
+            :spacing status-bar-icon-spacing
+            (label :text "·")
+            (label :class "music-flags"
+                   :text music-flags)))
 
-                (label :text "·")
-                (label :class "player-volume"
-                       :text "${replace(round(player-volume, 2), '0.', '')}%")))
+      (label :text "·")
+      (label :class "player-volume"
+             :text "${replace(round(player-volume, 2), '0.', '')}%")))

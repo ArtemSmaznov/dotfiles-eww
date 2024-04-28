@@ -1,6 +1,7 @@
-(defwidget uptime []
-  (box :orientation "h"
-       :space-evenly false
-       :spacing status-bar-icon-spacing
-       (icon :icon "circle-arrow-up")
-       uptime))
+(defwidget
+ bar-uptime []
+ (box :orientation "h"
+      :space-evenly false
+      :spacing status-bar-icon-spacing
+      (icon :icon "circle-arrow-up")
+      uptime))

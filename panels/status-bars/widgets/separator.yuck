@@ -1,5 +1,6 @@
-(defwidget separator []
-  (box :class "status-bar-widget separator"
-       :orientation "h"
-       :halign "center"
-       "|"))
+(defwidget
+ bar-separator []
+ (box :class "status-bar-widget separator"
+      :orientation "h"
+      :halign "center"
+      "|"))

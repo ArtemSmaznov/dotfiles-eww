@@ -16,44 +16,43 @@
             :orientation "h"
 
             (box :class "leftside"
+                 :halign "start"
                  :orientation "h"
                  :space-evenly false
-                 :halign "start"
                  :spacing 5
-                 (start-logo)
-                 (separator)
-                 (time)
-                 (separator)
-                 (workspaces)
-                 (separator)
+                 (bar-start-logo)
+                 (bar-separator)
+                 (bar-time)
+                 (bar-separator)
+                 (bar-workspaces)
+                 (bar-separator)
                  wm-layout-2
-                 (separator)
-                 (key-chord))
+                 (bar-key-chord))
 
             (box :class "center"
+                 :halign "center"
                  :orientation "h"
                  :space-evenly false
-                 :halign "center"
                  :spacing 5
-                 (window-title)
-                 (separator)
-                 (player))
+                 (bar-window-title)
+                 (bar-separator)
+                 (bar-player))
 
             (box :orientation "h"
-                 :space-evenly false
                  :halign "end"
+                 :space-evenly false
                  :spacing 5
-                 (language)
-                 (separator)
-                 (system-tray)
-                 (separator)
-                 (battery)
-                 (updates)
-                 (network)
-                 (ram)
-                 (cpu)
-                 (cpu-thermal)
-                 (volume)
-                 (separator)
-                 (date)
-                 (profile))))
+                 (bar-language)
+                 (bar-separator)
+                 (bar-system-tray)
+                 (bar-separator)
+                 (bar-battery)
+                 (bar-updates)
+                 (bar-network)
+                 (bar-ram)
+                 (bar-cpu)
+                 (bar-cpu-thermal)
+                 (bar-volume)
+                 (bar-separator)
+                 (bar-date)
+                 (bar-profile))))

@@ -1,27 +1,28 @@
-(defwidget network []
-           (box :class "status-widget colored network"
-                :space-evenly false
-                :spacing status-bar-icon-spacing
+(defwidget
+ bar-network []
+ (box :class "status-widget colored network"
+      :space-evenly false
+      :spacing status-bar-icon-spacing
 
-                (icon :icon "ethernet")
-                (graph :min 0
-                       :width status-bar-graph-width
-                       :class "graph net-down"
-                       :time-range {graph_net_time_range}
-                       :dynamic false
-                       :max {graph_net_max_speed_bytes}
-                       :thickness 2
-                       :line-style "round"
-                       :value {EWW_NET.eno1.NET_DOWN})
-                ;; :value {EWW_NET[interface].NET_DOWN})
-                (icon :icon "⇵")
-                (graph :min 0
-                       :width status-bar-graph-width
-                       :class "graph net-up"
-                       :time-range {graph_net_time_range}
-                       :dynamic false
-                       :max {graph_net_max_speed_bytes}
-                       :thickness 2
-                       :value {EWW_NET.eno1.NET_UP})))
+      (icon :icon "ethernet")
+      (graph :min 0
+             :width status-bar-graph-width
+             :class "graph net-down"
+             :time-range {graph_net_time_range}
+             :dynamic false
+             :max {graph_net_max_speed_bytes}
+             :thickness 2
+             :line-style "round"
+             :value {EWW_NET.eno1.NET_DOWN})
+      ;; :value {EWW_NET[interface].NET_DOWN})
+      (icon :icon "⇵")
+      (graph :min 0
+             :width status-bar-graph-width
+             :class "graph net-up"
+             :time-range {graph_net_time_range}
+             :dynamic false
+             :max {graph_net_max_speed_bytes}
+             :thickness 2
+             :value {EWW_NET.eno1.NET_UP})))
 
 ;; :value {EWW_NET[interface].NET_UP})))

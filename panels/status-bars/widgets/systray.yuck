@@ -1,5 +1,5 @@
 (defwidget
- system-tray []
+ bar-system-tray []
  (systray :orientation "h"
           :prepend-new true
           :space-evenly true
