@@ -27,20 +27,20 @@
          :interval "2s"
          "~/.local/bin/btctl.sh status")
 
-(defpoll bt-devices-paired
-         :initial ""
-         :interval "5s"
-         "~/.local/bin/btctl.sh get devices paired")
-
 (defpoll bt-devices-connected
          :initial ""
          :interval "5s"
          "~/.local/bin/btctl.sh get devices connected")
 
-;; (defpoll bt-devices-connected-json
+;; (defpoll bt-devices-paired
 ;;          :initial ""
-;;          :interval "2s"
-;;          "~/.config/eww/scripts/get-bt-devices.sh")
+;;          :interval "5s"
+;;          "~/.local/bin/btctl.sh get devices paired")
+
+(defpoll bt-devices-paired-json
+         :initial ""
+         :interval "2s"
+         "~/.config/eww/scripts/get-bt-devices-list.sh")
 
 ;; bluetooth devices ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll bt-headphones-blocked

@@ -44,7 +44,9 @@
        (revealer :transition "slideup"
                  :duration revealer-duration
                  :reveal status
-                 (children))
+                 (box :orientation "v"
+                      :space-evenly false
+                      (children)))
 
        (box :class "controls"
             :orientation "h"

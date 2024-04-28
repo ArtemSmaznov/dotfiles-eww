@@ -57,4 +57,34 @@
                        :toggle-label "Enable Bluetooth"
                        :toggle-onchecked "~/.local/bin/btctl.sh on"
                        :toggle-onunchecked "~/.local/bin/btctl.sh off"
-                       "your content was here..."))
+
+                       (box :orientation "v"
+                            :spacing 10
+                            (for device in bt-devices-paired-json
+                                 (eventbox :cursor "pointer"
+                                           :onclick "~/.local/bin/btctl.sh device toggle ${ device[0] }"
+                                           (box :class "entry ${ device[2] > 0 ? 'active' : '' }"
+                                                :orientation "h"
+                                                :space-evenly false
+                                                :spacing 15
+
+                                                (label :class "icon"
+                                                       :text { device[1] } )
+
+                                                (box :orientation "v"
+                                                     :space-evenly false
+                                                     :valign "center"
+                                                     :hexpand true
+
+                                                     (label :class "name"
+                                                            :halign "start"
+                                                            :valign "center"
+                                                            :text { device[0] } )
+
+                                                     (revealer
+                                                      :transition "slideup"
+                                                      :duration revealer-duration
+                                                      :reveal { device[2] > 0 ? true : false }
+                                                      (label :class "status"
+                                                             :halign "start"
+                                                             :text { device[2] == 1 ? "Connected" : "Connecting..." } )))))))))
