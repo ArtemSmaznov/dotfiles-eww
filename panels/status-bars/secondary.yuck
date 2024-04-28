@@ -38,7 +38,6 @@
                  :spacing 5
                  (bar-language)
                  (bar-separator)
-                 (bar-battery)
                  (bar-cpu-thermal)
                  (bar-volume)
                  (bar-separator)

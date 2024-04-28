@@ -1,4 +1,3 @@
-(include "panels/status-bars/widgets/battery.yuck")
 (include "panels/status-bars/widgets/cpu.yuck")
 (include "panels/status-bars/widgets/disk.yuck")
 (include "panels/status-bars/widgets/key-chord.yuck")

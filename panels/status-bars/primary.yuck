@@ -46,7 +46,6 @@
                  (bar-separator)
                  (bar-system-tray)
                  (bar-separator)
-                 (bar-battery)
                  (bar-updates)
                  (bar-network)
                  (bar-ram)
