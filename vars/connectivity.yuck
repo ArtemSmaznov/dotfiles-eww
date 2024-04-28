@@ -25,12 +25,12 @@
 
 (defpoll bt-devices-paired
          :initial ""
-         :interval "2s"
+         :interval "5s"
          "~/.local/bin/btctl.sh get devices paired")
 
 (defpoll bt-devices-connected
          :initial ""
-         :interval "2s"
+         :interval "5s"
          "~/.local/bin/btctl.sh get devices connected")
 
 ;; (defpoll bt-devices-connected-json
@@ -46,5 +46,7 @@
 
 ;; battery devices ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll battery-devices-json
+         :initial "[]"
          :interval "5s"
+         :run-while { bt-status > 0 }
          "~/.config/eww/scripts/get-battery-devices-list.sh")
