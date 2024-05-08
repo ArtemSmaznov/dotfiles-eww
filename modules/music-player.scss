@@ -83,3 +83,9 @@
 .music-player-controls .icon {
     font-size: 18pt;
 }
+
+.music-playback-shuffle {}
+.music-playback-playlist {}
+.music-playback-track {
+    text-shadow: 0px 0px 3px $base07;
+}
