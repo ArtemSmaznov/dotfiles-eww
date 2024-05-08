@@ -49,4 +49,4 @@
                           :transition "slideright"
                           :reveal { update-flags != "" }
                           :duration revealer-duration
-                          update-flags))))
+                          (icon :icon update-flags)))))
