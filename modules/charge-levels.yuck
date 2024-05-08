@@ -37,7 +37,8 @@
                                       :start-at 75
                                       :value charge-level
 
-                                      (label :class "content icon ${ device-name =~ 'kingkong'   ? 'yellow' :
+                                      (label :class "content icon ${ device-name =~ 'kingkong2'  ? 'yellow' :
+                                                                     device-name =~ 'kingkong3'  ? 'blue'   :
                                                                      device-name =~ 'magma'      ? 'red'    :
                                                                      device-name =~ 'onyx'       ? 'black'  :
                                                                      device-name == 'momentum-4' ? 'white'  :
