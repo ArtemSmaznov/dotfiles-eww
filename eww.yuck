@@ -11,6 +11,7 @@
 (include "vars/systray.yuck")
 (include "vars/theme.yuck")
 (include "vars/time.yuck")
+(include "vars/weather.yuck")
 (include "vars/wm.yuck")
 
 ;; panels: status bars
@@ -22,6 +23,7 @@
 ;; panels
 ;;------------------------------------------------------------------------------
 (include "panels/calendar.yuck")
+(include "panels/monitor.yuck")
 (include "panels/powermenu.yuck")
 (include "panels/quick-settings.yuck")
 (include "panels/which-key.yuck")
@@ -32,6 +34,7 @@
 (include "modules/music-player.yuck")
 (include "modules/quick-toggles.yuck")
 (include "modules/updates-list.yuck")
+(include "modules/weather.yuck")
 
 ;; templates
 ;;------------------------------------------------------------------------------

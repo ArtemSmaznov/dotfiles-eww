@@ -99,6 +99,7 @@ checkbutton:checked {
 // imports ---------------------------------------------------------------------
 @import "panels/status-bars/style.scss";
 
+@import "panels/monitor.scss";
 @import "panels/powermenu.scss";
 @import "panels/quick-settings.scss";
 @import "panels/which-key.scss";
@@ -108,5 +109,6 @@ checkbutton:checked {
 @import "modules/quick-toggles.scss";
 @import "modules/charge-levels.scss";
 // @import "modules/updates-list.scss";
+@import "modules/weather.scss";
 
 @import "templates/slider.scss";

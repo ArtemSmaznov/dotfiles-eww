@@ -1,0 +1,24 @@
+(defwindow
+ monitor
+ :namespace "monitor"
+ :monitor 0
+ :stacking "fg"
+ :exclusive true
+
+ :geometry (geometry
+            :anchor "center right"
+            :height "90%"
+            :x "40px"
+            :y "40px")
+
+ (box :class "monitor"
+      :orientation "v"
+      :halign "center"
+      :valign "start"
+      :vexpand true
+      :space-evenly false
+      :active true
+
+      ;; (weather)
+      (quick-toggles)
+      (music-player)))

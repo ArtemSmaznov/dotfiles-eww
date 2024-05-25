@@ -1,0 +1,16 @@
+(defvar weather-test '[
+                       ["lon","lat"],
+                       "b",
+                       "c"
+                       ]')
+
+(defwidget
+ weather []
+ (box :orientation "v"
+      :space-evenly false
+      weather-today
+      weather-test
+
+      (for line in weather-test
+           line)
+      ))

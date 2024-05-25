@@ -1,0 +1,4 @@
+(defpoll weather-today
+         :interval "10m"
+         :iniitial "{}"
+         "~/.local/bin/get-weather.sh")
