@@ -18,17 +18,19 @@
           :onrightclick onrightclick
 
           (overlay
-           (box :orientation "v"
+           (box :orientation "h"
+                :halign { label != "" ? "left" : "center" }
                 :valign "center"
                 :space-evenly false
-                :spacing { label != "" ? 7 : 0 }
+                :spacing { label != "" ? 10 : 0 }
 
                 (label :class "icon"
                        :text icon)
-                (revealer :transition "slidedown"
+                (revealer :transition "slideleft"
                           :duration revealer-duration
                           :reveal { label != "" }
                           (label :class "label"
+                                 :hexpand true
                                  :text label)))
 
            (revealer :transition "slideright"
