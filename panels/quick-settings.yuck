@@ -1,7 +1,7 @@
 (defwindow
  quick-settings
  :namespace "quick-settings"
- :monitor 1
+ :monitor 0
  :stacking "fg"
  :exclusive true
 
