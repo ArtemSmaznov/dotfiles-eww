@@ -20,5 +20,4 @@
       :active true
 
       ;; (weather)
-      (quick-toggles)
-      (music-player)))
+      (system-graphs)))

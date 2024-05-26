@@ -33,6 +33,7 @@
 (include "modules/charge-levels.yuck")
 (include "modules/music-player.yuck")
 (include "modules/quick-toggles.yuck")
+(include "modules/system-graphs.yuck")
 (include "modules/updates-list.yuck")
 (include "modules/weather.yuck")
 
@@ -40,7 +41,8 @@
 ;;------------------------------------------------------------------------------
 (include "templates/circular-progress.yuck")
 (include "templates/confirmation-window.yuck")
+(include "templates/graphs.yuck")
 (include "templates/icon.yuck")
-(include "templates/quick-toggle.yuck")
 (include "templates/quick-toggle-submenu.yuck")
+(include "templates/quick-toggle.yuck")
 (include "templates/slider.yuck")

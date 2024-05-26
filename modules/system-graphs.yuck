@@ -1,0 +1,40 @@
+(defvar system-graph-time-range "5m")
+
+(defwidget
+ system-graphs []
+ (box :class "panel-monitor"
+      :orientation "v"
+      :space-evenly false
+      :spacing 10
+
+      (time-range-selector)
+
+      (box :orientation "h"
+           :spacing 10
+           (system-graph-full :icon "microchip"
+                              :color "state-warning"
+                              :metric { EWW_CPU.avg })
+
+           (system-graph-full :icon "microchip "
+                              :color "state-good"
+                              :metric { round(EWW_TEMPS.K10TEMP_TCTL, 0) }))
+
+      (box :orientation "h"
+           :spacing 10
+           (system-graph-full :icon "memory"
+                              :color "state-warning"
+                              :metric { EWW_RAM.used_mem_perc })
+
+           (system-graph-full :icon "video "
+                              :color "state-good"
+                              :metric { round(EWW_TEMPS.AMDGPU_EDGE, 0) }))))
+
+
+(defwidget
+ time-range-selector []
+ (box :class "glass-module"
+      :orientation "h"
+      ;; :spacing 10
+
+      "Time Range: "
+      system-graph-time-range ))

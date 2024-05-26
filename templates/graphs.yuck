@@ -1,0 +1,19 @@
+(defwidget
+ system-graph-full [?icon ?color ?min ?max metric]
+ (box :class "glass-module"
+      :orientation "h"
+      :width 250
+      :space-evenly false
+      :spacing 10
+
+      (icon :icon icon)
+      (graph :class "full ${ color }"
+             :hexpand true
+             :height 70
+             :min min
+             :max max
+             :dynamic true
+             :thickness 3
+             :line-style "round"
+             :time-range system-graph-time-range
+             :value metric )))
