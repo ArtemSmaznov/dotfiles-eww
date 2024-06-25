@@ -40,6 +40,11 @@
                                    :state { bt-headphones-blocked == 0 ? 1 : 0 }
                                    :action "~/.local/bin/toggle-headphones.sh")
 
+                     (quick-toggle :tooltip "Speakers"
+                                   :icon "volume-high"
+                                   :state { bt-speakers-blocked == 0 ? 1 : 0 }
+                                   :action "~/.local/bin/toggle-speakers.sh")
+
                      (quick-toggle :tooltip "Bluetooth"
                                    :icon ""
                                    :state bt-status
