@@ -5,6 +5,7 @@
 (include "vars/keyboard.yuck")
 (include "vars/music.yuck")
 (include "vars/player.yuck")
+(include "vars/private.yuck")
 (include "vars/scripts.yuck")
 (include "vars/states.yuck")
 (include "vars/system.yuck")
