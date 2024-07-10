@@ -6,7 +6,7 @@
  :exclusive true
 
  :geometry (geometry
-            :anchor "center left"
+            :anchor "center right"
             :height "90%"
             :x "40px"
             :y "40px")
