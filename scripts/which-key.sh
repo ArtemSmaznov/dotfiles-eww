@@ -1,12 +1,27 @@
 #!/usr/bin/env bash
 # options ----------------------------------------------------------------------
 new_submap="$1"
-parent_submap="$2"
+submap_parents="${*:2}"
 
 # variables ====================================================================
 keymap="$(~/.config/hypr/scripts/get-submap-keys.sh "$new_submap")"
 
-# execution ********************************************************************
+# functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+build_json () {
+    json_output="["
+
+    for submap in $submap_parents; do
+        json_output+="\"$submap\","
+    done
+
+    json_output="${json_output%,}]"
+
+    echo "$json_output" | jq .
+}
+
+# setup ________________________________________________________________________
+eww update wm-parent-key-chord="$(build_json)"
 eww update current-keymap="$keymap"
-eww update wm-parent-key-chord="$parent_submap"
+
+# execution ********************************************************************
 eww open which-key

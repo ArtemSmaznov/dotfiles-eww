@@ -29,9 +29,17 @@
       (revealer :transition "slideleft"
                 :duration revealer-duration
                 :reveal { wm-parent-key-chord != "" }
-                (label :class "parent"
-                       :xalign 0
-                       :text "${ wm-parent-key-chord }>" ))
+                (for submap in wm-parent-key-chord
+                     (box :class "parents"
+                          :space-evenly false
+
+                          (label :class "parent"
+                                 :xalign 0
+                                 :text submap )
+
+                          (label :class "separator"
+                                 :xalign 0
+                                 :text ">"))))
 
       (label :class "current"
              :xalign 0
