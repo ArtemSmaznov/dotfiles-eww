@@ -31,7 +31,7 @@
                 :reveal { wm-parent-key-chord != "" }
                 (label :class "parent"
                        :xalign 0
-                       :text "${ wm-parent-key-chord }" ))
+                       :text "${ wm-parent-key-chord }>" ))
 
       (label :class "current"
              :xalign 0
