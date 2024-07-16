@@ -17,7 +17,7 @@ shift $((OPTIND-1))
 window_name="$1"
 
 # functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-is_window_active () {
+function is_window_active () {
     eww active-windows | grep -q "$window_name"
 }
 

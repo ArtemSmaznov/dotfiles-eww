@@ -7,7 +7,7 @@ submap_parents="${*:2}"
 keymap="$(~/.config/hypr/scripts/get-submap-keys.sh "$new_submap")"
 
 # functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-build_json () {
+function build_json () {
     json_output="["
 
     for submap in $submap_parents; do
