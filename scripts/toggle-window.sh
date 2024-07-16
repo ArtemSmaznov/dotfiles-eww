@@ -14,14 +14,25 @@ while getopts "a:m:" o; do
 done
 shift $((OPTIND-1))
 
-window="$1"
+window_name="$1"
 
 # functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+is_window_active () {
+    eww active-windows | grep -q "$window_name"
+}
 
 # setup ________________________________________________________________________
-if [ -n "$monitor_id" ]; then
-    action="$action --screen $monitor_id"
+if is_window_active; then
+    action="close"
+else
+    action="open"
+fi
+
+if [ -n "$monitor_id" ] ; then
+    if [ ! $action == "close" ]; then
+        action="$action --screen $monitor_id"
+    fi
 fi
 
 # execution ********************************************************************
-eww $action "$window"
+eww $action "$window_name"
