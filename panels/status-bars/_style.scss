@@ -1,111 +1,111 @@
 .bar {
-  color: $base07;
-  font-family: $text-font;
-  font-size: 12pt;
-  text-shadow: 1 1 $base00;
-  .gravity.left  { padding-left:  7px }
-  .gravity.right { padding-right: 2px }
+    color: $base07;
+    font-family: $text-font;
+    font-size: 12pt;
+    text-shadow: 1 1 $base00;
+    .gravity.left  { padding-left:  7px }
+    .gravity.right { padding-right: 2px }
 
-  .status-widget {
-    padding: 0 7px;
-  }
+    .status-widget {
+        padding: 0 7px;
+    }
 
-  // status widgets coloring
-  //----------------------------------------------------------------------------
-  .status-widget.colored.volume      { box-shadow: inset 0 (-$accent-line-width) $base08 }
-  .status-widget.colored.cpu-thermal { box-shadow: inset 0 (-$accent-line-width) $base09 }
-  .status-widget.colored.cpu         { box-shadow: inset 0 (-$accent-line-width) $base0A }
-  .status-widget.colored.ram         { box-shadow: inset 0 (-$accent-line-width) $base0B }
-  .status-widget.colored.network     { box-shadow: inset 0 (-$accent-line-width) $base0C }
-  .status-widget.colored.updates     { box-shadow: inset 0 (-$accent-line-width) $base0D }
-  .status-widget.colored.battery     { box-shadow: inset 0 (-$accent-line-width) $base0E }
+    // status widgets coloring
+    //----------------------------------------------------------------------------
+    .status-widget.colored.volume      { box-shadow: inset 0 (-$accent-line-width) $base08 }
+    .status-widget.colored.cpu-thermal { box-shadow: inset 0 (-$accent-line-width) $base09 }
+    .status-widget.colored.cpu         { box-shadow: inset 0 (-$accent-line-width) $base0A }
+    .status-widget.colored.ram         { box-shadow: inset 0 (-$accent-line-width) $base0B }
+    .status-widget.colored.network     { box-shadow: inset 0 (-$accent-line-width) $base0C }
+    .status-widget.colored.updates     { box-shadow: inset 0 (-$accent-line-width) $base0D }
+    .status-widget.colored.battery     { box-shadow: inset 0 (-$accent-line-width) $base0E }
 
-  // widgets
-  //----------------------------------------------------------------------------
-  .widget.player {
-    color: $base06;
+    // widgets
+    //----------------------------------------------------------------------------
+    .widget.player {
+        color: $base06;
 
-    .track-info {
-      .artist {
+        .track-info {
+            .artist {
+                font-weight: bold;
+            }
+            .separator {
+                color: $base04;
+            }
+        }
+
+        .playback-info {
+            color: $base04;
+        }
+    }
+    .widget.key-chord {
+        color: $base01;
+        background: $base0A;
         font-weight: bold;
-      }
-      .separator {
+        padding: 7px;
+        text-shadow: none;
+    }
+    .widget.layout {
+        color: $base0C;
+    }
+    .status-widget.network {
+        .graph.net-down {
+            color: $base0D;
+        }
+
+        .graph.net-up {
+            color: $base0A;
+        }
+    }
+    .widget.profile {
+        .face {
+            margin: 5px;
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 50%;
+            border: 2px solid $base04;
+        }
+    }
+    .widget.separator {
         color: $base04;
-      }
+        text-shadow: none;
+        padding: 0 1px;
     }
+    .status-widget.updates {
+        .updates,
+        .update-flags {
+            padding-left: 7px;
+        }
+    }
+    .widget.title {
+        color: $base0A;
+    }
+    .widget.workspaces {
+        .workspace-entry {
+            font: 12pt $icon-font;
+            padding: 0 7px;
+        }
 
-    .playback-info {
-      color: $base04;
-    }
-  }
-  .widget.key-chord {
-    color: $base01;
-    background: $base0A;
-    font-weight: bold;
-    padding: 7px;
-    text-shadow: none;
-  }
-  .widget.layout {
-    color: $base09;
-}
-  .status-widget.network {
-    .graph.net-down {
-      color: $base0D;
-    }
+        .workspace-entry.empty {
+            color: $base07;
+            opacity: 0.4;
+        }
+        .workspace-entry.occupied {
+            color: $base07;
+        }
+        .workspace-entry.urgent {
+            color: $base08;
+        }
 
-    .graph.net-up {
-      color: $base0A;
-    }
-  }
-  .widget.profile {
-    .face {
-      margin: 5px;
+        .workspace-entry.monitor_0 {
+            background-color: $base03;
+            box-shadow: inset 0 (-$indicator-line-width) $base0E;
+        }
 
-      background-size: cover;
-      background-position: center;
-
-      border-radius: 50%;
-      border: 2px solid $base04;
+        .workspace-entry.monitor_1 {
+            box-shadow: inset 0 (-$indicator-line-width) $base04;
+        }
     }
-  }
-  .widget.separator {
-    color: $base04;
-    text-shadow: none;
-    padding: 0 1px;
-  }
-  .status-widget.updates {
-    .updates,
-    .update-flags {
-      padding-left: 7px;
-    }
-  }
-  .widget.title {
-    color: $base05;
-  }
-  .widget.workspaces {
-    .workspace-entry {
-      font: 12pt $icon-font;
-      padding: 0 7px;
-    }
-
-    .workspace-entry.empty {
-      color: $base07;
-      opacity: 0.4;
-    }
-    .workspace-entry.occupied {
-      color: $base07;
-    }
-    .workspace-entry.urgent {
-      color: $base08;
-    }
-
-    .workspace-entry.monitor_0 {
-      background-color: $base03;
-      box-shadow: inset 0 (-$indicator-line-width) $base0E;
-    }
-
-    .workspace-entry.monitor_1 {
-      box-shadow: inset 0 (-$indicator-line-width) $base04;
-    }
-  }
 }
