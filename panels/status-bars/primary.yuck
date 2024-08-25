@@ -27,15 +27,15 @@
                  (bar-workspaces)
                  (bar-separator)
                  wm-layout-2
-                 (bar-key-chord))
+                 (bar-key-chord)
+                 (bar-separator)
+                 (bar-window-title))
 
             (box :class "center"
                  :halign "center"
                  :orientation "h"
                  :space-evenly false
                  :spacing 5
-                 (bar-window-title)
-                 (bar-separator)
                  (bar-player))
 
             (box :orientation "h"
