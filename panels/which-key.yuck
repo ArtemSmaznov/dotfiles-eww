@@ -10,7 +10,7 @@
             :x "25px"
             :y "25px")
 
- (box :class "glass-module which-key"
+ (box :class "panel glass-module which-key"
       :orientation "v"
       :halign "center"
       :space-evenly false

@@ -109,12 +109,8 @@ checkbutton:checked {
 }
 
 // imports ---------------------------------------------------------------------
+@import "panels/_style.scss";
 @import "panels/status-bars/_style.scss";
-
-@import "panels/monitor.scss";
-@import "panels/powermenu.scss";
-@import "panels/quick-settings.scss";
-@import "panels/which-key.scss";
 
 @import "modules/_style.scss";
 

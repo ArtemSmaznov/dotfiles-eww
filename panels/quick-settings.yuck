@@ -11,7 +11,7 @@
             :x "40px"
             :y "40px")
 
- (box :class "quick-settings"
+ (box :class "panel quick-settings"
       :orientation "v"
       :halign "center"
       :valign "start"
