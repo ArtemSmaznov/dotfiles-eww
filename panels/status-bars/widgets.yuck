@@ -2,6 +2,7 @@
 (include "panels/status-bars/widgets/disk.yuck")
 (include "panels/status-bars/widgets/key-chord.yuck")
 (include "panels/status-bars/widgets/language.yuck")
+(include "panels/status-bars/widgets/layout.yuck")
 (include "panels/status-bars/widgets/network.yuck")
 (include "panels/status-bars/widgets/player.yuck")
 (include "panels/status-bars/widgets/profile.yuck")

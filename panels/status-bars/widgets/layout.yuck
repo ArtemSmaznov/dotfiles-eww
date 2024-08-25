@@ -1,0 +1,8 @@
+(defwidget
+ bar-layout []
+ (box :class "bar-widget bar-widget-layout"
+      :space-evenly false
+      :spacing status-bar-widget-spacing
+
+                 (label :class "layout"
+                        :text wm-layout-2)))

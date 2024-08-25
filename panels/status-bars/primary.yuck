@@ -26,7 +26,7 @@
                  (bar-separator)
                  (bar-workspaces)
                  (bar-separator)
-                 wm-layout-2
+                 (bar-layout)
                  (bar-key-chord)
                  (bar-separator)
                  (bar-window-title))
