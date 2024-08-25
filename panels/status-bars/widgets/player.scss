@@ -1,3 +1,16 @@
 .widget.player {
-  font-family: $text-font;
+    color: $base06;
+
+    .track-info {
+        .artist {
+            font-weight: bold;
+        }
+        .separator {
+            color: $base04;
+        }
+    }
+
+    .playback-info {
+        color: $base04;
+    }
 }

@@ -3,41 +3,57 @@
  (box :class "widget player"
       :orientation "h"
       :space-evenly false
-      :spacing status-bar-icon-spacing
+      :spacing { status-bar-icon-spacing * 2 }
       :halign "center"
 
-      (icon :icon { player-state == "stopped" ? "stop" :
+      (label :class "icon player-state ${
+                                         player-state == 'stopped' ? 'blue'   :
+                                         player-state == 'playing' ? 'green'  :
+                                         player-state == 'paused'  ? 'yellow' :
+                                                                     'red'    }"
+
+             :text {
+                    player-state == "stopped" ? "stop" :
                     player-state == "playing" ? "play" :
                                                 "pause" })
-      (label :text "·")
 
-      (revealer
-       :transition "slideright"
-       :duration revealer-duration
-       :reveal { player-artist != "" }
-       (box :orientation "h"
-            :space-evenly false
-            :spacing status-bar-icon-spacing
-            (label :class "player-artist"
-                   :limit-width 50
-                   :text player-artist)
-            (label :text "-")))
+      (box :class "track-info"
+           :orientation "h"
+           :space-evenly false
+           :spacing 6
 
-      (label :class "player-title"
-             :limit-width 50
-             :text player-title)
+           (revealer
+            :transition "slideright"
+            :duration revealer-duration
+            :reveal { player-artist != "" }
+            (box :orientation "h"
+                 :space-evenly false
+                 :spacing 6
+                 (label :class "artist"
+                        :limit-width 50
+                        :text player-artist)
+                 (label :class "separator"
+                        :text "·")))
 
-      (revealer
-       :transition "slideright"
-       :duration revealer-duration
-       :reveal { player-name == "mpd" }
-       (box :orientation "h"
-            :space-evenly false
-            :spacing status-bar-icon-spacing
-            (label :text "·")
-            (label :class "music-flags"
-                   :text music-flags)))
+           (label :class "title"
+                  :limit-width 50
+                  :text player-title))
 
-      (label :text "·")
-      (label :class "player-volume"
-             :text "${replace(round(player-volume, 2), '0.', '')}%")))
+      (box :class "playback-info"
+           :orientation "h"
+           :space-evenly false
+           :spacing status-bar-icon-spacing
+
+           (revealer
+            :transition "slideright"
+            :duration revealer-duration
+            :reveal { player-name == "mpd" }
+            (box :orientation "h"
+                 :space-evenly false
+                 :spacing status-bar-icon-spacing
+
+                 (label :class "music-flags"
+                        :text music-flags)))
+
+           (label :class "player-volume"
+          :text "${replace(round(player-volume, 2), '0.', '')}%"))))
