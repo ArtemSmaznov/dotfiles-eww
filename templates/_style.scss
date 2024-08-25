@@ -1,0 +1,20 @@
+.status-widget.slider {
+    scale {
+        trough {
+            background-color: $base02;
+            border-radius: 50px;
+            min-height: 3px;
+            min-width: 50px;
+            highlight {
+                background-color: $base0E;
+                color: $base07;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.graph.full {
+    color: $accent-color;
+    background-color: rgba($accent-color, 0.1);
+}

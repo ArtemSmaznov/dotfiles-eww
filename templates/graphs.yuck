@@ -1,6 +1,6 @@
 (defwidget
  system-graph-full [?icon ?color ?min ?max metric]
- (box :class "glass-module"
+ (box :class "glass-module graph"
       :orientation "h"
       :width 250
       :space-evenly false

@@ -109,10 +109,7 @@ checkbutton:checked {
 }
 
 // imports ---------------------------------------------------------------------
+@import "templates/_style.scss";
+@import "modules/_style.scss";
 @import "panels/_style.scss";
 @import "panels/status-bars/_style.scss";
-
-@import "modules/_style.scss";
-
-@import "templates/graphs.scss";
-@import "templates/slider.scss";
