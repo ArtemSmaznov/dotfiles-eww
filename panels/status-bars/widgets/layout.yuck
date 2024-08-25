@@ -1,8 +1,7 @@
 (defwidget
  bar-layout []
- (box :class "bar-widget bar-widget-layout"
+ (box :class "widget layout"
       :space-evenly false
       :spacing status-bar-widget-spacing
 
-                 (label :class "layout"
-                        :text wm-layout-2)))
+                 (label :text wm-layout-2)))

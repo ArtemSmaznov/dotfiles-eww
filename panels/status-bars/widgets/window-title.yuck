@@ -1,6 +1,6 @@
 (defwidget
  bar-window-title []
- (box :class "bar-widget bar-widget-layout"
+ (box :class "widget title"
       :space-evenly false
       :spacing status-bar-widget-spacing
 

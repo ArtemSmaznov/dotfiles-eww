@@ -1,6 +1,6 @@
 (defwidget
  bar-workspaces []
- (box :class "bar-widget bar-widget-workspaces"
+ (box :class "widget workspaces"
       :space-evenly false
       :spacing status-bar-widget-spacing
 

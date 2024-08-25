@@ -3,57 +3,109 @@
   font-family: $text-font;
   font-size: 12pt;
   text-shadow: 1 1 $base00;
+  .gravity.left  { padding-left:  7px }
+  .gravity.right { padding-right: 2px }
+
+  .status-widget {
+    padding: 0 7px;
+  }
+
+  // status widgets coloring
+  //----------------------------------------------------------------------------
+  .status-widget.colored.volume      { box-shadow: inset 0 (-$accent-line-width) $base08 }
+  .status-widget.colored.cpu-thermal { box-shadow: inset 0 (-$accent-line-width) $base09 }
+  .status-widget.colored.cpu         { box-shadow: inset 0 (-$accent-line-width) $base0A }
+  .status-widget.colored.ram         { box-shadow: inset 0 (-$accent-line-width) $base0B }
+  .status-widget.colored.network     { box-shadow: inset 0 (-$accent-line-width) $base0C }
+  .status-widget.colored.updates     { box-shadow: inset 0 (-$accent-line-width) $base0D }
+  .status-widget.colored.battery     { box-shadow: inset 0 (-$accent-line-width) $base0E }
+
+  // widgets
+  //----------------------------------------------------------------------------
+  .widget.player {
+    color: $base06;
+
+    .track-info {
+      .artist {
+        font-weight: bold;
+      }
+      .separator {
+        color: $base04;
+      }
+    }
+
+    .playback-info {
+      color: $base04;
+    }
+  }
+  .widget.key-chord {
+    color: $base01;
+    background: $base0A;
+    font-weight: bold;
+    padding: 7px;
+    text-shadow: none;
+  }
+  .widget.layout {
+    color: $base09;
 }
+  .status-widget.network {
+    .graph.net-down {
+      color: $base0D;
+    }
 
-.leftside  { padding-left:  7px }
-.rightside { padding-right: 7px }
+    .graph.net-up {
+      color: $base0A;
+    }
+  }
+  .widget.profile {
+    .face {
+      margin: 5px;
 
-.status-widget {
-  padding: 0 7px;
+      background-size: cover;
+      background-position: center;
+
+      border-radius: 50%;
+      border: 2px solid $base04;
+    }
+  }
+  .widget.separator {
+    color: $base04;
+    text-shadow: none;
+    padding: 0 1px;
+  }
+  .status-widget.updates {
+    .updates,
+    .update-flags {
+      padding-left: 7px;
+    }
+  }
+  .widget.title {
+    color: $base05;
+  }
+  .widget.workspaces {
+    .workspace-entry {
+      font: 12pt $icon-font;
+      padding: 0 7px;
+    }
+
+    .workspace-entry.empty {
+      color: $base07;
+      opacity: 0.4;
+    }
+    .workspace-entry.occupied {
+      color: $base07;
+    }
+    .workspace-entry.urgent {
+      color: $base08;
+    }
+
+    .workspace-entry.monitor_0 {
+      background-color: $base03;
+      box-shadow: inset 0 (-$indicator-line-width) $base0E;
+    }
+
+    .workspace-entry.monitor_1 {
+      box-shadow: inset 0 (-$indicator-line-width) $base04;
+    }
+  }
 }
-
-.status-widget.colored.volume      { box-shadow: inset 0 (-$accent-line-width) $base08 }
-.status-widget.colored.cpu-thermal { box-shadow: inset 0 (-$accent-line-width) $base09 }
-.status-widget.colored.cpu         { box-shadow: inset 0 (-$accent-line-width) $base0A }
-.status-widget.colored.ram         { box-shadow: inset 0 (-$accent-line-width) $base0B }
-.status-widget.colored.network     { box-shadow: inset 0 (-$accent-line-width) $base0C }
-.status-widget.colored.updates     { box-shadow: inset 0 (-$accent-line-width) $base0D }
-.status-widget.colored.battery     { box-shadow: inset 0 (-$accent-line-width) $base0E }
-
-.icon,
-.workspaces button { font: 12pt $icon-font }
-
-.shutdown,
-.reboot,
-.suspend,
-.lock-screen,
-.log-out {
-  font-size: 14pt;
-}
-
-.ws-urgent       { color: $base08; }
-.ws-current-main { border-top: 2px solid $base0E; border-bottom: 2px solid $base00; }
-.ws-current-side { border-top: 2px solid $base00; border-bottom: 2px solid $base0F; }
-.ws-filled       { color: $base07; }
-.ws-empty        { color: $base02; }
-
-// imports
-//------------------------------------------------------------------------------
-@import "widgets/cpu.scss";
-@import "widgets/disk.scss";
-@import "widgets/key-chord.scss";
-@import "widgets/language.scss";
-@import "widgets/layout.scss";
-@import "widgets/network.scss";
-@import "widgets/player.scss";
-@import "widgets/profile.scss";
-@import "widgets/ram.scss";
-@import "widgets/separator.scss";
-@import "widgets/start-logo.scss";
-@import "widgets/systray.scss";
-@import "widgets/time-date.scss";
-@import "widgets/updates.scss";
-@import "widgets/uptime.scss";
-@import "widgets/volume.scss";
-@import "widgets/window-title.scss";
-@import "widgets/workspaces.scss";

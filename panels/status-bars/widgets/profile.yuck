@@ -1,10 +1,10 @@
 (defwidget
  bar-profile []
- (eventbox :class "status-bar-widget profile"
+ (eventbox :class "widget profile"
            :onclick "eww open --toggle powermenu-panel"
            :cursor "pointer"
 
-           (box :class "profile-face"
+           (box :class "face"
                 :width status-bar-size
                 :height status-bar-size
                 :style "background-image: url('${profile-face}');")))

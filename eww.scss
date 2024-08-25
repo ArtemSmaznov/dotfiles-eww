@@ -26,6 +26,9 @@ $transition-duration: .35s;
     background-color: rgba($base00, 0.2);
 }
 
+.icon,
+.workspaces button { font: 12pt $icon-font }
+
 .black                  { color: $base00; }
 .gray                   { color: $base04; }
 .white                  { color: $base07; }
@@ -43,6 +46,15 @@ $transition-duration: .35s;
 .suspend     { color: $base0D; }
 .lock-screen { color: $base0C; }
 .log-out     { color: $base0B; }
+
+.shutdown,
+.reboot,
+.suspend,
+.lock-screen,
+.log-out {
+  font-size: 14pt;
+}
+
 
 // button ----------------------------------------------------------------------
 button.string {

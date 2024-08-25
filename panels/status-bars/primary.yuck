@@ -15,7 +15,7 @@
  (centerbox :class "bar"
             :orientation "h"
 
-            (box :class "leftside"
+            (box :class "gravity left"
                  :halign "start"
                  :orientation "h"
                  :space-evenly false
@@ -31,14 +31,15 @@
                  (bar-separator)
                  (bar-window-title))
 
-            (box :class "center"
+            (box :class "gravity center"
                  :halign "center"
                  :orientation "h"
                  :space-evenly false
                  :spacing 5
                  (bar-player))
 
-            (box :orientation "h"
+            (box :class "gravity right"
+                 :orientation "h"
                  :halign "end"
                  :space-evenly false
                  :spacing 5
