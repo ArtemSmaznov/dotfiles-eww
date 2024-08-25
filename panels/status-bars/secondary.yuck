@@ -16,7 +16,7 @@
  (centerbox :class "bar"
             :orientation "h"
 
-            (box :class "leftside"
+            (box :class "gravity left"
                  :halign "start"
                  :orientation "h"
                  :space-evenly false
@@ -28,10 +28,14 @@
                  (bar-workspaces)
                  (bar-key-chord))
 
-            ;; center
-            (bar-player)
+            (box :class "gravity center"
+                 :halign "center"
+                 :orientation "h"
+                 :space-evenly false
+                 :spacing 5
+                 (bar-player))
 
-            (box :class "rightside"
+            (box :class "gravity right"
                  :halign "end"
                  :orientation "h"
                  :space-evenly false

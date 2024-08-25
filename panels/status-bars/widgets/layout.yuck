@@ -4,4 +4,4 @@
       :space-evenly false
       :spacing status-bar-widget-spacing
 
-                 (label :text wm-layout-2)))
+      (label :text wm-layout-2)))

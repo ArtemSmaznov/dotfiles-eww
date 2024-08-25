@@ -1,6 +1,6 @@
 (defwidget
  bar-network []
- (box :class "status-widget colored network"
+ (box :class "widget colored network"
       :space-evenly false
       :spacing status-bar-icon-spacing
 
@@ -14,7 +14,8 @@
              :thickness 2
              :line-style "round"
              :value {EWW_NET.eno1.NET_DOWN})
-      ;; :value {EWW_NET[interface].NET_DOWN})
+             ;; :value {EWW_NET[interface].NET_DOWN})
+
       (icon :icon "⇵")
       (graph :min 0
              :width status-bar-graph-width
@@ -24,5 +25,4 @@
              :max {graph_net_max_speed_bytes}
              :thickness 2
              :value {EWW_NET.eno1.NET_UP})))
-
-;; :value {EWW_NET[interface].NET_UP})))
+             ;; :value {EWW_NET[interface].NET_UP})))

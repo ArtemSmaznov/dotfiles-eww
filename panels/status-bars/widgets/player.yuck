@@ -6,12 +6,11 @@
       :spacing { status-bar-icon-spacing * 2 }
       :halign "center"
 
-      (label :class "icon player-state ${
-                                         player-state == 'stopped' ? 'blue'   :
-                                         player-state == 'playing' ? 'green'  :
-                                         player-state == 'paused'  ? 'yellow' :
-                                                                     'red'    }"
-
+      (label :class "icon state ${
+                                  player-state == 'stopped' ? 'blue'   :
+                                  player-state == 'playing' ? 'green'  :
+                                  player-state == 'paused'  ? 'yellow' :
+                                                              'red'    }"
              :text {
                     player-state == "stopped" ? "stop" :
                     player-state == "playing" ? "play" :
@@ -55,5 +54,5 @@
                  (label :class "music-flags"
                         :text music-flags)))
 
-           (label :class "player-volume"
-          :text "${replace(round(player-volume, 2), '0.', '')}%"))))
+           (label :class "volume"
+                  :text "${ replace(round(player-volume, 2), '0.', '') }%"))))

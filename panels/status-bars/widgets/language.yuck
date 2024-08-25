@@ -1,9 +1,11 @@
 (defwidget
  bar-language []
- (box :orientation "h"
+ (box :class "widget language"
+      :orientation "h"
       :space-evenly false
-      :class "widget language"
+
       (bar-flag :lang kbd)))
+
 
 (defwidget
  bar-flag [?lang]

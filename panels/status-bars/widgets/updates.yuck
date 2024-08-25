@@ -1,52 +1,56 @@
 (defwidget
  bar-updates []
- (eventbox :cursor "pointer"
+ (eventbox :class "widget colored updates"
+           :cursor "pointer"
            :onclick "eww open --toggle updates-list"
-           (box :class { updates ==   0  ? "status-widget colored updates state-good"  :
-                         updates ==  69  ? "status-widget colored updates red"         :
-                         updates == 101  ? "status-widget colored updates orange"      :
-                         updates == 220  ? "status-widget colored updates yellow"      :
-                         updates == 360  ? "status-widget colored updates blue"        :
-                         updates == 404  ? "status-widget colored updates yellow"      :
-                         updates == 420  ? "status-widget colored updates green"       :
-                         updates == 555  ? "status-widget colored updates green"       :
-                         updates == 1001 ? "status-widget colored updates purple"      :
-                         updates == year ? "status-widget colored updates special"     :
-                                           "status-widget colored updates"             }
 
+           (box :class {
+                        updates ==   0  ? "state-good"  :
+                        updates ==  69  ? "red"         :
+                        updates == 101  ? "orange"      :
+                        updates == 220  ? "yellow"      :
+                        updates == 360  ? "blue"        :
+                        updates == 404  ? "yellow"      :
+                        updates == 420  ? "green"       :
+                        updates == 555  ? "green"       :
+                        updates == 1001 ? "purple"      :
+                        updates == year ? "special"     :
+                                          ""            }
                 :orientation "h"
                 :space-evenly false
-                (icon :icon { updates ==   0  ? "check"    :
-                              updates ==  69  ? "heart"    :
-                              updates == 101  ? "book"     :
-                              updates == 220  ? "bolt"     :
-                              updates == 360  ? "globe"    :
-                              updates == 404  ? "warning"  :
-                              updates == 420  ? "cannabis" :
-                              updates == 555  ? "dollar"   :
-                              updates == 1001 ? "moon"     :
-                              updates == year ? "calendar" :
-                                                "bell" })
-
-                (revealer :class { updates ==  69  ? "updates"               :
-                                   updates == 101  ? "updates"               :
-                                   updates == 220  ? "updates"               :
-                                   updates == 360  ? "updates"               :
-                                   updates == 404  ? "updates"               :
-                                   updates == 420  ? "updates"               :
-                                   updates == 555  ? "updates"               :
-                                   updates == 1001 ? "updates"               :
-                                   updates == year ? "updates"               :
-                                   updates >= 900  ? "updates state-urgent"  :
-                                   updates >= 400  ? "updates state-warning" :
-                                                     "updates" }
+                (icon :icon {
+                             updates ==   0  ? "check"    :
+                             updates ==  69  ? "heart"    :
+                             updates == 101  ? "book"     :
+                             updates == 220  ? "bolt"     :
+                             updates == 360  ? "globe"    :
+                             updates == 404  ? "warning"  :
+                             updates == 420  ? "cannabis" :
+                             updates == 555  ? "dollar"   :
+                             updates == 1001 ? "moon"     :
+                             updates == year ? "calendar" :
+                                               "bell"     })
+                (revealer :class {
+                                  updates ==  69  ? "count"               :
+                                  updates == 101  ? "count"               :
+                                  updates == 220  ? "count"               :
+                                  updates == 360  ? "count"               :
+                                  updates == 404  ? "count"               :
+                                  updates == 420  ? "count"               :
+                                  updates == 555  ? "count"               :
+                                  updates == 1001 ? "count"               :
+                                  updates == year ? "count"               :
+                                  updates >= 900  ? "count state-urgent"  :
+                                  updates >= 400  ? "count state-warning" :
+                                                    "count"               }
                           :transition "slideright"
                           :reveal { updates > 0 }
                           :duration revealer-duration
                           updates )
 
-                (revealer :class "yellow update-flags"
+                (revealer :class "flags yellow"
                           :transition "slideright"
                           :reveal { update-flags != "" }
                           :duration revealer-duration
+
                           (icon :icon update-flags)))))
