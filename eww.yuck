@@ -21,9 +21,9 @@
 (include "panels/status-bars/secondary.yuck")
 (include "panels/status-bars/widgets.yuck")
 
-;; panels
-;;------------------------------------------------------------------------------
+;; panels: other
 (include "panels/calendar.yuck")
+(include "panels/confirmation-window.yuck")
 (include "panels/monitor.yuck")
 (include "panels/powermenu.yuck")
 (include "panels/quick-settings.yuck")
@@ -38,12 +38,10 @@
 (include "modules/updates-list.yuck")
 (include "modules/weather.yuck")
 
-;; templates
-;;------------------------------------------------------------------------------
-(include "templates/circular-progress.yuck")
-(include "templates/confirmation-window.yuck")
-(include "templates/graphs.yuck")
-(include "templates/icon.yuck")
-(include "templates/quick-toggle-submenu.yuck")
-(include "templates/quick-toggle.yuck")
-(include "templates/slider.yuck")
+;; module templates
+(include "modules/templates/circular-progress.yuck")
+(include "modules/templates/graphs.yuck")
+(include "modules/templates/icon.yuck")
+(include "modules/templates/quick-toggle-submenu.yuck")
+(include "modules/templates/quick-toggle.yuck")
+(include "modules/templates/slider.yuck")
