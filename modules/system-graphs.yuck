@@ -32,7 +32,7 @@
 
 (defwidget
  time-range-selector []
- (box :class "glass-module"
+ (box :class "glass-module system-graph"
       :orientation "h"
       ;; :spacing 10
 
