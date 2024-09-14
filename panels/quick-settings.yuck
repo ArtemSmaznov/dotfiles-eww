@@ -22,4 +22,5 @@
       (quick-toggles)
       (quick-toggles-submenus)
       (charge-levels)
-      (music-player)))
+      (music-player)
+      (weather)))

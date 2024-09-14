@@ -1,16 +1,63 @@
-(defvar weather-test '[
-                       ["lon","lat"],
-                       "b",
-                       "c"
-                       ]')
-
 (defwidget
  weather []
- (box :orientation "v"
-      :space-evenly false
-      weather-today
-      weather-test
+ (revealer :transition "slidedown"
+           :duration revealer-duration
+           :reveal { weather-current != "" }
+           (box :class "quick-setting weather"
+                :orientation "h"
+                :halign "end"
+                :space-evenly false
+                :spacing 15
 
-      (for line in weather-test
-           line)
-      ))
+                (weather-summary :name { replace(jq(weather-current, '.home'), '\"', '') }
+                               :src weather-current))))
+
+
+(defwidget
+ weather-summary [?name src]
+ (box :class "glass-module summary"
+      :orientation "v"
+      :halign "end"
+      :space-evenly false
+      :spacing 10
+
+      (label :class "title"
+             :text name)
+      (image :image-width 100
+             :path "${ weather-icon-path }/${
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Thunderstorm' ? 'thunderstorm-day' :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Drizzle'      ? 'drizzle'          :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Rain'         ? 'rain'             :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Snow'         ? 'snow'             :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Atmosphere'   ? 'fog'              :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Clear'        ? 'clear-day'        :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Clouds'       ? 'cloudy'           :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Mist'         ? 'mist'             :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Overcast'     ? 'overcast'         :
+                                                                 'not-available'                     }.svg")
+
+      (weather-stat
+       :widget { replace(jq(src, '.weather[0].description'), '\"', '') })
+      (weather-stat
+       :icon "temperature-half"
+       :widget { round( jq(src, '.main.temp'), 0 ) + "°C" })
+      (weather-stat
+       :icon "droplet"
+       :widget { jq(src, '.main.humidity') + "%" })
+      (weather-stat
+       :icon "down-long"
+       :widget { jq(src, '.main.pressure') + " hPa" })))
+
+
+(defwidget
+ weather-stat [?icon widget]
+ (box :class "stat"
+      :orientation "h"
+      :halign "end"
+      :space-evenly false
+      :spacing 10
+
+      (label :xalign 1
+             :text widget)
+      (label :class "icon"
+             :text icon)))
