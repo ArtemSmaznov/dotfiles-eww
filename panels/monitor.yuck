@@ -1,7 +1,7 @@
 (defwindow
  monitor
  :namespace "monitor"
- :monitor 0
+ :monitor '["<primary>", "DP-1", 0]'
  :stacking "fg"
  :exclusive true
 

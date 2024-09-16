@@ -1,7 +1,7 @@
 (defwindow
  main-bar
  ;; :namespace "status-bar"
- :monitor 0
+ :monitor '["<primary>", "DP-1", 0]'
  :stacking "bottom"
  :exclusive true
 

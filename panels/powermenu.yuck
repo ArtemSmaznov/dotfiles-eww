@@ -1,6 +1,6 @@
 (defwindow
  powermenu-panel
- :monitor 0
+ :monitor '["<primary>", "DP-1", 0]'
  :stacking "overlay"
 
  :geometry (geometry :anchor "top center"
