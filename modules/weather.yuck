@@ -39,7 +39,7 @@
                 (weather-stat :class "main-temp"
                               :widget { round( jq(src, '.main.feels_like'), 0 ) + "°C" })
 
-                (image :image-width 100
+                (image :image-height 150
                        :valign "end"
                        :path "${ weather-icon-path }/${
                             replace(jq(src, '.weather[0].main'), '\"', '') == 'Thunderstorm' ? 'thunderstorm-day' :
@@ -69,14 +69,23 @@
       (box :class "weather-stats"
            :orientation "v"
 
+           (weather-stat :widget { replace(jq(src, '.weather[0].main'), '\"', '') })
+
            (weather-stat :icon "temperature-half"
                          :widget { round( jq(src, '.main.temp'), 0 ) + "°C" })
+
+           (weather-stat :icon "wind"
+                         :widget { round( jq(src, '.wind.speed'), 0 ) + "?" })
 
            (weather-stat :icon "droplet"
                          :widget { jq(src, '.main.humidity') + "%" })
 
            (weather-stat :icon "down-long"
-                         :widget { jq(src, '.main.pressure') + " hPa" }))))
+                         :widget { jq(src, '.main.pressure') + " hPa" })
+
+           (weather-stat :icon "cloud"
+                         :widget { jq(src, '.clouds') })
+           )))
 
 (defwidget
  weather-stat [?icon ?class widget]
