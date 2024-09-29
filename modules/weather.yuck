@@ -34,6 +34,7 @@
                replace(jq(src, '.weather[0].main'), '\"', '') == 'Clouds'       ? 'cloudy'           :
                replace(jq(src, '.weather[0].main'), '\"', '') == 'Mist'         ? 'mist'             :
                replace(jq(src, '.weather[0].main'), '\"', '') == 'Overcast'     ? 'overcast'         :
+               replace(jq(src, '.weather[0].main'), '\"', '') == 'Haze'         ? 'mist'             :
                                                                  'not-available'                     }.svg")
 
       (weather-stat
