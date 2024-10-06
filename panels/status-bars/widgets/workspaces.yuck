@@ -16,12 +16,12 @@
                                              }"
                           (label :text {
                                         workspace.name == 1 ? "globe"        :
-                                        workspace.name == 2 ? "gamepad"      :
+                                        workspace.name == 2 ? "envelope"     :
                                         workspace.name == 3 ? "keyboard"     :
-                                        workspace.name == 4 ? "envelope"     :
-                                        workspace.name == 5 ? "folder"       :
-                                        workspace.name == 6 ? "comment"      :
-                                        workspace.name == 7 ? "camera"       :
-                                        workspace.name == 8 ? "server"       :
+                                        workspace.name == 4 ? "folder"       :
+                                        workspace.name == 5 ? "comment"      :
+                                        workspace.name == 6 ? "camera"       :
+                                        workspace.name == 7 ? "server"       :
+                                        workspace.name == 8 ? "gamepad"      :
                                         workspace.name == 9 ? "headphones"   :
                                                               workspace.name }))))))
