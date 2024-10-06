@@ -18,10 +18,10 @@
                                         workspace.name == 1 ? "globe"        :
                                         workspace.name == 2 ? "gamepad"      :
                                         workspace.name == 3 ? "keyboard"     :
-                                        workspace.name == 4 ? "folder"       :
-                                        workspace.name == 5 ? "headphones"   :
-                                        workspace.name == 6 ? "camera"       :
-                                        workspace.name == 7 ? "comment"      :
+                                        workspace.name == 4 ? "envelope"     :
+                                        workspace.name == 5 ? "folder"       :
+                                        workspace.name == 6 ? "comment"      :
+                                        workspace.name == 7 ? "camera"       :
                                         workspace.name == 8 ? "server"       :
-                                        workspace.name == 9 ? "chart-simple" :
+                                        workspace.name == 9 ? "headphones"   :
                                                               workspace.name }))))))
