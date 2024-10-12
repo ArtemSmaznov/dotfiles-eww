@@ -154,9 +154,23 @@
     }
 }
 
-.weather-overview {
+.content {
     .main {
-        font-size: 24pt;
-        font-weight: bold;
+        .status {
+            image {
+                padding: 0;
+                margin: 0;
+            }
+        }
+        .temp {
+            font-size: 24pt;
+            // font-weight: bold;
+        }
+        .lo-hi {
+            font-size: 16pt;
+        }
+    }
+    .comment {
+        color: $base05;
     }
 }
