@@ -1,34 +1,37 @@
+;; graphs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defvar graph_net_time_range       "10m")
+(defvar graph_net_max_speed_bytes  { 150 * 1024 * 1024 / 8 })
+
+;; uptime ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll uptime
-         :interval "1m"
          :initial "0d 0h"
+         :interval "1m"
          "~/.local/bin/get-uptime.sh")
 
 ;; volume ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll volume
+         :initial 50
          :interval "1s"
-         :iniitial 50
          "~/.local/bin/get-volume.sh")
 
 (defpoll mute
+         :initial "off"
          :interval "1s"
-         :iniitial "off"
          "~/.local/bin/get-mute.sh")
 
 ;; updates ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll updates
-         :interval "5s"
          :initial 0
+         :interval "5s"
          "~/.local/bin/get-updates.sh")
 
 (defpoll update-flags
-         :interval "5s"
          :initial ""
+         :interval "5s"
          "~/.local/bin/get-update-flags.sh")
 
 (defpoll updates-list-content
+         :initial ""
          :interval "15m"
          "cat /var/cache/pacman/updates")
 
-;; graphs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-(defvar graph_net_time_range "10m")
-(defvar graph_net_max_speed_bytes { 150 * 1024 * 1024 / 8 })

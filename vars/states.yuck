@@ -1,2 +1,2 @@
-(defvar show-power-menu false)
-(defvar quick-setting-submenu false)
+(defvar show-power-menu        false)
+(defvar quick-setting-submenu  false)

@@ -7,8 +7,8 @@
            "~/.local/bin/listen-player.sh state")
 
 (deflisten player-volume
-         :iniitial "-%"
-         "~/.local/bin/listen-player.sh volume")
+           :initial "-%"
+           "~/.local/bin/listen-player.sh volume")
 
 (deflisten player-title
            :initial ""

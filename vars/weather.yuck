@@ -1,9 +1,6 @@
-(defvar
-  weather-icon-path
-  "/home/artem/.local/share/icons/weather-icons/production/fill/svg-static")
+(defvar weather-icon-path  "/home/artem/.local/share/icons/weather-icons/production/fill/svg-static")
 
-(defpoll
- weather-current
- :initial "{}"
- :interval "1m"
- "~/.local/bin/get-weather.sh")
+(defpoll weather-current
+         :initial "{}"
+         :interval "1m"
+         "~/.local/bin/get-weather.sh")

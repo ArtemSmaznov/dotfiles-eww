@@ -1,2 +1,2 @@
-(defvar profile-face   "/home/artem/.face")
-(defvar no-album-cover "/home/artem/music/no-cover")
+(defvar profile-face    "/home/artem/.face")
+(defvar no-album-cover  "/home/artem/music/no-cover")

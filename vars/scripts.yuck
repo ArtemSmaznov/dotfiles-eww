@@ -1,4 +1,3 @@
-(defvar scripts "~/.local/bin")
-(defvar dm-scripts "~/.local/bin/dm-scripts")
-
-(defvar hypr-scripts "~/.config/hypr/scripts")
+(defvar scripts       "~/.local/bin")
+(defvar dm-scripts    "~/.local/bin/dm-scripts")
+(defvar hypr-scripts  "~/.config/hypr/scripts")

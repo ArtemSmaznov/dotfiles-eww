@@ -1,4 +1,4 @@
 (defpoll kbd
-         :interval "1s"
          :initial "us"
+         :interval "1s"
          "~/.local/bin/get-lang.sh")

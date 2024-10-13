@@ -1,22 +1,24 @@
+(defvar current-keymap       "")
+(defvar wm-parent-key-chord  '[]')
+
 (defpoll listen_workspaces
-         :interval "1s"
          :initial "[]"
+         :interval "1s"
          "bash ~/.config/hypr/scripts/get-workspaces.sh")
 
 (deflisten window-title
+           :initial ""
            "bash ~/.config/hypr/scripts/listen-window-title.sh")
 
 (deflisten wm-layout
+           :initial ""
            "~/.local/bin/listen-wm-layout.sh")
 
 (defpoll wm-layout-2
+         :initial ""
          :interval "1s"
-         :iniitial ""
          "~/.local/bin/get-wm-layout.sh")
 
-(defvar current-keymap "")
-
-(defvar wm-parent-key-chord '[]')
 (deflisten wm-key-chord
            :initial ""
            "bash ~/.config/hypr/scripts/listen-submap.sh")

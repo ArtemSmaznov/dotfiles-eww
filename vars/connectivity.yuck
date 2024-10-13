@@ -4,23 +4,27 @@
 ;;          "~/.local/bin/get-network-interface.sh")
 
 (deflisten eth-status
-         "~/.local/bin/netctl.sh monitor status ethernet")
+           :initial 1
+           "~/.local/bin/netctl.sh monitor status ethernet")
 
 
 ;; wifi ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (deflisten wifi-status
+           :initial 0
            "~/.local/bin/netctl.sh monitor status wifi")
 
 (deflisten wifi-connection
+           :initial ""
            "~/.local/bin/netctl.sh monitor connection wifi")
 
 
 ;; vpn ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (deflisten vpn-status
-           :initial "Disconnected"
+           :initial 0
            "~/.local/bin/vpnctl.sh monitor status")
 
 (deflisten vpn-region
+           :initial ""
            "~/.local/bin/vpnctl.sh monitor region")
 
 

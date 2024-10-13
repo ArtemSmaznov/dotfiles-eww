@@ -3,8 +3,8 @@
            "~/.local/bin/listen-player.sh state mpd")
 
 (deflisten music-volume
-         :iniitial "-%"
-         "~/.local/bin/listen-player.sh volume mpd")
+           :initial "-%"
+           "~/.local/bin/listen-player.sh volume mpd")
 
 (deflisten music-flag-loop
            :initial "None" ;; playlist | track
@@ -55,10 +55,10 @@
            "~/.local/bin/listen-player.sh album mpd")
 
 (defpoll music-track-progress
-           :interval "1s"
-           :initial 0
-           :run-while { music-state == "playing" }
-           "~/.local/bin/get-music.sh progress")
+         :initial 0
+         :interval "1s"
+         :run-while { music-state == "playing" }
+         "~/.local/bin/get-music.sh progress")
 
 (deflisten music-track-file
            :initial ""
