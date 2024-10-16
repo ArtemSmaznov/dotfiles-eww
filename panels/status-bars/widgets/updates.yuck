@@ -9,6 +9,7 @@
                         updates ==  69  ? "red"         :
                         updates == 101  ? "orange"      :
                         updates == 220  ? "yellow"      :
+                        updates == 314  ? "yellow"      :
                         updates == 360  ? "blue"        :
                         updates == 404  ? "yellow"      :
                         updates == 420  ? "green"       :
@@ -18,22 +19,26 @@
                                           ""            }
                 :orientation "h"
                 :space-evenly false
+
                 (icon :icon {
-                             updates ==   0  ? "check"    :
-                             updates ==  69  ? "heart"    :
-                             updates == 101  ? "book"     :
-                             updates == 220  ? "bolt"     :
-                             updates == 360  ? "globe"    :
-                             updates == 404  ? "warning"  :
-                             updates == 420  ? "cannabis" :
-                             updates == 555  ? "dollar"   :
-                             updates == 1001 ? "moon"     :
-                             updates == year ? "calendar" :
+                             updates ==   0  ? "check"     :
+                             updates ==  69  ? "heart"     :
+                             updates == 101  ? "book"      :
+                             updates == 220  ? "bolt"      :
+                             updates == 314  ? "chart-pie" :
+                             updates == 360  ? "globe"     :
+                             updates == 404  ? "warning"   :
+                             updates == 420  ? "cannabis"  :
+                             updates == 555  ? "dollar"    :
+                             updates == 1001 ? "moon"      :
+                             updates == year ? "calendar"  :
                                                "bell"     })
+
                 (revealer :class {
                                   updates ==  69  ? "count"               :
                                   updates == 101  ? "count"               :
                                   updates == 220  ? "count"               :
+                                  updates == 314  ? "count"               :
                                   updates == 360  ? "count"               :
                                   updates == 404  ? "count"               :
                                   updates == 420  ? "count"               :
