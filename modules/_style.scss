@@ -60,10 +60,11 @@
     }
 
     .music-player-track-artist {
-        font-size: 14pt;
+        font-size: 12pt;
         color: lighten($base0E, 20);
         opacity: 0.6;
         text-shadow: 1 1 $base00;
+        padding-left: 20px;
     }
 
     .music-player-track-album {

@@ -93,6 +93,7 @@
       (box :orientation "v"
            :hexpand true
            :space-evenly false
+           :spacing 5
            (scroll :hscroll true
                    :vscroll false
                    (label :class "music-player-track-title"
