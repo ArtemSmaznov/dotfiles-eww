@@ -1,0 +1,19 @@
+(defwindow
+ playground
+ :monitor '["<secondary>", "DP-3", 1]'
+ :stacking "overlay"
+ :exclusive false
+
+ :geometry (geometry
+            :anchor "center center")
+
+ (box :class "panel glass-module playground"
+      :orientation "v"
+      :halign "center"
+      :space-evenly false
+      :spacing 18
+      :active false
+
+      "😼 Come play with me cat!"
+
+      ))
