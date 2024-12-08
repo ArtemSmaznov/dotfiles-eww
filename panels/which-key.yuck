@@ -6,7 +6,7 @@
  :exclusive false
 
  :geometry (geometry
-            :anchor "bottom left"
+            :anchor "bottom center"
             :x "25px"
             :y "25px")
 
@@ -16,6 +16,7 @@
       :space-evenly false
       :spacing 18
       :active false
+
       (key-map)
       (key-chord)))
 
