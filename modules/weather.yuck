@@ -54,6 +54,7 @@
                                 replace(jq(src, '.weather[0].main'), '\"', '') == 'Mist'         ? 'mist'             :
                                 replace(jq(src, '.weather[0].main'), '\"', '') == 'Overcast'     ? 'overcast'         :
                                 replace(jq(src, '.weather[0].main'), '\"', '') == 'Haze'         ? 'mist'             :
+                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Fog'          ? 'mist'             :
                                                                                   'not-available'                     }.svg"))
 
                 (box :class "lo-hi"
