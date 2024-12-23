@@ -4,7 +4,7 @@
     font-size: 12pt;
     text-shadow: 1 1 $base00;
     .gravity.left  { padding-left:  7px }
-    .gravity.right { padding-right: 2px }
+    .gravity.right { padding-right: 7px }
 
     .widget.colored {
         box-shadow: inset 0 (-$accent-line-width) $base04;
@@ -131,5 +131,15 @@
             border-radius: 50%;
             border: 2px solid $base04;
         }
+    }
+
+    //----------------------------------------------------------------------------
+    .widget.security-indicators {
+        .indicator.dot {
+            margin-right: 5px;
+        }
+        .indicator.dot.screen { color: $base09; }
+        .indicator.dot.mic    { color: $base0B; }
+        .indicator.dot.idle   { color: $base0D; }
     }
 }

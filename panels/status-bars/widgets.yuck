@@ -1,5 +1,6 @@
 (include "panels/status-bars/widgets/cpu.yuck")
 (include "panels/status-bars/widgets/disk.yuck")
+(include "panels/status-bars/widgets/indicators.yuck")
 (include "panels/status-bars/widgets/key-chord.yuck")
 (include "panels/status-bars/widgets/language.yuck")
 (include "panels/status-bars/widgets/layout.yuck")

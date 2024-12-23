@@ -47,4 +47,5 @@
                  (bar-separator)
                  (bar-date)
                  (bar-separator)
-                 (bar-uptime))))
+                 (bar-uptime)
+                 (bar-indicators))))

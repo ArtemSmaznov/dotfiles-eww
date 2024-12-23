@@ -55,4 +55,5 @@
                  (bar-volume)
                  (bar-separator)
                  (bar-date)
-                 (bar-profile))))
+                 (bar-profile)
+                 (bar-indicators))))

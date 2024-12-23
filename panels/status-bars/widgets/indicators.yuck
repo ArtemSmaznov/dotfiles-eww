@@ -1,0 +1,9 @@
+(defwidget
+ bar-indicators []
+ (box :class "widget security-indicators"
+      (revealer :transition "slideright"
+                :duration revealer-duration
+                :reveal indicator_idle
+                (circular-progress :class "indicator dot idle"
+                                   :value 100
+                                   :thickness 4 ))))

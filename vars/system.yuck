@@ -1,3 +1,9 @@
+;; indicators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defpoll indicator_idle
+         :initial false
+         :interval "1s"
+         "~/.local/bin/hyprctl.sh idle")
+
 ;; graphs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defvar graph_net_time_range       "10m")
 (defvar graph_net_max_speed_bytes  { 150 * 1024 * 1024 / 8 })
