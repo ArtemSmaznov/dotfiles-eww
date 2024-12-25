@@ -17,15 +17,15 @@
 
                 (label :class {
                                matches(date, birthday) ? "icon purple" :
-                               matches(date, "20-Apr") ? "icon green"  :
-                               matches(date, "25-Dec") ? "icon red"    :
-                               matches(date, "31-Dec") ? "icon yellow" :
+                               matches(date, "20 Apr") ? "icon green"  :
+                               matches(date, "25 Dec") ? "icon red"    :
+                               matches(date, "31 Dec") ? "icon yellow" :
                                                          "icon"        }
 
                        :text {
                               matches(date, birthday) ? "gift"              :
-                              matches(date, "20-Apr") ? "cannabis"          :
-                              matches(date, "25-Dec") ? "candy-cane"        :
-                              matches(date, "31-Dec") ? "champagne-glasses" :
+                              matches(date, "20 Apr") ? "cannabis"          :
+                              matches(date, "25 Dec") ? "candy-cane"        :
+                              matches(date, "31 Dec") ? "champagne-glasses" :
                                                         "calendar"          })
                 {date})))

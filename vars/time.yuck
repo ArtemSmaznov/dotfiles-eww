@@ -6,7 +6,7 @@
 (defpoll date
          :initial "1 jan 1970"
          :interval "1h"
-         "date '+%a, %-d-%b-%y'")
+         "date '+%a, %-d %b %Y'")
 
 (defpoll year
          :initial 1970
