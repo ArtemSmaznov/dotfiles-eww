@@ -21,7 +21,7 @@
                                         workspace.name == 4 ? "folder"       :
                                         workspace.name == 5 ? "comment"      :
                                         workspace.name == 6 ? "camera"       :
-                                        workspace.name == 7 ? "gamepad"      :
-                                        workspace.name == 8 ? "headphones"   :
+                                        workspace.name == 7 ? "headphones"   :
+                                        workspace.name == 8 ? "gamepad"      :
                                         workspace.name == 9 ? "server"       :
                                                               workspace.name }))))))
