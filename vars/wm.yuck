@@ -1,5 +1,5 @@
-(defvar current-keymap       "")
-(defvar wm-parent-key-chord  '[]')
+(defvar wm-keybinds-map "[]")
+(defvar wm-keychord-parents "")
 
 (defpoll listen_workspaces
          :initial "[]"
