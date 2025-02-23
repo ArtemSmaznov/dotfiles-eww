@@ -24,6 +24,7 @@
 ;; panels: other
 (include "panels/calendar.yuck")
 (include "panels/confirmation-window.yuck")
+(include "panels/indicators.yuck")
 (include "panels/playground.yuck")
 (include "panels/monitor.yuck")
 (include "panels/powermenu.yuck")

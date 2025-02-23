@@ -132,14 +132,14 @@
             border: 2px solid $base04;
         }
     }
+}
 
-    //----------------------------------------------------------------------------
-    .widget.security-indicators {
-        .indicator.dot {
-            margin-right: 5px;
-        }
-        .indicator.dot.screen { color: $base09; }
-        .indicator.dot.mic    { color: $base0B; }
-        .indicator.dot.idle   { color: $base0E; }
+//------------------------------------------------------------------------------
+.widget.security-indicators {
+    .indicator.dot {
+        margin-right: 5px;
     }
+    .indicator.dot.screen { color: $base09; }
+    .indicator.dot.mic    { color: $base0B; }
+    .indicator.dot.idle   { color: $base0E; }
 }

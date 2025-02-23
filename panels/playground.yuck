@@ -1,3 +1,8 @@
+(defpoll gaps-submap
+         :interval "60"
+         :initial '[]'
+         "~/.config/hypr/scripts/get-keys.sh gaps")
+
 (defwindow
  playground
  :monitor '["<secondary>", "DP-3", 1]'
@@ -7,12 +12,16 @@
  :geometry (geometry
             :anchor "center center")
 
- (box :class "panel glass-module playground"
-      :orientation "v"
-      :halign "center"
-      :space-evenly false
-      :spacing 18
-      :active false
+ (box :orientation "h"
+      :spacing 15
 
-      "😼 Come play with me!"
-      ))
+      (box :class "panel glass-module playground"
+           :orientation "v"
+           :halign "center"
+           :space-evenly false
+           :spacing 18
+           :active false
+
+           "😼 Come play with me!"
+
+      )))
