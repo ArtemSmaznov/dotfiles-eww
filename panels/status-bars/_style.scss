@@ -97,6 +97,15 @@
     }
 
     //----------------------------------------------------------------------------
+    .widget.audio-output {
+        color: $base01;
+        background: $base0B;
+        font-weight: bold;
+        padding: 7px;
+        text-shadow: none;
+    }
+
+    //----------------------------------------------------------------------------
     .widget.updates {
         .count,
         .flags {

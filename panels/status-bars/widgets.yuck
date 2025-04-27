@@ -1,3 +1,4 @@
+(include "panels/status-bars/widgets/audio-output.yuck")
 (include "panels/status-bars/widgets/cpu.yuck")
 (include "panels/status-bars/widgets/disk.yuck")
 (include "panels/status-bars/widgets/indicators.yuck")

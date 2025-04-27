@@ -35,8 +35,9 @@
                  :halign "center"
                  :orientation "h"
                  :space-evenly false
-                 :spacing 5
-                 (bar-player))
+                 :spacing 15
+                 (bar-player)
+                 (bar-audio-output))
 
             (box :class "gravity right"
                  :orientation "h"

@@ -1,0 +1,7 @@
+(defwidget bar-audio-output []
+           (revealer :transition "slideleft"
+                     :duration revealer-duration
+                     :reveal { ! (output-device =~ default-output-device-substring) }
+
+                     (label :class "widget audio-output"
+                            :text output-device)))

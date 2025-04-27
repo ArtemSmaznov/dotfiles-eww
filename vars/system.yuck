@@ -14,7 +14,7 @@
          :interval "1m"
          "~/.local/bin/get-uptime.sh")
 
-;; volume ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; audio ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll volume
          :initial 50
          :interval "1s"
@@ -24,6 +24,13 @@
          :initial "off"
          :interval "1s"
          "~/.local/bin/get-mute.sh")
+
+(defvar default-output-device-substring "Scarlett")
+
+(defpoll output-device
+         :initial ""
+         :interval "1s"
+         "~/.local/bin/audioctl.sh get default")
 
 ;; updates ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (defpoll updates
