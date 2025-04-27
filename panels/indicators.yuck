@@ -1,14 +1,13 @@
-(defwindow
- indicators
- :namespace "indicators"
- :monitor '["<primary>", "DP-1", 0]'
- :stacking "overlay"
- :exclusive false
+(defwindow indicators
+           :namespace "indicators"
+           :monitor '["<primary>", "DP-1", 0]'
+           :stacking "overlay"
+           :exclusive false
 
- :geometry (geometry
-            :anchor "top right"
-            :x "7px"
-            :y "-24px")
+           :geometry
+           (geometry :anchor "top right"
+                     :x "7px"
+                     :y "-24px")
 
- (box :class "indicators"
-      (bar-indicators)))
+           (box :class "indicators"
+                (bar-indicators)))
