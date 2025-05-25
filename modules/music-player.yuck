@@ -87,29 +87,25 @@
                      (box :class "music-player-content"
                           :orientation "v"
                           :space-evenly false
+                          :spacing 0
 
                           (revealer :transition "slideup"
                                     :duration revealer-duration
                                     :reveal { ! player-mouse-show-extra-info }
-                                    :hexpand true
-                                    :vexpand true
+                                    :vexpand { ! player-mouse-show-extra-info }
                                     (box :class "main-view"
                                          (music-player-content-main-view)))
 
-                          ;; (revealer :transition "slidedown"
-                          ;;           :duration revealer-duration
-                          ;;           :reveal { player-mouse-show-extra-info }
-                          ;;           :hexpand true
-                          ;;           :vexpand true
-                          ;;           (box :class "info-view"
-                          ;;                (music-player-content-info-view)))
-
-                          )))
+                          (revealer :transition "slidedown"
+                                    :duration revealer-duration
+                                    :reveal { player-mouse-show-extra-info }
+                                    (box :class "info-view"
+                                         (music-player-content-info-view))))))
 
 ;; music-player-content --------------------------------------------------------
 
 (defwidget music-player-content-main-view []
-           (box :class "music-player-main-view"
+           (box :class "main-view"
                 :orientation "v"
                 :space-evenly false
 
@@ -125,7 +121,24 @@
                 (music-player-controls)))
 
 (defwidget music-player-content-info-view []
-           "foo")
+           (box :class "info-view"
+                :orientation "h"
+                :space-evenly false
+
+                (box :class "extra-info"
+                     :orientation "v"
+                     :hexpand true
+
+                     (label :xalign 0 :text "rating: ${ music-rating }")
+                     (label :xalign 0 :text "play count: ${ music-play-count }")
+                     (label :xalign 0 :text "skip count: ${ music-skip-count }")
+                     (label :xalign 0 :text "last played: ${ music-last-played }"))
+
+                (eventbox :cursor "pointer"
+                          (button :class "icon info close"
+                                  :onclick "eww update player-mouse-show-extra-info=false"
+                                  :valign "start"
+                                  "xmark"))))
 
 ;; music-player-content-main-view ----------------------------------------------
 ;;
