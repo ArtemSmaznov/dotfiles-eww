@@ -1,3 +1,6 @@
+(defvar player-mouse-over-track-content false)
+(defvar player-mouse-show-extra-info false)
+
 (deflisten player-name
            :initial "mpd"
            "~/.local/bin/listen-player.sh player")

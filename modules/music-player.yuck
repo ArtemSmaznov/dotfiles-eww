@@ -19,19 +19,27 @@
 
                                     (music-player-rating-bar))
 
+                               ;; (eventbox :onhover     "eww update player-mouse-over-track-content=true"
+                               ;;           :onhoverlost "eww update player-mouse-over-track-content=false"
                           (box :class "music-player-content"
                                :orientation "v"
                                :space-evenly false
                                :hexpand true
 
-                               (box :orientation "h"
+                               (box :class "track-info"
+                                    :orientation "h"
                                     :hexpand true
                                     :vexpand true
                                     :space-evenly false
-                                    :spacing 50
 
                                     (music-player-track-info)
-                                    (box))
+
+                                    (revealer :class "extra-buttons"
+                                              :transition "slideleft"
+                                              :duration revealer-duration
+                                              :reveal { player-mouse-over-track-content }
+
+                                              (extra-buttons)))
 
                                (music-player-controls)))))
 
@@ -168,3 +176,14 @@
                                          :valign "center"
                                          :style "opacity: ${ music-flag-loop != 'none' ? 1 : 0.3 };"
                                          :text { music-flag-loop == 'track' ? "rotate-right" : "repeat" })))))
+
+(defwidget extra-buttons []
+           (box :class "extra-buttons"
+                :orientation "v"
+                :valign "start"
+
+                (eventbox :cursor "pointer"
+                          (button :class "icon info"
+                                  :onclick "eww update player-mouse-show-extra-info=true"
+
+                                  "circle-info"))))
