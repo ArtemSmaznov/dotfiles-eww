@@ -4,15 +4,29 @@
                      :reveal { music-title != "" }
 
                      (box :class "glass-module quick-setting music-player"
+                          :orientation "v"
+                          :space-evenly false
+                          :width 600
+                          :css "* { background: rgba(${music-album-cover-color}, 0.6); }"
+
+                          (music-player-main-view))))
+
+
+(defwidget music-player-main-view []
+           (revealer :transition "slideup"
+                     :duration revealer-duration
+                     :reveal { ! player-mouse-show-extra-info }
+                     :hexpand true
+                     :vexpand true
+                     (box :class "music-player-main-view"
                           :orientation "h"
                           :space-evenly false
                           :spacing 15
-                          :width 600
-                          :css "* { background: rgba(${music-album-cover-color}, 0.6); }"
 
                           (music-player-album-art)
                           (music-player-rating-bar)
                           (music-player-content))))
+
 
 ;; music-player-main-view ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;;
@@ -35,8 +49,8 @@
 
                                         (label :class "icon"
                                                :text { music-state == "paused"  ? "pause" :
-                                                       music-state == "stopped" ? "stop"  :
-                                                                      "" } )))))
+                                                                   music-state == "stopped" ? "stop"  :
+                                                                   "" } )))))
 
 (defwidget music-player-rating-bar []
            (revealer :class "rating-bar"
