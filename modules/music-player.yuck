@@ -40,7 +40,6 @@
                      :duration revealer-duration
                      :reveal { music-play-count > 0 || music-skip-count > 0 }
 
-
                      (box :class "music-player-rating"
                           :orientation "v"
                           :space-evenly false
@@ -75,19 +74,16 @@
                 :space-evenly false
                 :hexpand true
 
-                (box :class "track-info"
-                     :orientation "h"
-                     :hexpand true
-                     :vexpand true
-                     :space-evenly false
+                (eventbox :onhover     "eww update player-mouse-over-track-content=true"
+                          :onhoverlost "eww update player-mouse-over-track-content=false"
+                          :hexpand true
+                          :vexpand true
 
-                     (music-player-track-info)
+                          (box :class "track-info"
+                               :orientation "h"
+                               :space-evenly false
 
-                     (revealer :class "extra-buttons"
-                               :transition "slideleft"
-                               :duration revealer-duration
-                               :reveal { player-mouse-over-track-content }
-
+                               (music-player-track-info)
                                (extra-buttons)))
 
                 (music-player-controls)))
@@ -98,8 +94,6 @@
 ;; < --- > x o
 
 (defwidget music-player-track-info []
-           ;; (eventbox :onhover     "eww update player-mouse-over-track-content=true"
-           ;;           :onhoverlost "eww update player-mouse-over-track-content=false"
            (box :class "music-player-track-info"
                 :orientation "v"
                 :hexpand true
@@ -195,14 +189,19 @@
 ;; * album
 
 (defwidget extra-buttons []
-           (box :class "extra-buttons"
-                :orientation "v"
-                :valign "start"
+           (revealer :class "extra-buttons"
+                     :transition "slideright"
+                     :duration revealer-duration
+                     :reveal { player-mouse-over-track-content }
 
-                (eventbox :cursor "pointer"
-                          (button :class "icon info"
-                                  :onclick "eww update player-mouse-show-extra-info=true"
+                     (box :class "extra-buttons"
+                          :orientation "v"
+                          :valign "start"
 
-                                  "circle-info"))))
+                          (eventbox :cursor "pointer"
+                                    (button :class "icon info"
+                                            :onclick "eww update player-mouse-show-extra-info=true"
+
+                                            "circle-info")))))
 
 ;; music-player-info-view ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
