@@ -12,7 +12,8 @@
 
                           (music-player-album-art)
 
-                          (revealer :transition "slideleft"
+                          (revealer :class "rating-bar"
+                                    :transition "slideleft"
                                     :duration revealer-duration
                                     :reveal { music-play-count > 0 || music-skip-count > 0 }
 
@@ -64,7 +65,7 @@
                                  :style "margin: 5px 0;"
                                  :text "star"))
 
-                (progress :class "music-player-rating-bar"
+                (progress :class "rating-bar"
                           :orientation "v"
                           :halign "center"
                           :vexpand true
