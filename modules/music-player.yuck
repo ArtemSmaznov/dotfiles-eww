@@ -21,18 +21,22 @@
 (defwidget music-player-album-art []
            (eventbox :onclick "~/.local/bin/musictl.sh toggle"
                      :cursor "pointer"
+
                      (overlay :class "music-player-album-art-reactive"
+
                               (box :class "music-player-album-art"
                                    :hexpand false
                                    :vexpand false
                                    :style "background-image: url('${ music-album-cover-file == '' ? no-album-cover : music-album-cover-file }');")
+
                               (revealer :transition "crossfade"
                                         :duration revealer-duration
                                         :reveal { music-state != "playing" }
+
                                         (label :class "icon"
                                                :text { music-state == "paused"  ? "pause" :
-                                                                   music-state == "stopped" ? "stop"  :
-                                                                   "" } )))))
+                                                       music-state == "stopped" ? "stop"  :
+                                                                      "" } )))))
 
 (defwidget music-player-rating-bar []
            (revealer :class "rating-bar"
@@ -104,6 +108,7 @@
                      :hexpand true
                      :space-evenly false
                      :spacing 5
+
                      (scroll :hscroll true
                              :vscroll false
                              (label :class "music-player-track-title"
@@ -125,11 +130,14 @@
                      :vexpand true
                      :space-evenly false
                      :spacing 10
+
                      (label :class "icon"
                             :text "record-vinyl")
+
                      (scroll :hscroll true
                              :vscroll false
                              :hexpand true
+
                              (label :hexpand true
                                     :xalign 0
                                     :text music-album)))))
