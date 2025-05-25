@@ -11,37 +11,12 @@
                           :css "* { background: rgba(${music-album-cover-color}, 0.6); }"
 
                           (music-player-album-art)
+                          (music-player-rating-bar)
+                          (music-player-content))))
 
-                          (revealer :class "rating-bar"
-                                    :transition "slideleft"
-                                    :duration revealer-duration
-                                    :reveal { music-play-count > 0 || music-skip-count > 0 }
-
-                                    (music-player-rating-bar))
-
-                               ;; (eventbox :onhover     "eww update player-mouse-over-track-content=true"
-                               ;;           :onhoverlost "eww update player-mouse-over-track-content=false"
-                          (box :class "music-player-content"
-                               :orientation "v"
-                               :space-evenly false
-                               :hexpand true
-
-                               (box :class "track-info"
-                                    :orientation "h"
-                                    :hexpand true
-                                    :vexpand true
-                                    :space-evenly false
-
-                                    (music-player-track-info)
-
-                                    (revealer :class "extra-buttons"
-                                              :transition "slideleft"
-                                              :duration revealer-duration
-                                              :reveal { player-mouse-over-track-content }
-
-                                              (extra-buttons)))
-
-                               (music-player-controls)))))
+;; music-player-main-view ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;
+;; []|[   ]
 
 (defwidget music-player-album-art []
            (eventbox :onclick "~/.local/bin/musictl.sh toggle"
@@ -60,35 +35,71 @@
                                                                    "" } )))))
 
 (defwidget music-player-rating-bar []
-           (box :class "music-player-rating"
+           (revealer :class "rating-bar"
+                     :transition "slideleft"
+                     :duration revealer-duration
+                     :reveal { music-play-count > 0 || music-skip-count > 0 }
+
+
+                     (box :class "music-player-rating"
+                          :orientation "v"
+                          :space-evenly false
+                          :hexpand false
+                          :vexpand true
+
+                          (revealer :transition "slideup"
+                                    :duration revealer-duration
+                                    :reveal { music-rating > 0.9 }
+                                    (label :class "icon yellow"
+                                           :style "margin: 5px 0;"
+                                           :text "star"))
+
+                          (progress :class "rating-bar"
+                                    :orientation "v"
+                                    :halign "center"
+                                    :vexpand true
+                                    :flipped true
+                                    ;; :style "background-size: 1px 126px;"
+                                    :value { music-rating * 100 })
+
+                          (revealer :transition "slidedown"
+                                    :duration revealer-duration
+                                    :reveal { music-rating < 0.1 }
+                                    (label :class "icon red"
+                                           :style "margin: 5px 0;"
+                                           :text "ban")))))
+
+(defwidget music-player-content []
+           (box :class "music-player-content"
                 :orientation "v"
                 :space-evenly false
-                :hexpand false
-                :vexpand true
+                :hexpand true
 
-                (revealer :transition "slideup"
-                          :duration revealer-duration
-                          :reveal { music-rating > 0.9 }
-                          (label :class "icon yellow"
-                                 :style "margin: 5px 0;"
-                                 :text "star"))
+                (box :class "track-info"
+                     :orientation "h"
+                     :hexpand true
+                     :vexpand true
+                     :space-evenly false
 
-                (progress :class "rating-bar"
-                          :orientation "v"
-                          :halign "center"
-                          :vexpand true
-                          :flipped true
-                          ;; :style "background-size: 1px 126px;"
-                          :value { music-rating * 100 })
+                     (music-player-track-info)
 
-                (revealer :transition "slidedown"
-                          :duration revealer-duration
-                          :reveal { music-rating < 0.1 }
-                          (label :class "icon red"
-                                 :style "margin: 5px 0;"
-                                 :text "ban"))))
+                     (revealer :class "extra-buttons"
+                               :transition "slideleft"
+                               :duration revealer-duration
+                               :reveal { player-mouse-over-track-content }
+
+                               (extra-buttons)))
+
+                (music-player-controls)))
+
+;; music-player-content --------------------------------------------------------
+;;
+;; track-info
+;; < --- > x o
 
 (defwidget music-player-track-info []
+           ;; (eventbox :onhover     "eww update player-mouse-over-track-content=true"
+           ;;           :onhoverlost "eww update player-mouse-over-track-content=false"
            (box :class "music-player-track-info"
                 :orientation "v"
                 :hexpand true
@@ -177,6 +188,12 @@
                                          :style "opacity: ${ music-flag-loop != 'none' ? 1 : 0.3 };"
                                          :text { music-flag-loop == 'track' ? "rotate-right" : "repeat" })))))
 
+;; music-player-track-info -----------------------------------------------------
+;;
+;; title
+;;  artist
+;; * album
+
 (defwidget extra-buttons []
            (box :class "extra-buttons"
                 :orientation "v"
@@ -187,3 +204,5 @@
                                   :onclick "eww update player-mouse-show-extra-info=true"
 
                                   "circle-info"))))
+
+;; music-player-info-view ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
