@@ -82,6 +82,14 @@
     .widget.player {
         color: $base06;
 
+        .player-name {
+            color: $base01;
+            background: $base0B;
+            padding: 7px;
+            font-weight: bold;
+            text-shadow: none;
+        }
+
         .track-info {
             .artist {
                 font-weight: bold;

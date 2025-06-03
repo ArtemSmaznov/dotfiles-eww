@@ -1,58 +1,70 @@
-(defwidget
- bar-player []
- (box :class "widget player"
-      :orientation "h"
-      :space-evenly false
-      :spacing { status-bar-icon-spacing * 2 }
-      :halign "center"
+(defwidget bar-player []
+           (box :class "widget player"
+                :orientation "h"
+                :space-evenly false
+                :spacing { status-bar-icon-spacing * 2 }
+                :halign "center"
 
-      (label :class "icon state ${
-                                  player-state == 'stopped' ? 'blue'   :
-                                  player-state == 'playing' ? 'green'  :
-                                  player-state == 'paused'  ? 'yellow' :
-                                                              'red'    }"
-             :text {
-                    player-state == "stopped" ? "stop" :
-                    player-state == "playing" ? "play" :
-                                                "pause" })
+                (bar-player-name)
+                (bar-player-status)
+                (bar-player-track-info)
+                (bar-player-flags)
+                (bar-player-volume)))
 
-      (box :class "track-info"
-           :orientation "h"
-           :space-evenly false
-           :spacing 6
+(defwidget bar-player-name []
+           (label :class "player-name"
+                  :text player-name))
 
-           (revealer
-            :transition "slideright"
-            :duration revealer-duration
-            :reveal { player-artist != "" }
-            (box :orientation "h"
-                 :space-evenly false
-                 :spacing 6
-                 (label :class "artist"
-                        :limit-width 50
-                        :text player-artist)
-                 (label :class "separator"
-                        :text "·")))
+(defwidget bar-player-status []
+           (label :class "icon state ${
+                player-state == 'stopped' ? 'blue'   :
+                player-state == 'playing' ? 'green'  :
+                player-state == 'paused'  ? 'yellow' :
+                                            'red'    }"
+                  :text { player-state == "stopped" ? "stop" :
+                          player-state == "playing" ? "play" :
+                                                      "pause" }))
 
-           (label :class "title"
-                  :limit-width 50
-                  :text player-title))
+(defwidget bar-player-track-info []
+           (box :class "track-info"
+                :orientation "h"
+                :space-evenly false
+                :spacing 6
 
-      (box :class "playback-info"
-           :orientation "h"
-           :space-evenly false
-           :spacing status-bar-icon-spacing
+                (revealer
+                 :transition "slideright"
+                 :duration revealer-duration
+                 :reveal { player-artist != "" }
+                 (box :orientation "h"
+                      :space-evenly false
+                      :spacing 6
+                      (label :class "artist"
+                             :limit-width 50
+                             :text player-artist)
+                      (label :class "separator"
+                             :text "·")))
 
-           (revealer
-            :transition "slideright"
-            :duration revealer-duration
-            :reveal { player-name == "mpd" }
-            (box :orientation "h"
-                 :space-evenly false
-                 :spacing status-bar-icon-spacing
+                (label :class "title"
+                       :limit-width 50
+                       :text player-title)))
 
-                 (label :class "music-flags"
-                        :text music-flags)))
+(defwidget bar-player-flags []
+           (box :class "playback-info"
+                :orientation "h"
+                :space-evenly false
+                :spacing status-bar-icon-spacing
 
+                (revealer
+                 :transition "slideright"
+                 :duration revealer-duration
+                 :reveal { player-name == "mpd" }
+                 (box :orientation "h"
+                      :space-evenly false
+                      :spacing status-bar-icon-spacing
+
+                      (label :class "music-flags"
+                             :text music-flags)))))
+
+(defwidget bar-player-volume []
            (label :class "volume"
-                  :text "${ replace(round(player-volume, 2), '0.', '') }%"))))
+                  :text "${ replace(round(player-volume, 2), '0.', '') }%"))
