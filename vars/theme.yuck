@@ -6,3 +6,6 @@
 (defvar status-bar-widget-spacing  2)
 (defvar status-bar-icon-spacing    10)
 (defvar status-bar-graph-width     40)
+
+;; sounds ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(defvar sound-effects-dir "/usr/share/sounds/oxygen/stereo")
