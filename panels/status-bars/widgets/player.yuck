@@ -17,12 +17,12 @@
 
 (defwidget bar-player-status []
            (label :class "icon state ${
-                player-state == 'stopped' ? 'blue'   :
-                player-state == 'playing' ? 'green'  :
-                player-state == 'paused'  ? 'yellow' :
+                music-state == 'stopped' ? 'blue'   :
+                music-state == 'playing' ? 'green'  :
+                music-state == 'paused'  ? 'yellow' :
                                             'red'    }"
-                  :text { player-state == "stopped" ? "stop" :
-                          player-state == "playing" ? "play" :
+                  :text { music-state == "stopped" ? "stop" :
+                          music-state == "playing" ? "play" :
                                                       "pause" }))
 
 (defwidget bar-player-track-info []
@@ -34,19 +34,19 @@
                 (revealer
                  :transition "slideright"
                  :duration revealer-duration
-                 :reveal { player-artist != "" }
+                 :reveal { music-artist != "" }
                  (box :orientation "h"
                       :space-evenly false
                       :spacing 6
                       (label :class "artist"
                              :limit-width 50
-                             :text player-artist)
+                             :text music-artist)
                       (label :class "separator"
                              :text "·")))
 
                 (label :class "title"
                        :limit-width 50
-                       :text player-title)))
+                       :text music-title)))
 
 (defwidget bar-player-flags []
            (box :class "playback-info"
@@ -66,5 +66,13 @@
                              :text music-flags)))))
 
 (defwidget bar-player-volume []
-           (label :class "volume"
-                  :text "${ replace(round(player-volume, 2), '0.', '') }%"))
+           (box :class "volume"
+                :orientation "h"
+                :space-evenly false
+                :spacing 6
+
+                (label :class "icon"
+                       :text { music-volume ==   0 ? "volume-off"  :
+                               music-volume <= 0.5 ? "volume-low"  :
+                                                     "volume-high" })
+                (label :text "${ replace(round(music-volume, 2), '0.', '') }%")))

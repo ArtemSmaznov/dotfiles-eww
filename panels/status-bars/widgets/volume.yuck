@@ -6,5 +6,5 @@
               :icon {
                      mute   == "on" ? "volume-xmark" :
                      volume ==  0   ? "volume-off"   :
-                     volume <= 40   ? "volume-low"   :
+                     volume <= 50   ? "volume-low"   :
                                       "volume-high"  })))

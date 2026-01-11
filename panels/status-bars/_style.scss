@@ -3,8 +3,12 @@
     font-family: $text-font;
     font-size: 12pt;
     text-shadow: 1 1 $base00;
-    .gravity.left  { padding-left:  7px }
-    .gravity.right { padding-right: 7px }
+    .gravity.left {
+        padding-left: 7px;
+    }
+    .gravity.right {
+        padding-right: 7px;
+    }
 
     .widget.colored {
         box-shadow: inset 0 (-$accent-line-width) $base04;
@@ -13,13 +17,27 @@
 
     // status widgets coloring
     //----------------------------------------------------------------------------
-    .widget.colored.volume      { box-shadow: inset 0 (-$accent-line-width) $base08 }
-    .widget.colored.cpu-thermal { box-shadow: inset 0 (-$accent-line-width) $base09 }
-    .widget.colored.cpu         { box-shadow: inset 0 (-$accent-line-width) $base0A }
-    .widget.colored.ram         { box-shadow: inset 0 (-$accent-line-width) $base0B }
-    .widget.colored.network     { box-shadow: inset 0 (-$accent-line-width) $base0C }
-    .widget.colored.updates     { box-shadow: inset 0 (-$accent-line-width) $base0D }
-    .widget.colored.battery     { box-shadow: inset 0 (-$accent-line-width) $base0E }
+    .widget.colored.volume {
+        box-shadow: inset 0 (-$accent-line-width) $base08;
+    }
+    .widget.colored.cpu-thermal {
+        box-shadow: inset 0 (-$accent-line-width) $base09;
+    }
+    .widget.colored.cpu {
+        box-shadow: inset 0 (-$accent-line-width) $base0A;
+    }
+    .widget.colored.ram {
+        box-shadow: inset 0 (-$accent-line-width) $base0B;
+    }
+    .widget.colored.network {
+        box-shadow: inset 0 (-$accent-line-width) $base0C;
+    }
+    .widget.colored.updates {
+        box-shadow: inset 0 (-$accent-line-width) $base0D;
+    }
+    .widget.colored.battery {
+        box-shadow: inset 0 (-$accent-line-width) $base0E;
+    }
 
     // widgets
     //----------------------------------------------------------------------------
@@ -100,7 +118,7 @@
         }
 
         .playback-info {
-            color: $base04;
+            color: $base03;
         }
     }
 
@@ -156,7 +174,13 @@
     .indicator.dot {
         margin-right: 5px;
     }
-    .indicator.dot.screen { color: $base09; }
-    .indicator.dot.mic    { color: $base0B; }
-    .indicator.dot.idle   { color: $base0E; }
+    .indicator.dot.screen {
+        color: $base09;
+    }
+    .indicator.dot.mic {
+        color: $base0B;
+    }
+    .indicator.dot.idle {
+        color: $base0E;
+    }
 }
