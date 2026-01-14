@@ -1,5 +1,5 @@
 (defpoll autostart-enabled-apps
-         :interval "1s"
+         :interval "60s"
          :initial "[]"
          "~/projects/git/arts/exile/target/release/exile autostart list")
 
