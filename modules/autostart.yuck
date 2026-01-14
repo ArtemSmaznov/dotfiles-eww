@@ -1,7 +1,7 @@
 (defpoll autostart-enabled-apps
          :interval "1s"
          :initial "[]"
-         "~/projects/playground/rust/exile/target/release/exile autostart list")
+         "~/projects/git/arts/exile/target/release/exile autostart list")
 
 (defwidget autostart []
            (box :class "glass-module autostart-list"

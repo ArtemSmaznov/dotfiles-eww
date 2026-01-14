@@ -1,7 +1,7 @@
 (defvar wm-keybinds-map "[]")
 (defvar wm-keychord-parents "")
 
-(defvar exile "~/projects/playground/rust/exile/target/release/exile")
+(defvar exile "~/projects/git/arts/exile/target/release/exile")
 
 (defpoll listen_workspaces
          :initial "[]"
