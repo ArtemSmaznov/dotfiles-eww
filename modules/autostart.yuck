@@ -1,0 +1,28 @@
+(defpoll autostart-enabled-apps
+         :interval "1s"
+         :initial "[]"
+         "~/projects/playground/rust/exile/target/release/exile autostart list")
+
+(defwidget autostart []
+           (box :class "glass-module autostart-list"
+                :orientation "v"
+                :halign "center"
+                :space-evenly false
+                :spacing 15
+
+                (for entry in autostart-enabled-apps
+                     (box :class "entry toggle"
+                          :orientation "h"
+                          :space-evenly false
+
+                          (label :halign "start"
+                                 :hexpand true
+                                 :show-truncated false
+                                 :unindent true
+                                 :text { entry.name } )
+
+                          (eventbox :cursor "pointer"
+                                    (checkbox :halign "end"
+                                              :checked { entry.launch_on_startup }
+                                              :onchecked "${ exile } autostart enable ${ entry.name }"
+                                              :onunchecked "${ exile } autostart disable ${ entry.name }" ))))))

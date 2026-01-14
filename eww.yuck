@@ -39,6 +39,7 @@
 (include "modules/system-graphs.yuck")
 (include "modules/updates-list.yuck")
 (include "modules/weather.yuck")
+(include "modules/autostart.yuck")
 
 ;; module templates
 (include "modules/templates/circular-progress.yuck")

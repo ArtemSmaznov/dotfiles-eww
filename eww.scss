@@ -1,23 +1,24 @@
-* { all: unset }
+* {
+    all: unset;
+}
 
 @import "themes/base16.scss";
 
 // global vars -----------------------------------------------------------------
-$text-font: "Hack Nerd Font",
-            "Source Han Sans JP",
-            "Font Awesome 7 Free Solid",
-            "FontAwesome",
-            "Roboto";
+$text-font:
+    "Hack Nerd Font", "Source Han Sans JP", "Font Awesome 7 Free Solid",
+    "FontAwesome", "Roboto";
 $icon-font: "Font Awesome 7 Free Solid";
 
 $accent-color: $base0A;
 $accent-line-width: 2px;
 $indicator-line-width: 3px;
 
-$toggle-width: 30px;
-$toggle-gap: 3px;
+$checkbox-width: 30px;
+$checkbox-gap: 3px;
+$checkgox-margin: 20pt;
 
-$transition-duration: .35s;
+$transition-duration: 0.35s;
 
 // global styles ===============================================================
 .main-bar,
@@ -27,34 +28,70 @@ $transition-duration: .35s;
 }
 
 .icon,
-.workspaces button { font: 12pt $icon-font }
+.workspaces button {
+    font: 12pt $icon-font;
+}
 
-.black                  { color: $base00; }
-.gray                   { color: $base04; }
-.white                  { color: $base07; }
-.red,    .state-urgent  { color: $base08; }
-.orange                 { color: $base09; }
-.yellow, .state-warning { color: $base0A; }
-.green,  .state-good    { color: $base0B; }
-.cyan                   { color: $base0C; }
-.blue                   { color: $base0D; }
-.purple                 { color: $base0E; }
-.special                { color: $base0F; }
+.black {
+    color: $base00;
+}
+.gray {
+    color: $base04;
+}
+.white {
+    color: $base07;
+}
+.red,
+.state-urgent {
+    color: $base08;
+}
+.orange {
+    color: $base09;
+}
+.yellow,
+.state-warning {
+    color: $base0A;
+}
+.green,
+.state-good {
+    color: $base0B;
+}
+.cyan {
+    color: $base0C;
+}
+.blue {
+    color: $base0D;
+}
+.purple {
+    color: $base0E;
+}
+.special {
+    color: $base0F;
+}
 
-.shutdown    { color: $base08; }
-.reboot      { color: $base0A; }
-.suspend     { color: $base0D; }
-.lock-screen { color: $base0C; }
-.log-out     { color: $base0B; }
+.shutdown {
+    color: $base08;
+}
+.reboot {
+    color: $base0A;
+}
+.suspend {
+    color: $base0D;
+}
+.lock-screen {
+    color: $base0C;
+}
+.log-out {
+    color: $base0B;
+}
 
 .shutdown,
 .reboot,
 .suspend,
 .lock-screen,
 .log-out {
-  font-size: 14pt;
+    font-size: 14pt;
 }
-
 
 // button ----------------------------------------------------------------------
 button.string {
@@ -83,20 +120,21 @@ button:hover {
 checkbutton {
     background-color: rgba($base04, 0.5);
     border-radius: 1.5rem;
+    margin-left: $checkbox-margin;
     transition-duration: $transition-duration;
     check {
         color: transparent;
         background-color: rgba($base02, 0.8);
         padding: 5px;
         border-radius: 1.5rem;
-        margin: $toggle-gap $toggle-width $toggle-gap $toggle-gap;
+        margin: $checkbox-gap $checkbox-width $checkbox-gap $checkbox-gap;
         transition-duration: $transition-duration;
     }
 }
 
 checkbutton:indeterminate {
     check {
-        margin: $toggle-gap $toggle-width/2 $toggle-gap $toggle-width/2;
+        margin: $checkbox-gap $checkbox-width/2 $checkbox-gap $checkbox-width/2;
     }
 }
 
@@ -104,7 +142,7 @@ checkbutton:checked {
     background-color: rgba($accent-color, 0.8);
     check {
         background-color: shade($accent-color, 0.5);
-        margin: $toggle-gap $toggle-gap $toggle-gap $toggle-width;
+        margin: $checkbox-gap $checkbox-gap $checkbox-gap $checkbox-width;
     }
 }
 
