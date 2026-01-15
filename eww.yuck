@@ -15,21 +15,30 @@
 (include "vars/weather.yuck")
 (include "vars/wm.yuck")
 
+;; system
+(include "panels/confirmation-window.yuck")
+(include "panels/indicators.yuck")
+(include "panels/powermenu.yuck")
+(include "panels/which-key.yuck")
+
 ;; panels: status bars
 ;;------------------------------------------------------------------------------
 (include "panels/status-bars/primary.yuck")
 (include "panels/status-bars/secondary.yuck")
 (include "panels/status-bars/widgets.yuck")
 
-;; panels: other
-(include "panels/calendar.yuck")
-(include "panels/confirmation-window.yuck")
-(include "panels/indicators.yuck")
-(include "panels/playground.yuck")
-(include "panels/monitor.yuck")
-(include "panels/powermenu.yuck")
+;; panels: config
 (include "panels/quick-settings.yuck")
-(include "panels/which-key.yuck")
+(include "modules/autostart.yuck")
+
+;; panels: dashboards
+(include "panels/monitor.yuck")
+
+;; panels: office
+(include "panels/calendar.yuck")
+
+;; panels: misc
+(include "panels/playground.yuck")
 
 ;; modules
 ;;------------------------------------------------------------------------------
@@ -39,7 +48,6 @@
 (include "modules/system-graphs.yuck")
 (include "modules/updates-list.yuck")
 (include "modules/weather.yuck")
-(include "modules/autostart.yuck")
 
 ;; module templates
 (include "modules/templates/circular-progress.yuck")
