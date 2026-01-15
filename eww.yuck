@@ -29,7 +29,7 @@
 
 ;; panels: config
 (include "panels/quick-settings.yuck")
-(include "modules/autostart.yuck")
+(include "panels/autostart.yuck")
 
 ;; panels: dashboards
 (include "panels/monitor.yuck")

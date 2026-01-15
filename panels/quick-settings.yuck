@@ -23,6 +23,4 @@
       (quick-toggles-submenus)
       (charge-levels)
       (music-player)
-      (weather)
-      (autostart)
-      ))
+      (weather)))

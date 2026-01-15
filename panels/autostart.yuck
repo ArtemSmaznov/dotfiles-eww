@@ -1,3 +1,18 @@
+(defwindow autostart
+           :namespace "config"
+           :monitor '["<primary>", "DP-1", 0]'
+           :stacking "fg"
+           :exclusive true
+
+           :geometry (geometry
+                      :anchor "center left"
+                      :height "90%"
+                      :x "40px"
+                      :y "40px")
+
+           (autostart))
+
+
 (defpoll autostart-enabled-apps
          :interval "60s"
          :initial "[]"
