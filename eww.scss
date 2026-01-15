@@ -116,6 +116,11 @@ button:hover {
     transition-duration: $transition-duration;
 }
 
+.x-button {
+    background-color: rgba($base03, 0.5);
+    border-radius: 1.5rem;
+}
+
 // checkbox --------------------------------------------------------------------
 checkbutton {
     background-color: rgba($base04, 0.5);
@@ -144,6 +149,22 @@ checkbutton:checked {
         background-color: shade($accent-color, 0.5);
         margin: $checkbox-gap $checkbox-gap $checkbox-gap $checkbox-width;
     }
+}
+
+// templates -------------------------------------------------------------------
+
+.config.heading {
+    font-family: $text-font;
+    font-size: 22pt;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba($base05, 0.5);
+}
+
+.entry.toggle {
+    font-family: $text-font;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba($base03, 0.5);
 }
 
 // imports ---------------------------------------------------------------------

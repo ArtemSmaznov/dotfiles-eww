@@ -51,8 +51,10 @@
 
 ;; module templates
 (include "modules/templates/circular-progress.yuck")
+(include "modules/templates/config-heading.yuck")
 (include "modules/templates/graphs.yuck")
 (include "modules/templates/icon.yuck")
 (include "modules/templates/quick-toggle-submenu.yuck")
 (include "modules/templates/quick-toggle.yuck")
 (include "modules/templates/slider.yuck")
+(include "modules/templates/x-button.yuck")

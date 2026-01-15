@@ -1,0 +1,11 @@
+(defwidget config-heading [?title ?onclose]
+           (box :class "config heading"
+                :orientation "h"
+                :space-evenly false
+                :spacing 15
+
+                (label :class "title"
+                       :hexpand true
+                       :text title)
+
+                (x-button :onclick onclose)))

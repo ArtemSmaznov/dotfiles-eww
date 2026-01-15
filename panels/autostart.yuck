@@ -21,9 +21,10 @@
 (defwidget autostart []
            (box :class "glass-module autostart-list"
                 :orientation "v"
-                :halign "center"
                 :space-evenly false
-                :spacing 15
+
+                (config-heading :title "Autostart"
+                                :onclose "eww close autostart")
 
                 (for entry in autostart-enabled-apps
                      (box :class "entry toggle"
