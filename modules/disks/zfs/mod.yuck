@@ -1,0 +1,49 @@
+(defpoll zpools
+         :initial "[]"
+         :interval "5m"
+         "~/.local/bin/zfsctl.sh get pools")
+
+
+(defwidget zfs-usage []
+           (box :class "glass-module disk zfs usage"
+                :orientation "v"
+                :space-evenly false
+                :spacing 50
+
+                (for zpool in zpools
+                     (zfs-pool :zpool zpool))))
+
+
+(defwidget zfs-pool [zpool]
+           (box :class "zpool"
+                :orientation "v"
+
+                (label :text "${zpool.name} ${round(zpool.size / 1024 / 1024 / 1024 / 1024, 2)} TB")
+
+                (zfs-dataset :name "TOTAL"
+                             :used { zpool.used }
+                             :size { zpool.size })
+
+                (for dataset in { zpool.datasets }
+                     (zfs-dataset :name { dataset.name }
+                                  :used { dataset.used }
+                                  :size { zpool.size }))))
+
+
+(defwidget zfs-dataset [name used size]
+           (box :class "mountpoint"
+                :orientation "h"
+                :space-evenly true
+                :spacing 20
+
+                (label :halign "end"
+                       :text name)
+
+                (progress :class "metric"
+                          :orientation "h"
+                          :valign "fill"
+                          :vexpand true
+                          :value { used / size * 100 })
+
+                (label :halign "end"
+                       :text "${ round(used / 1024 / 1024 / 1024 , 2) } GB")))

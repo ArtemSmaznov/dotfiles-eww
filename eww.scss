@@ -151,6 +151,25 @@ checkbutton:checked {
     }
 }
 
+// progress bar ----------------------------------------------------------------
+progressbar {
+    background-color: transparent;
+    transition-duration: 3s;
+
+    trough {
+        background-color: rgba($base03, 0.5);
+
+        progress {
+            background-color: rgba($base06, 0.8);
+        }
+    }
+
+    trough,
+    trough progress {
+        min-height: 1em;
+    }
+}
+
 // templates -------------------------------------------------------------------
 
 .config.heading {

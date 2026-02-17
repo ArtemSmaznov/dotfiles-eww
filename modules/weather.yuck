@@ -3,6 +3,7 @@
  (revealer :transition "slidedown"
            :duration revealer-duration
            :reveal { weather-current != "" }
+           :hexpand true
            (box :class "quick-setting weather"
                 :orientation "h"
                 :halign "start"

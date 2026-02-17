@@ -58,3 +58,6 @@
 (include "modules/templates/quick-toggle.yuck")
 (include "modules/templates/slider.yuck")
 (include "modules/templates/x-button.yuck")
+
+;; modules
+(include "modules/disks/mod.yuck")
