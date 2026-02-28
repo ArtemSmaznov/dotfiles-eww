@@ -1,3 +1,4 @@
+(defvar zfs-datasets-expand false)
 (defpoll zpools
          :initial "[]"
          :interval "5m"
@@ -17,17 +18,28 @@
 (defwidget zfs-pool [zpool]
            (box :class "zpool"
                 :orientation "v"
+                :space-evenly false
 
                 (label :text "${zpool.name} ${round(zpool.size / 1024 / 1024 / 1024 / 1024, 2)} TB")
 
-                (zfs-dataset :name "TOTAL"
-                             :used { zpool.used }
-                             :size { zpool.size })
+                (eventbox :cursor "pointer"
+                          :onclick "eww update zfs-datasets-expand=${ !zfs-datasets-expand }"
 
-                (for dataset in { zpool.datasets }
-                     (zfs-dataset :name { dataset.name }
-                                  :used { dataset.used }
-                                  :size { zpool.size }))))
+                          (zfs-dataset :name "TOTAL"
+                                       :used { zpool.used }
+                                       :size { zpool.size }))
+
+                (revealer :transition "slidedown"
+                          :duration revealer-duration
+                          :reveal zfs-datasets-expand
+
+                          (box :class "datasets"
+                               :orientation "v"
+
+                               (for dataset in { zpool.datasets }
+                                    (zfs-dataset :name { dataset.name }
+                                                 :used { dataset.used }
+                                                 :size { zpool.size }))))))
 
 
 (defwidget zfs-dataset [name used size]
