@@ -6,7 +6,7 @@
 
       (for workspace in listen_workspaces
            (eventbox :cursor "pointer"
-                     :onclick "hyprctl dispatch workspace ${workspace.id}"
+                     :onclick "hyprctl dispatch 'hl.dsp.focus({workspace = ${workspace.id}})'"
                      (box :class "workspace ${
                                                 workspace.windows > 0 ? "occupied" : "empty"
                                              } ${
