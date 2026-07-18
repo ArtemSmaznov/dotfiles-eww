@@ -1,38 +1,60 @@
 (defvar system-graph-time-range "5m")
 
+(include "modules/system-graphs/full.yuck")
+
 (defwidget system-graphs []
            (box :class "panel-monitor"
                 :orientation "v"
                 :space-evenly false
                 :spacing 10
 
-                (time-range-selector)
+                ;; NOTE print keys for debugging purposes
+                ;; (label :text { jq(EWW_RAM, "keys | join(\"\\n\")") })
+
+                (auto-refresh-interval)
 
                 (box :orientation "h"
                      :spacing 10
                      (system-graph-full :icon "microchip"
+                                        :text "CPU"
                                         :color "state-warning"
-                                        :metric { EWW_CPU.avg })
+                                        :primary_metric { EWW_CPU.avg }
+                                        :primary_unit "%"
+                                        :secondary_metric { round(EWW_TEMPS.K10TEMP_TCTL, 1) }
+                                        :secondary_unit "°C"
+                                        :misc_metric { arraylength(EWW_CPU.cores) }
+                                        :misc_unit "cores")
 
-                     (system-graph-full :icon "microchip "
-                                        :color "state-good"
-                                        :metric { round(EWW_TEMPS.K10TEMP_TCTL, 0) }))
+                     (system-graph-full :icon "microchip"
+                                        :text "GPU"
+                                        :color "state-warning"
+                                        :primary_unit "%"
+                                        :secondary_metric { round(EWW_TEMPS.AMDGPU_EDGE, 1) }
+                                        :secondary_unit "°C"))
 
                 (box :orientation "h"
                      :spacing 10
                      (system-graph-full :icon "memory"
+                                        :text "Memory"
                                         :color "state-warning"
-                                        :metric { EWW_RAM.used_mem_perc })
+                                        :primary_metric { EWW_RAM.used_mem_perc }
+                                        :primary_unit "%"
+                                        :secondary_metric { formatbytes(EWW_RAM.total_mem, false, "si") }
+                                        :misc_metric { formatbytes(ceil(EWW_RAM.used_mem), false, "si") })
 
-                     (system-graph-full :icon "video "
-                                        :color "state-good"
-                                        :metric { round(EWW_TEMPS.AMDGPU_EDGE, 0) }))))
+                     (system-graph-full :icon "database"
+                                        :text "Swap"
+                                        :color "state-warning"
+                                        :primary_metric { EWW_RAM.used_swap_perc }
+                                        :primary_unit "%"
+                                        :secondary_metric { formatbytes(EWW_RAM.total_swap, false, "si") }
+                                        :misc_metric { formatbytes(ceil(EWW_RAM.used_swap), false, "si") }))))
 
 
-(defwidget time-range-selector []
+(defwidget auto-refresh-interval []
            (box :class "glass-module system-graph"
                 :orientation "h"
                 ;; :spacing 10
 
-                "Time Range: "
+                "Auto refresh"
                 system-graph-time-range ))

@@ -1,0 +1,49 @@
+(defwidget system-graph-full [
+                              ?icon
+                               ?text
+                                ?primary_metric
+                                 ?primary_unit
+                                  ?secondary_metric
+                                   ?secondary_unit
+                                    ?misc_metric
+                                     ?misc_unit
+                                      ?color
+                                       ?min
+                                        ?max
+                                         ]
+
+           (box :class "glass-module graph"
+                :orientation "v"
+                :width 250
+                :space-evenly false
+                :spacing 10
+
+                (box :class "header"
+                     :orientation "h"
+                     :space-evenly false
+                     :spacing 10
+
+                     (icon :icon icon)
+                     (label :class "title"
+                            :text text)
+                     (label :halign "end"
+                            :hexpand true
+                            :text "${ round(primary_metric, 0) }%"))
+
+                (graph :class "body full ${ color }"
+                       :vexpand true
+                       :height 70
+                       :min min
+                       :max max
+                       :dynamic true
+                       :thickness 2
+                       :line-style "round"
+                       :time-range system-graph-time-range
+                       :value primary_metric )
+
+                (box :class "footer"
+                     :orientation "h"
+                     (label :halign "start"
+                            :text "${misc_metric} ${misc_unit}")
+                     (label :halign "end"
+                            :text  "${secondary_metric} ${secondary_unit}"))))
