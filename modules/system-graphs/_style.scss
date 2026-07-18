@@ -1,0 +1,24 @@
+.graph {
+    .header {
+        font-size: 14pt;
+        .icon {
+            color: $accent-color;
+            font-size: 16pt;
+        }
+        .title {
+            color: $base07;
+        }
+        .value {
+            color: $base0B;
+            font-weight: bold;
+        }
+    }
+    graph {
+        color: $base07;
+        background-color: rgba($base07, 0.1);
+    }
+    .footer {
+        color: $base04;
+        font-size: 12pt;
+    }
+}

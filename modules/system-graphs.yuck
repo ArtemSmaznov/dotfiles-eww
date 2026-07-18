@@ -17,7 +17,6 @@
                      :spacing 10
                      (system-graph-full :icon "microchip"
                                         :text "CPU"
-                                        :color "state-warning"
                                         :primary_metric { EWW_CPU.avg }
                                         :primary_unit "%"
                                         :secondary_metric { round(EWW_TEMPS.K10TEMP_TCTL, 1) }
@@ -27,7 +26,6 @@
 
                      (system-graph-full :icon "microchip"
                                         :text "GPU"
-                                        :color "state-warning"
                                         :primary_unit "%"
                                         :secondary_metric { round(EWW_TEMPS.AMDGPU_EDGE, 1) }
                                         :secondary_unit "°C"))
@@ -36,7 +34,6 @@
                      :spacing 10
                      (system-graph-full :icon "memory"
                                         :text "Memory"
-                                        :color "state-warning"
                                         :primary_metric { EWW_RAM.used_mem_perc }
                                         :primary_unit "%"
                                         :secondary_metric { formatbytes(EWW_RAM.total_mem, false, "si") }
@@ -44,7 +41,6 @@
 
                      (system-graph-full :icon "database"
                                         :text "Swap"
-                                        :color "state-warning"
                                         :primary_metric { EWW_RAM.used_swap_perc }
                                         :primary_unit "%"
                                         :secondary_metric { formatbytes(EWW_RAM.total_swap, false, "si") }

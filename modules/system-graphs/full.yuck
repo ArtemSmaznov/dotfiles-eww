@@ -26,11 +26,12 @@
                      (icon :icon icon)
                      (label :class "title"
                             :text text)
-                     (label :halign "end"
+                     (label :class "value"
+                            :halign "end"
                             :hexpand true
                             :text "${ round(primary_metric, 0) }%"))
 
-                (graph :class "body full ${ color }"
+                (graph :class "body full"
                        :vexpand true
                        :height 70
                        :min min
