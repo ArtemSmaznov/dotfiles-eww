@@ -57,3 +57,8 @@
          :interval "15m"
          "cat /var/cache/pacman/updates")
 
+;; monitoring ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(defpoll kernel-status
+         :interval "10m"
+         "~/.local/bin/kernel-status.sh")

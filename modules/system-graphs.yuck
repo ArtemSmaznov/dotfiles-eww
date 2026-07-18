@@ -13,7 +13,8 @@
 
                 (system-graph-full :title hostname
                                    :icon "info"
-                                   :value uptime
+                                   :value kernel-status
+                                   :buttom_right uptime
                                    :buttom_left kernel)
 
                 (box :orientation "h"
