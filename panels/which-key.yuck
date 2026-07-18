@@ -1,78 +1,75 @@
-(defwindow
- which-key
- :namespace "which-key"
- :monitor '["<primary>", "DP-1", 0]'
- :stacking "overlay"
- :exclusive false
+(defwindow which-key
+           :namespace "which-key"
+           :monitor '["<primary>", "DP-1", 0]'
+           :stacking "overlay"
+           :exclusive false
 
- :geometry (geometry
-            :anchor "bottom center"
-            :x "25px"
-            :y "25px")
+           :geometry (geometry
+                      :anchor "bottom center"
+                      :x "25px"
+                      :y "25px")
 
- (box :class "panel glass-module which-key"
-      :orientation "v"
-      :halign "center"
-      :space-evenly false
-      :spacing 18
-      :active false
+           (box :class "panel glass-module which-key"
+                :orientation "v"
+                :halign "center"
+                :space-evenly false
+                :spacing 18
+                :active false
 
-      (key-map)
-      (key-chord)))
+                (key-map)
+                (key-chord)))
 
 
-(defwidget
- key-chord []
- (box :class "key-chord"
-      :orientation "h"
-      :space-evenly false
-      :spacing 15
+(defwidget key-chord []
+           (box :class "key-chord"
+                :orientation "h"
+                :space-evenly false
+                :spacing 15
 
-      (revealer :transition "slideleft"
-                :duration revealer-duration
-                :reveal { wm-keychord-parents != "" }
+                (revealer :transition "slideleft"
+                          :duration revealer-duration
+                          :reveal { wm-keychord-parents != "" }
 
-                (label :class "parents"
+                          (label :class "parents"
+                                 :xalign 0
+                                 :text wm-keychord-parents ))
+
+                (label :class "current"
                        :xalign 0
-                       :text wm-keychord-parents ))
-
-      (label :class "current"
-             :xalign 0
-             :text { wm-keybinds-map[0].submap })))
+                       :text { wm-keybinds-map[0].submap })))
 
 
-(defwidget
- key-map []
- (box :class "key-map"
-      :orientation "h"
-      :space-evenly false
-      :spacing 18
+(defwidget key-map []
+           (box :class "key-map"
+                :orientation "h"
+                :space-evenly false
+                :spacing 18
 
-      (box :class "keys"
-           :orientation "v"
-           :space-evenly true
-           :spacing 6
-           (for bind in wm-keybinds-map
-                (label :xalign 1
-                       :show-truncated false
-                       :unindent true
-                       :text { bind.modmask == "" ? bind.key : "${bind.modmask}-${bind.key}" } )))
+                (box :class "keys"
+                     :orientation "v"
+                     :space-evenly true
+                     :spacing 6
+                     (for bind in wm-keybinds-map
+                          (label :xalign 1
+                                 :show-truncated false
+                                 :unindent true
+                                 :text { bind.modmask == "" ? bind.key : "${bind.modmask}-${bind.key}" } )))
 
-      (box :class "separators"
-           :orientation "v"
-           :space-evenly true
-           (for bind in wm-keybinds-map
-                (label :xalign 0.5
-                       :show-truncated false
-                       :text "➙" )))
+                (box :class "separators"
+                     :orientation "v"
+                     :space-evenly true
+                     (for bind in wm-keybinds-map
+                          (label :xalign 0.5
+                                 :show-truncated false
+                                 :text "➙" )))
 
-      (box :orientation "v"
-           :space-evenly true
-           (for bind in wm-keybinds-map
-                (label :class { bind.description =~ "^\\+" ? "sub-chords" : "descriptions" }
-                       :show-truncated false
-                       :xalign 0
-                       :text { bind.description } ))))
- )
+                (box :orientation "v"
+                     :space-evenly true
+                     (for bind in wm-keybinds-map
+                          (label :class { bind.description =~ "^\\+" ? "sub-chords" : "descriptions" }
+                                 :show-truncated false
+                                 :xalign 0
+                                 :text { bind.description } ))))
+           )
 
 

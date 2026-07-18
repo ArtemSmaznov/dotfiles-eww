@@ -1,51 +1,50 @@
-(defwindow
- second-bar
- ;; :namespace "status-bar"
- :monitor '["DP-3", 1]'
- :stacking "bottom"
- :exclusive true
+(defwindow second-bar
+           ;; :namespace "status-bar"
+           :monitor '["DP-3", 1]'
+           :stacking "bottom"
+           :exclusive true
 
- :geometry (geometry
-            :anchor "top center"
-            :x "0%"
-            :y "0%"
-            :width "100%"
-            :height "35px")
+           :geometry (geometry
+                      :anchor "top center"
+                      :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "35px")
 
 
- (centerbox :class "bar"
-            :orientation "h"
+           (centerbox :class "bar"
+                      :orientation "h"
 
-            (box :class "gravity left"
-                 :halign "start"
-                 :orientation "h"
-                 :space-evenly false
-                 :spacing 5
-                 (bar-start-logo)
-                 (bar-separator)
-                 (bar-time)
-                 (bar-separator)
-                 (bar-workspaces)
-                 (bar-key-chord))
+                      (box :class "gravity left"
+                           :halign "start"
+                           :orientation "h"
+                           :space-evenly false
+                           :spacing 5
+                           (bar-start-logo)
+                           (bar-separator)
+                           (bar-time)
+                           (bar-separator)
+                           (bar-workspaces)
+                           (bar-key-chord))
 
-            (box :class "gravity center"
-                 :halign "center"
-                 :orientation "h"
-                 :space-evenly false
-                 :spacing 5
-                 (bar-player))
+                      (box :class "gravity center"
+                           :halign "center"
+                           :orientation "h"
+                           :space-evenly false
+                           :spacing 5
+                           (bar-player))
 
-            (box :class "gravity right"
-                 :halign "end"
-                 :orientation "h"
-                 :space-evenly false
-                 :spacing 5
-                 (bar-language)
-                 (bar-separator)
-                 (bar-cpu-thermal)
-                 (bar-volume)
-                 (bar-separator)
-                 (bar-date)
-                 (bar-separator)
-                 (bar-uptime)
-                 (bar-indicators))))
+                      (box :class "gravity right"
+                           :halign "end"
+                           :orientation "h"
+                           :space-evenly false
+                           :spacing 5
+                           (bar-language)
+                           (bar-separator)
+                           (bar-cpu-thermal)
+                           (bar-volume)
+                           (bar-separator)
+                           (bar-date)
+                           (bar-separator)
+                           (bar-uptime)
+                           (bar-indicators))))

@@ -1,95 +1,93 @@
-(defwidget
- quick-toggles []
- (revealer :transition "slidedown"
-           :duration revealer-duration
-           :reveal { ! quick-setting-submenu }
-           (box :class "quick-setting quick-toggles"
-                :orientation "v"
-                :space-evenly false
-                :spacing 10
+(defwidget quick-toggles []
+           (revealer :transition "slidedown"
+                     :duration revealer-duration
+                     :reveal { ! quick-setting-submenu }
+                     (box :class "quick-setting quick-toggles"
+                          :orientation "v"
+                          :space-evenly false
+                          :spacing 10
 
-                (box :class "network"
-                     :orientation "h"
-                     :space-evenly true
-                     :spacing 10
+                          (box :class "network"
+                               :orientation "h"
+                               :space-evenly true
+                               :spacing 10
 
-                     (quick-toggle :tooltip "Ethernet"
-                                   :icon "ethernet"
-                                   :state eth-status
-                                   :action "~/.local/bin/netctl.sh toggle ethernet")
+                               (quick-toggle :tooltip "Ethernet"
+                                             :icon "ethernet"
+                                             :state eth-status
+                                             :action "~/.local/bin/netctl.sh toggle ethernet")
 
-                     (quick-toggle :tooltip "Wi-Fi"
-                                   :icon "wifi"
-                                   :state wifi-status
-                                   :action "~/.local/bin/netctl.sh toggle wifi"
-                                   :label { wifi-status > 0 ? wifi-connection : "" } )
+                               (quick-toggle :tooltip "Wi-Fi"
+                                             :icon "wifi"
+                                             :state wifi-status
+                                             :action "~/.local/bin/netctl.sh toggle wifi"
+                                             :label { wifi-status > 0 ? wifi-connection : "" } )
 
-                     (quick-toggle :tooltip "VPN"
-                                   :icon "arrow-down-up-lock"
-                                   :state vpn-status
-                                   :action "~/.local/bin/vpnctl.sh toggle"
-                                   :label { vpn-status > 0 ? vpn-region : "" } ))
+                               (quick-toggle :tooltip "VPN"
+                                             :icon "arrow-down-up-lock"
+                                             :state vpn-status
+                                             :action "~/.local/bin/vpnctl.sh toggle"
+                                             :label { vpn-status > 0 ? vpn-region : "" } ))
 
-                (box :class "other"
-                     :orientation "h"
-                     :space-evenly true
-                     :spacing 10
+                          (box :class "other"
+                               :orientation "h"
+                               :space-evenly true
+                               :spacing 10
 
-                     (quick-toggle :tooltip "Headphones"
-                                   :icon "headphones"
-                                   :state { bt-headphones-blocked == 0 ? 1 : 0 }
-                                   :action "~/.local/bin/toggle-headphones.sh")
+                               (quick-toggle :tooltip "Headphones"
+                                             :icon "headphones"
+                                             :state { bt-headphones-blocked == 0 ? 1 : 0 }
+                                             :action "~/.local/bin/toggle-headphones.sh")
 
-                     (quick-toggle :tooltip "Speakers"
-                                   :icon "volume-high"
-                                   :state { bt-speakers-blocked == 0 ? 1 : 0 }
-                                   :action "~/.local/bin/toggle-speakers.sh")
+                               (quick-toggle :tooltip "Speakers"
+                                             :icon "volume-high"
+                                             :state { bt-speakers-blocked == 0 ? 1 : 0 }
+                                             :action "~/.local/bin/toggle-speakers.sh")
 
-                     (quick-toggle :tooltip "Bluetooth"
-                                   :icon ""
-                                   :state bt-status
-                                   :action "~/.local/bin/btctl.sh toggle"
-                                   :label bt-devices-connected
-                                   :onrightclick "eww update quick-setting-submenu=true" )))))
+                               (quick-toggle :tooltip "Bluetooth"
+                                             :icon ""
+                                             :state bt-status
+                                             :action "~/.local/bin/btctl.sh toggle"
+                                             :label bt-devices-connected
+                                             :onrightclick "eww update quick-setting-submenu=true" )))))
 
 
-(defwidget
- quick-toggles-submenus []
- (quick-toggle-submenu :title "Bluetooth"
-                       :status { bt-status == 0 ? false : true }
-                       :info-on "Tap to connect or disconnect a device"
-                       :info-off "Bluetooth is off"
-                       :toggle-label "Enable Bluetooth"
-                       :toggle-onchecked "~/.local/bin/btctl.sh on"
-                       :toggle-onunchecked "~/.local/bin/btctl.sh off"
+(defwidget quick-toggles-submenus []
+           (quick-toggle-submenu :title "Bluetooth"
+                                 :status { bt-status == 0 ? false : true }
+                                 :info-on "Tap to connect or disconnect a device"
+                                 :info-off "Bluetooth is off"
+                                 :toggle-label "Enable Bluetooth"
+                                 :toggle-onchecked "~/.local/bin/btctl.sh on"
+                                 :toggle-onunchecked "~/.local/bin/btctl.sh off"
 
-                       (box :orientation "v"
-                            :spacing 10
-                            (for device in bt-devices-paired-json
-                                 (eventbox :cursor "pointer"
-                                           :onclick "~/.local/bin/btctl.sh device toggle ${ device[0] }"
-                                           (box :class "entry ${ device[2] > 0 ? 'active' : '' }"
-                                                :orientation "h"
-                                                :space-evenly false
-                                                :spacing 15
+                                 (box :orientation "v"
+                                      :spacing 10
+                                      (for device in bt-devices-paired-json
+                                           (eventbox :cursor "pointer"
+                                                     :onclick "~/.local/bin/btctl.sh device toggle ${ device[0] }"
+                                                     (box :class "entry ${ device[2] > 0 ? 'active' : '' }"
+                                                          :orientation "h"
+                                                          :space-evenly false
+                                                          :spacing 15
 
-                                                (label :class "icon"
-                                                       :text { device[1] } )
+                                                          (label :class "icon"
+                                                                 :text { device[1] } )
 
-                                                (box :orientation "v"
-                                                     :space-evenly false
-                                                     :valign "center"
-                                                     :hexpand true
+                                                          (box :orientation "v"
+                                                               :space-evenly false
+                                                               :valign "center"
+                                                               :hexpand true
 
-                                                     (label :class "name"
-                                                            :halign "start"
-                                                            :valign "center"
-                                                            :text { device[0] } )
+                                                               (label :class "name"
+                                                                      :halign "start"
+                                                                      :valign "center"
+                                                                      :text { device[0] } )
 
-                                                     (revealer
-                                                      :transition "slideup"
-                                                      :duration revealer-duration
-                                                      :reveal { device[2] > 0 ? true : false }
-                                                      (label :class "status"
-                                                             :halign "start"
-                                                             :text { device[2] == 1 ? "Connected" : "Connecting..." } )))))))))
+                                                               (revealer
+                                                                :transition "slideup"
+                                                                :duration revealer-duration
+                                                                :reveal { device[2] > 0 ? true : false }
+                                                                (label :class "status"
+                                                                       :halign "start"
+                                                                       :text { device[2] == 1 ? "Connected" : "Connecting..." } )))))))))

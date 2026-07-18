@@ -1,13 +1,11 @@
-(defwidget
- bar-language []
- (box :class "widget language"
-      :orientation "h"
-      :space-evenly false
+(defwidget bar-language []
+           (box :class "widget language"
+                :orientation "h"
+                :space-evenly false
 
-      (bar-flag :lang kbd)))
+                (bar-flag :lang kbd)))
 
 
-(defwidget
- bar-flag [?lang]
- (image :image-height "18"
-        :path "/usr/share/iso-flag-png/${lang}.png"))
+(defwidget bar-flag [?lang]
+           (image :image-height "18"
+                  :path "/usr/share/iso-flag-png/${lang}.png"))

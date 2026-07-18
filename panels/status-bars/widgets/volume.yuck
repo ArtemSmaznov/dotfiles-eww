@@ -1,10 +1,9 @@
-(defwidget
- bar-volume []
- (box :class "widget colored volume"
-      (slider :value volume
-              :onchange "amixer -D pulse sset Master {}%"
-              :icon {
-                     mute   == "on" ? "volume-xmark" :
-                     volume ==  0   ? "volume-off"   :
-                     volume <= 50   ? "volume-low"   :
+(defwidget bar-volume []
+           (box :class "widget colored volume"
+                (slider :value volume
+                        :onchange "amixer -D pulse sset Master {}%"
+                        :icon {
+                               mute   == "on" ? "volume-xmark" :
+                                      volume ==  0   ? "volume-off"   :
+                                      volume <= 50   ? "volume-low"   :
                                       "volume-high"  })))

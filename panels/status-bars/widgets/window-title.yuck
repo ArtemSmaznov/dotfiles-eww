@@ -1,9 +1,8 @@
-(defwidget
- bar-window-title []
- (box :class "widget title"
-      :space-evenly false
-      :spacing status-bar-widget-spacing
+(defwidget bar-window-title []
+           (box :class "widget title"
+                :space-evenly false
+                :spacing status-bar-widget-spacing
 
-      (label :limit-width 40
-             :lines 1
-             :text window-title)))
+                (label :limit-width 40
+                       :lines 1
+                       :text window-title)))

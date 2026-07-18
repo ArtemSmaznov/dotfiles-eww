@@ -1,11 +1,10 @@
-(defwidget
- bar-uptime []
- (box :class "widget uptime"
-      :orientation "h"
-      :space-evenly false
-      :spacing status-bar-icon-spacing
+(defwidget bar-uptime []
+           (box :class "widget uptime"
+                :orientation "h"
+                :space-evenly false
+                :spacing status-bar-icon-spacing
 
-      (label :class "icon"
-             :text "circle-arrow-up")
+                (label :class "icon"
+                       :text "circle-arrow-up")
 
-      (label :text uptime)))
+                (label :text uptime)))

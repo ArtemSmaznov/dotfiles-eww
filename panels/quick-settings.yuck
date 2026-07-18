@@ -1,27 +1,26 @@
-(defwindow
- quick-settings
- :namespace "quick-settings"
- :monitor '["<primary>", "DP-1", 0]'
- :stacking "fg"
- :exclusive true
+(defwindow quick-settings
+           :namespace "quick-settings"
+           :monitor '["<primary>", "DP-1", 0]'
+           :stacking "fg"
+           :exclusive true
 
- :geometry (geometry
-            :anchor "center left"
-            :height "92%"
-            :x "40px"
-            :y "40px")
+           :geometry (geometry
+                      :anchor "center left"
+                      :height "92%"
+                      :x "40px"
+                      :y "40px")
 
- (box :class "panel quick-settings"
-      :orientation "v"
-      :halign "center"
-      :valign "start"
-      :vexpand true
-      :space-evenly false
-      :active true
+           (box :class "panel quick-settings"
+                :orientation "v"
+                :halign "center"
+                :valign "start"
+                :vexpand true
+                :space-evenly false
+                :active true
 
-      (quick-toggles)
-      (quick-toggles-submenus)
-      (charge-levels)
-      (music-player)
-      (weather)
-      (zfs-usage)))
+                (quick-toggles)
+                (quick-toggles-submenus)
+                (charge-levels)
+                (music-player)
+                (weather)
+                (zfs-usage)))

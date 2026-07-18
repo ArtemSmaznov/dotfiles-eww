@@ -1,115 +1,112 @@
-(defwidget
- weather []
- (revealer :transition "slidedown"
-           :duration revealer-duration
-           :reveal { weather-current != "" }
-           :hexpand true
-           (box :class "quick-setting weather"
-                :orientation "h"
-                :halign "start"
-                :space-evenly false
-                :spacing 15
+(defwidget weather []
+           (revealer :transition "slidedown"
+                     :duration revealer-duration
+                     :reveal { weather-current != "" }
+                     :hexpand true
+                     (box :class "quick-setting weather"
+                          :orientation "h"
+                          :halign "start"
+                          :space-evenly false
+                          :spacing 15
 
-                (weather-location :name { replace(jq(weather-current, '.home'), '\"', '') }
-                                  :src weather-current))))
+                          (weather-location :name { replace(jq(weather-current, '.home'), '\"', '') }
+                                            :src weather-current))))
 
 
-(defwidget
- weather-location [?name src]
- (box :class "glass-module location"
-      :orientation "v"
-      :halign "end"
-      :space-evenly false
-
-      (box :class "content"
-           :orientation "h"
-           :space-evenly false
-           :spacing 40
-
-           (box :class "main"
-                :orientation "v"
-                :space-evenly false
-
-                (label :class "title"
-                       :valign "start"
-                       :text name)
-
-                (box :class "status"
-                     :orientation "h"
-                     :space-evenly false
-                     :valign "end"
-
-                     (weather-stat :class "temp"
-                                   :widget { round( jq(src, '.main.feels_like'), 0 ) + "°C" })
-
-                     (image :image-height 150
-                            :valign "end"
-                            :path "${ weather-icon-path }/${
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Thunderstorm' ? 'thunderstorm-day' :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Drizzle'      ? 'drizzle'          :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Rain'         ? 'rain'             :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Snow'         ? 'snow'             :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Atmosphere'   ? 'fog'              :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Clear'        ? 'clear-day'        :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Clouds'       ? 'cloudy'           :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Mist'         ? 'mist'             :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Overcast'     ? 'overcast'         :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Haze'         ? 'mist'             :
-                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Fog'          ? 'mist'             :
-                                                                                  'not-available'                     }.svg"))
-
-                (box :class "lo-hi"
-                     :orientation "h"
-                     :halign "end"
-
-                     (weather-stat :class "blue"
-                                   :widget { round( jq(src, '.main.temp_min'), 0 ) + "°C" })
-                     (weather-stat :class "red"
-                                   :widget { round( jq(src, '.main.temp_max'), 0 ) + "°C" })))
-
-           (box :class "extra"
+(defwidget weather-location [?name src]
+           (box :class "glass-module location"
                 :orientation "v"
                 :halign "end"
                 :space-evenly false
 
-                (box :class "status"
-                     :orientation "v"
-                     :valign "start"
-                     :vexpand true
+                (box :class "content"
+                     :orientation "h"
+                     :space-evenly false
+                     :spacing 40
 
-                     (weather-stat :widget { replace(jq(src, '.weather[0].main'), '\"', '') })
+                     (box :class "main"
+                          :orientation "v"
+                          :space-evenly false
 
-                     (label :class "comment"
-                            :text "Feels like ${ round( jq(src, '.main.feels_like'), 0 ) }°C"))
+                          (label :class "title"
+                                 :valign "start"
+                                 :text name)
 
-                (box :class "stats"
-                     :orientation "v"
-                     :valign "end"
+                          (box :class "status"
+                               :orientation "h"
+                               :space-evenly false
+                               :valign "end"
 
-                     (weather-stat :widget { replace(jq(src, '.weather[0].description'), '\"', '') })
+                               (weather-stat :class "temp"
+                                             :widget { round( jq(src, '.main.feels_like'), 0 ) + "°C" })
 
-                     (weather-stat :icon "wind"
-                                   :widget { round( jq(src, '.wind.speed'), 0 ) + "?" })
+                               (image :image-height 150
+                                      :valign "end"
+                                      :path "${ weather-icon-path }/${
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Thunderstorm' ? 'thunderstorm-day' :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Drizzle'      ? 'drizzle'          :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Rain'         ? 'rain'             :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Snow'         ? 'snow'             :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Atmosphere'   ? 'fog'              :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Clear'        ? 'clear-day'        :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Clouds'       ? 'cloudy'           :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Mist'         ? 'mist'             :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Overcast'     ? 'overcast'         :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Haze'         ? 'mist'             :
+                                                replace(jq(src, '.weather[0].main'), '\"', '') == 'Fog'          ? 'mist'             :
+                                                                                                'not-available'                     }.svg"))
 
-                     (weather-stat :icon "droplet"
-                                   :widget { jq(src, '.main.humidity') + "%" })
+                          (box :class "lo-hi"
+                               :orientation "h"
+                               :halign "end"
 
-                     (weather-stat :icon "down-long"
-                                   :widget { jq(src, '.main.pressure') + " hPa" })
+                               (weather-stat :class "blue"
+                                             :widget { round( jq(src, '.main.temp_min'), 0 ) + "°C" })
+                               (weather-stat :class "red"
+                                             :widget { round( jq(src, '.main.temp_max'), 0 ) + "°C" })))
 
-                     (weather-stat :icon "cloud"
-                                   :widget { jq(src, '.clouds') }))))))
+                     (box :class "extra"
+                          :orientation "v"
+                          :halign "end"
+                          :space-evenly false
+
+                          (box :class "status"
+                               :orientation "v"
+                               :valign "start"
+                               :vexpand true
+
+                               (weather-stat :widget { replace(jq(src, '.weather[0].main'), '\"', '') })
+
+                               (label :class "comment"
+                                      :text "Feels like ${ round( jq(src, '.main.feels_like'), 0 ) }°C"))
+
+                          (box :class "stats"
+                               :orientation "v"
+                               :valign "end"
+
+                               (weather-stat :widget { replace(jq(src, '.weather[0].description'), '\"', '') })
+
+                               (weather-stat :icon "wind"
+                                             :widget { round( jq(src, '.wind.speed'), 0 ) + "?" })
+
+                               (weather-stat :icon "droplet"
+                                             :widget { jq(src, '.main.humidity') + "%" })
+
+                               (weather-stat :icon "down-long"
+                                             :widget { jq(src, '.main.pressure') + " hPa" })
+
+                               (weather-stat :icon "cloud"
+                                             :widget { jq(src, '.clouds') }))))))
 
 
-(defwidget
- weather-stat [?icon ?class widget]
- (box :class "stat ${ class }"
-      :orientation "h"
-      :halign "end"
-      :space-evenly false
-      :spacing 10
+(defwidget weather-stat [?icon ?class widget]
+           (box :class "stat ${ class }"
+                :orientation "h"
+                :halign "end"
+                :space-evenly false
+                :spacing 10
 
-      (label :xalign 1
-             :text widget)
-      (label :class "icon"
-             :text icon)))
+                (label :xalign 1
+                       :text widget)
+                (label :class "icon"
+                       :text icon)))

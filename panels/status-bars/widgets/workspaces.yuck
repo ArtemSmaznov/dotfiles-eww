@@ -1,28 +1,27 @@
-(defwidget
- bar-workspaces []
- (box :class "widget workspaces"
-      :space-evenly false
-      :spacing status-bar-widget-spacing
+(defwidget bar-workspaces []
+           (box :class "widget workspaces"
+                :space-evenly false
+                :spacing status-bar-widget-spacing
 
-      (for workspace in listen_workspaces
-           (eventbox :cursor "pointer"
-                     :onclick "hyprctl dispatch 'hl.dsp.focus({workspace = ${workspace.id}})'"
-                     (box :class "workspace ${
+                (for workspace in listen_workspaces
+                     (eventbox :cursor "pointer"
+                               :onclick "hyprctl dispatch 'hl.dsp.focus({workspace = ${workspace.id}})'"
+                               (box :class "workspace ${
                                                 workspace.windows > 0 ? "occupied" : "empty"
                                              } ${
                                                 workspace.monitor == 0 ? "monitor_0": ""
                                              } ${
                                                 workspace.monitor == 1 ? "monitor_1": ""
                                              }"
-                          (label :text {
-                                        workspace.name == 1  ? "globe"        :
-                                        workspace.name == 2  ? "envelope"     :
-                                        workspace.name == 3  ? "keyboard"     :
-                                        workspace.name == 4  ? "folder"       :
-                                        workspace.name == 5  ? "comment"      :
-                                        workspace.name == 6  ? "camera"       :
-                                        workspace.name == 7  ? "star"         :
-                                        workspace.name == 8  ? "gamepad"      :
-                                        workspace.name == 9  ? "headphones"   :
-                                        workspace.name == 10 ? "server"       :
-                                                              workspace.name }))))))
+                                                (label :text {
+                                                              workspace.name == 1  ? "globe"        :
+                                                                        workspace.name == 2  ? "envelope"     :
+                                                                        workspace.name == 3  ? "keyboard"     :
+                                                                        workspace.name == 4  ? "folder"       :
+                                                                        workspace.name == 5  ? "comment"      :
+                                                                        workspace.name == 6  ? "camera"       :
+                                                                        workspace.name == 7  ? "star"         :
+                                                                        workspace.name == 8  ? "gamepad"      :
+                                                                        workspace.name == 9  ? "headphones"   :
+                                                                        workspace.name == 10 ? "server"       :
+                                                                        workspace.name }))))))

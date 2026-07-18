@@ -1,67 +1,66 @@
-(defwidget
- quick-toggle-submenu [status
-                        title
-                        ?info-on
-                        ?info-off
-                        ?toggle-label
-                        ?toggle-onchecked
-                        ?toggle-onunchecked
-                        ?extra-button-label
-                        ?extra-button-action
-                       ]
+(defwidget quick-toggle-submenu [status
+                                 title
+                                 ?info-on
+                                  ?info-off
+                                   ?toggle-label
+                                    ?toggle-onchecked
+                                     ?toggle-onunchecked
+                                      ?extra-button-label
+                                       ?extra-button-action
+                                        ]
 
- (revealer
-  :transition "slideup"
-  :duration revealer-duration
-  :reveal quick-setting-submenu
-  (box :class "glass-module quick-setting submenu"
-       :orientation "v"
-       :space-evenly false
-       :spacing 10
+           (revealer
+            :transition "slideup"
+            :duration revealer-duration
+            :reveal quick-setting-submenu
+            (box :class "glass-module quick-setting submenu"
+                 :orientation "v"
+                 :space-evenly false
+                 :spacing 10
 
-       (label :class "title" :text title)
-       (box :orientation "v"
-            :space-evenly false
-            (revealer :transition "slidedown"
-                      :duration revealer-duration
-                      :reveal { info-off != "" && ! status }
-                      (label :class "info"  :text info-off))
-            (revealer :transition "slideup"
-                      :duration revealer-duration
-                      :reveal { info-on != "" && status }
-                      (label :class "info"  :text info-on)))
-
-       (box :class "toggle"
-            :orientation "h"
-            (label :halign "start"
-                   :text toggle-label)
-            (eventbox :cursor "pointer"
-                      (checkbox :halign "end"
-                                :checked status
-                                :onchecked toggle-onchecked
-                                :onunchecked toggle-onunchecked )))
-
-       (revealer :transition "slideup"
-                 :duration revealer-duration
-                 :reveal status
+                 (label :class "title" :text title)
                  (box :orientation "v"
                       :space-evenly false
-                      (children)))
+                      (revealer :transition "slidedown"
+                                :duration revealer-duration
+                                :reveal { info-off != "" && ! status }
+                                (label :class "info"  :text info-off))
+                      (revealer :transition "slideup"
+                                :duration revealer-duration
+                                :reveal { info-on != "" && status }
+                                (label :class "info"  :text info-on)))
 
-       (box :class "controls"
-            :orientation "h"
-            (revealer
-             :transition "slideright"
-             :duration revealer-duration
-             :reveal { extra-button-label != "" }
-             (eventbox :cursor "pointer"
-                       (button :class "string outline"
-                               :halign "start"
-                               :onclick extra-button-action
-                               (label :text extra-button-label ))))
+                 (box :class "toggle"
+                      :orientation "h"
+                      (label :halign "start"
+                             :text toggle-label)
+                      (eventbox :cursor "pointer"
+                                (checkbox :halign "end"
+                                          :checked status
+                                          :onchecked toggle-onchecked
+                                          :onunchecked toggle-onunchecked )))
 
-            (eventbox :cursor "pointer"
-                      (button :class "string fill"
-                              :halign "end"
-                              :onclick "eww update quick-setting-submenu=false"
-                              (label :text "Done")))))))
+                 (revealer :transition "slideup"
+                           :duration revealer-duration
+                           :reveal status
+                           (box :orientation "v"
+                                :space-evenly false
+                                (children)))
+
+                 (box :class "controls"
+                      :orientation "h"
+                      (revealer
+                       :transition "slideright"
+                       :duration revealer-duration
+                       :reveal { extra-button-label != "" }
+                       (eventbox :cursor "pointer"
+                                 (button :class "string outline"
+                                         :halign "start"
+                                         :onclick extra-button-action
+                                         (label :text extra-button-label ))))
+
+                      (eventbox :cursor "pointer"
+                                (button :class "string fill"
+                                        :halign "end"
+                                        :onclick "eww update quick-setting-submenu=false"
+                                        (label :text "Done")))))))

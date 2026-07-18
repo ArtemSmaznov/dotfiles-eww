@@ -1,31 +1,29 @@
-(defwidget
- bar-time []
- (box :class "widget time"
-      :orientation "h"
-      :space-evenly false
-      {time}))
-
-(defwidget
- bar-date []
- (eventbox :class "widget date"
-           :cursor "pointer"
-           :onclick "eww open --toggle --screen $(/home/artem/.config/hypr/scripts/get-current-monitor.sh id) calendar-window"
-           (box :orientation "h"
+(defwidget bar-time []
+           (box :class "widget time"
+                :orientation "h"
                 :space-evenly false
-                :halign "center"
-                :spacing status-bar-icon-spacing
+                {time}))
 
-                (label :class {
-                               matches(date, birthday) ? "icon purple" :
-                               matches(date, "20 Apr") ? "icon green"  :
-                               matches(date, "25 Dec") ? "icon red"    :
-                               matches(date, "31 Dec") ? "icon yellow" :
-                                                         "icon"        }
+(defwidget bar-date []
+           (eventbox :class "widget date"
+                     :cursor "pointer"
+                     :onclick "eww open --toggle --screen $(/home/artem/.config/hypr/scripts/get-current-monitor.sh id) calendar-window"
+                     (box :orientation "h"
+                          :space-evenly false
+                          :halign "center"
+                          :spacing status-bar-icon-spacing
 
-                       :text {
-                              matches(date, birthday) ? "gift"              :
-                              matches(date, "20 Apr") ? "cannabis"          :
-                              matches(date, "25 Dec") ? "candy-cane"        :
-                              matches(date, "31 Dec") ? "champagne-glasses" :
-                                                        "calendar"          })
-                {date})))
+                          (label :class {
+                                         matches(date, birthday) ? "icon purple" :
+                                                matches(date, "20 Apr") ? "icon green"  :
+                                                matches(date, "25 Dec") ? "icon red"    :
+                                                matches(date, "31 Dec") ? "icon yellow" :
+                                                "icon"        }
+
+                                 :text {
+                                        matches(date, birthday) ? "gift"              :
+                                               matches(date, "20 Apr") ? "cannabis"          :
+                                               matches(date, "25 Dec") ? "candy-cane"        :
+                                               matches(date, "31 Dec") ? "champagne-glasses" :
+                                               "calendar"          })
+                          {date})))

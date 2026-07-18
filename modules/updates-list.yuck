@@ -1,15 +1,14 @@
-(defwindow
- updates-list
- :monitor '["<primary>", "DP-1", 0]'
- :stacking "overlay"
+(defwindow updates-list
+           :monitor '["<primary>", "DP-1", 0]'
+           :stacking "overlay"
 
- :geometry (geometry
-            :anchor "top right"
-            :x "100px"
-            :y "10px")
+           :geometry (geometry
+                      :anchor "top right"
+                      :x "100px"
+                      :y "10px")
 
- (label :class "glass-module app-ver"
-        :truncate true
-        :show-truncated false
-        :justify "fill"
-        :text updates-list-content))
+           (label :class "glass-module app-ver"
+                  :truncate true
+                  :show-truncated false
+                  :justify "fill"
+                  :text updates-list-content))
