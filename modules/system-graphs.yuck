@@ -9,43 +9,52 @@
                 :spacing 10
 
                 ;; NOTE print keys for debugging purposes
-                ;; (label :text { jq(EWW_RAM, "keys | join(\"\\n\")") })
+                ;; (label :text { jq(EWW_NET, "keys | join(\"\\n\")") })
 
-                (system-graph-full :icon "info"
-                                   :text hostname
-                                   :secondary_metric uptime
-                                   :misc_metric kernel)
-
-                (box :orientation "h"
-                     :spacing 10
-                     (system-graph-full :icon "microchip"
-                                        :text "CPU"
-                                        :primary_metric { EWW_CPU.avg }
-                                        :primary_unit "%"
-                                        :secondary_metric { round(EWW_TEMPS.K10TEMP_TCTL, 1) }
-                                        :secondary_unit "°C"
-                                        :misc_metric { arraylength(EWW_CPU.cores) }
-                                        :misc_unit "cores")
-
-                     (system-graph-full :icon "microchip"
-                                        :text "GPU"
-                                        :primary_unit "%"
-                                        :secondary_metric { round(EWW_TEMPS.AMDGPU_EDGE, 1) }
-                                        :secondary_unit "°C"))
+                (system-graph-full :title hostname
+                                   :icon "info"
+                                   :value uptime
+                                   :buttom_left kernel)
 
                 (box :orientation "h"
                      :spacing 10
-                     (system-graph-full :icon "memory"
-                                        :text "Memory"
-                                        :primary_metric { EWW_RAM.used_mem_perc }
-                                        :primary_unit "%"
-                                        :secondary_metric { formatbytes(EWW_RAM.total_mem, false, "si") }
-                                        :misc_metric { formatbytes(ceil(EWW_RAM.used_mem), false, "si") })
+                     (system-graph-full :title "CPU"
+                                        :icon "microchip"
+                                        :value "${ round(EWW_CPU.avg, 0) }%"
+                                        :metric { EWW_CPU.avg }
+                                        :buttom_right "${ round(EWW_TEMPS.K10TEMP_TCTL, 1) }°C"
+                                        :buttom_left "${ arraylength(EWW_CPU.cores) } cores")
 
-                     (system-graph-full :icon "database"
-                                        :text "Swap"
-                                        :primary_metric { EWW_RAM.total_swap - EWW_RAM.free_swap }
+                     (system-graph-full :title "Memory"
+                                        :icon "memory"
+                                        :value "${ round(EWW_RAM.used_mem_perc, 0) }%"
+                                        :metric { EWW_RAM.used_mem_perc }
+                                        :buttom_right { formatbytes(EWW_RAM.total_mem, false, "si") }
+                                        :buttom_left { formatbytes(ceil(EWW_RAM.used_mem), false, "si") }))
+
+
+                (box :orientation "h"
+                     :spacing 10
+                     (system-graph-full :title "GPU"
+                                        :icon "microchip"
+                                        :buttom_right { round(EWW_TEMPS.AMDGPU_EDGE, 1) })
+
+                     (system-graph-full :title "Swap"
+                                        :icon "database"
+                                        :metric { EWW_RAM.total_swap - EWW_RAM.free_swap }
                                         :primary_unit "%"
-                                        :secondary_metric { formatbytes(EWW_RAM.total_swap, false, "si") }
-                                        :misc_metric { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))))
+                                        :buttom_right { formatbytes(EWW_RAM.total_swap, false, "si") }
+                                        :buttom_left { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))
+
+                (box :orientation "h"
+                     :spacing 10
+                     (system-graph-full :title "Net ↑"
+                                        :icon "network-wired"
+                                        :value "${ formatbytes(ceil(EWW_NET.eno1.NET_UP)) }/s"
+                                        :metric { EWW_NET.eno1.NET_UP })
+
+                     (system-graph-full :title "Net ↓"
+                                        :icon "network-wired"
+                                        :value "${ formatbytes(ceil(EWW_NET.eno1.NET_DOWN)) }/s"
+                                        :metric { EWW_NET.eno1.NET_DOWN }))))
 

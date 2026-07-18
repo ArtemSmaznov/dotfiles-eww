@@ -1,15 +1,12 @@
-(defwidget system-graph-full [
-                              ?icon
-                               ?text
-                                ?primary_metric
-                                 ?primary_unit
-                                  ?secondary_metric
-                                   ?secondary_unit
-                                    ?misc_metric
-                                     ?misc_unit
-                                      ?min
-                                       ?max
-                                        ]
+(defwidget system-graph-full [?title
+                               ?icon
+                                ?value
+                                 ?metric
+                                  ?buttom_right
+                                   ?buttom_left
+                                    ?min
+                                     ?max
+                                      ]
 
            (box :class "glass-module graph"
                 :orientation "v"
@@ -24,15 +21,15 @@
 
                      (icon :icon icon)
                      (label :class "title"
-                            :text text)
+                            :text title)
                      (label :class "value"
                             :halign "end"
                             :hexpand true
-                            :text "${ round(primary_metric, 0) }%"))
+                            :text value))
 
                 (revealer :transition "slidedown"
                           :duration revealer-duration
-                          :reveal { primary_metric != "" }
+                          :reveal { metric != "" }
                           (graph :class "body full"
                                  :vexpand true
                                  :height 70
@@ -42,14 +39,14 @@
                                  :thickness 2
                                  :line-style "round"
                                  :time-range system-graph-time-range
-                                 :value primary_metric ))
+                                 :value metric ))
 
                 (revealer :transition "slidedown"
                           :duration revealer-duration
-                          :reveal { secondary_metric != "" || misc_metric != "" }
+                          :reveal { buttom_right != "" || buttom_left != "" }
                           (box :class "footer"
                                :orientation "h"
                                (label :halign "start"
-                                      :text "${misc_metric} ${misc_unit}")
+                                      :text "${buttom_left}")
                                (label :halign "end"
-                                      :text  "${secondary_metric} ${secondary_unit}")))))
+                                      :text  "${buttom_right}")))))
