@@ -1,12 +1,15 @@
 (defwidget system-graph-full [?title
                                ?icon
                                 ?value
-                                 ?metric
-                                  ?buttom_right
-                                   ?buttom_left
-                                    ?min
-                                     ?max
-                                      ]
+                                 ?value_color
+                                  ?metric
+                                   ?buttom_right
+                                    ?buttom_right_color
+                                     ?buttom_left
+                                      ?buttom_left_color
+                                       ?min
+                                        ?max
+                                         ]
 
            (box :class "glass-module graph"
                 :orientation "v"
@@ -22,7 +25,7 @@
                      (icon :icon icon)
                      (label :class "title"
                             :text title)
-                     (label :class "value"
+                     (label :class "value ${ value_color != '' ? value_color : 'white' }"
                             :halign "end"
                             :hexpand true
                             :text value))
@@ -46,7 +49,9 @@
                           :reveal { buttom_right != "" || buttom_left != "" }
                           (box :class "footer"
                                :orientation "h"
-                               (label :halign "start"
-                                      :text "${buttom_left}")
-                               (label :halign "end"
-                                      :text  "${buttom_right}")))))
+                               (label :class "${ buttom_left_color != '' ? buttom_left_color : 'gray' }"
+                                      :halign "start"
+                                      :text buttom_left)
+                               (label :class "${ buttom_right_color != '' ? buttom_right_color : 'gray' }"
+                                      :halign "end"
+                                      :text buttom_right)))))

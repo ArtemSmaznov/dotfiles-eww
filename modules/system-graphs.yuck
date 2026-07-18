@@ -13,28 +13,54 @@
 
                 (system-graph-full :title hostname
                                    :icon "info"
-                                   :value kernel-status
-                                   :buttom_right uptime
-                                   :buttom_left kernel)
+                                   :value { kernel-status != "ok" ? kernel-status : "" }
+                                   :value_color {
+                                                 kernel-status == "ok"     ? "gray" :
+                                                 kernel-status == "update" ? "green" :
+                                                 kernel-status == "reboot" ? "yellow" : 
+                                                               "black" }
+                                   :buttom_left kernel
+                                   :buttom_left_color {
+                                                       kernel-status == "ok"     ? "gray" :
+                                                       kernel-status == "update" ? "green" :
+                                                       kernel-status == "reboot" ? "yellow" : 
+                                                                     "black" }
+                                   :buttom_right uptime)
 
-                (box :orientation "h"
+                (box :class "row-1"
+                     :orientation "h"
                      :spacing 10
                      (system-graph-full :title "CPU"
                                         :icon "microchip"
                                         :value "${ round(EWW_CPU.avg, 0) }%"
+                                        :value_color {
+                                                      EWW_CPU.avg >= 95 ? "red" :
+                                                      EWW_CPU.avg >= 80 ? "orange" :
+                                                      EWW_CPU.avg >= 60 ? "yellow" :
+                                                      "green" }
                                         :metric { EWW_CPU.avg }
                                         :buttom_right "${ round(EWW_TEMPS.K10TEMP_TCTL, 1) }°C"
+                                        :buttom_right_color {
+                                                             EWW_TEMPS.K10TEMP_TCTL >= "90" ? "red" :
+                                                             EWW_TEMPS.K10TEMP_TCTL >= "70" ? "orange" :
+                                                             EWW_TEMPS.K10TEMP_TCTL >= "50" ? "yellow" :
+                                                             "gray" }
                                         :buttom_left "${ arraylength(EWW_CPU.cores) } cores")
 
                      (system-graph-full :title "Memory"
                                         :icon "memory"
                                         :value "${ round(EWW_RAM.used_mem_perc, 0) }%"
+                                        :value_color {
+                                                      EWW_RAM.used_mem_perc >= 95 ? "red" :
+                                                      EWW_RAM.used_mem_perc >= 85 ? "orange" :
+                                                      EWW_RAM.used_mem_perc >= 65 ? "yellow" :
+                                                      "green" }
                                         :metric { EWW_RAM.used_mem_perc }
                                         :buttom_right { formatbytes(EWW_RAM.total_mem, false, "si") }
                                         :buttom_left { formatbytes(ceil(EWW_RAM.used_mem), false, "si") }))
 
-
-                (box :orientation "h"
+                (box :class "row-2"
+                     :orientation "h"
                      :spacing 10
                      (system-graph-full :title "GPU"
                                         :icon "microchip"
@@ -47,7 +73,8 @@
                                         :buttom_right { formatbytes(EWW_RAM.total_swap, false, "si") }
                                         :buttom_left { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))
 
-                (box :orientation "h"
+                (box :class "row-3"
+                     :orientation "h"
                      :spacing 10
                      (system-graph-full :title "Net ↑"
                                         :icon "network-wired"
