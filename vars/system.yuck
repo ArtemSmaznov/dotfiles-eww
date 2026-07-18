@@ -8,7 +8,16 @@
 (defvar graph_net_time_range       "10m")
 (defvar graph_net_max_speed_bytes  { 150 * 1024 * 1024 / 8 })
 
-;; uptime ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; bacic ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(defpoll hostname
+         :interval "1h"
+         "hostname")
+
+(defpoll kernel
+         :interval "1h"
+         "uname -sr")
+
 (defpoll uptime
          :initial "0d 0h"
          :interval "1m"

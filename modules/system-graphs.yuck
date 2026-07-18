@@ -11,7 +11,10 @@
                 ;; NOTE print keys for debugging purposes
                 ;; (label :text { jq(EWW_RAM, "keys | join(\"\\n\")") })
 
-                (auto-refresh-interval)
+                (system-graph-full :icon "info"
+                                   :text hostname
+                                   :secondary_metric uptime
+                                   :misc_metric kernel)
 
                 (box :orientation "h"
                      :spacing 10
@@ -41,16 +44,8 @@
 
                      (system-graph-full :icon "database"
                                         :text "Swap"
-                                        :primary_metric { EWW_RAM.used_swap_perc }
+                                        :primary_metric { EWW_RAM.total_swap - EWW_RAM.free_swap }
                                         :primary_unit "%"
                                         :secondary_metric { formatbytes(EWW_RAM.total_swap, false, "si") }
-                                        :misc_metric { formatbytes(ceil(EWW_RAM.used_swap), false, "si") }))))
+                                        :misc_metric { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))))
 
-
-(defwidget auto-refresh-interval []
-           (box :class "glass-module system-graph"
-                :orientation "h"
-                ;; :spacing 10
-
-                "Auto refresh"
-                system-graph-time-range ))
