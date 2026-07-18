@@ -5,4 +5,5 @@
       :spacing status-bar-widget-spacing
 
       (label :limit-width 40
+             :lines 1
              :text window-title)))
