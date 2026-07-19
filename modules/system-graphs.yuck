@@ -64,7 +64,13 @@
                      :spacing 10
                      (system-graph-full :title "GPU"
                                         :icon "microchip"
-                                        :buttom_right { round(EWW_TEMPS.AMDGPU_EDGE, 1) })
+                                        :buttom_right "${ round(EWW_TEMPS.AMDGPU_EDGE, 1) }°C"
+                                        :buttom_right_color {
+                                                             EWW_TEMPS.AMDGPU_EDGE >= "90" ? "red" :
+                                                             EWW_TEMPS.AMDGPU_EDGE >= "70" ? "orange" :
+                                                             EWW_TEMPS.AMDGPU_EDGE >= "50" ? "yellow" :
+                                                             "gray" }
+                                        )
 
                      (system-graph-full :title "Swap"
                                         :icon "database"
