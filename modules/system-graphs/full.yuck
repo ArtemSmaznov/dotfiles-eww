@@ -8,11 +8,11 @@
                                      ?buttom_left
                                       ?buttom_left_color
                                        ?min
-                                        ?max
-                                         ]
+                                        ?max]
 
            (box :class "glass-module graph"
                 :orientation "v"
+                :valign "start"
                 :width 250
                 :space-evenly false
                 :spacing 10
@@ -30,11 +30,11 @@
                             :hexpand true
                             :text value))
 
-                (revealer :transition "slidedown"
-                          :duration revealer-duration
+                (revealer :class "body"
                           :reveal { metric != "" }
-                          (graph :class "body full"
-                                 :vexpand true
+                          :transition "slidedown"
+                          :duration revealer-duration
+                          (graph :vexpand true
                                  :height 70
                                  :min min
                                  :max max
@@ -44,11 +44,12 @@
                                  :time-range system-graph-time-range
                                  :value metric ))
 
-                (revealer :transition "slidedown"
-                          :duration revealer-duration
+                (revealer :class "footer"
                           :reveal { buttom_right != "" || buttom_left != "" }
-                          (box :class "footer"
-                               :orientation "h"
+                          :transition "slidedown"
+                          :duration revealer-duration
+                          
+                          (box :orientation "h"
                                (label :class "${ buttom_left_color != '' ? buttom_left_color : 'gray' }"
                                       :halign "start"
                                       :text buttom_left)
