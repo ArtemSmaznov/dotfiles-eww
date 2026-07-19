@@ -16,7 +16,6 @@
                 :valign "start"
                 :vexpand true
                 :space-evenly false
-                :active true
+                :active false
 
-                ;; (weather)
                 (system-graphs)))

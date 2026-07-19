@@ -8,9 +8,6 @@
                 :space-evenly false
                 :spacing 10
 
-                ;; NOTE print keys for debugging purposes
-                ;; (label :text { jq(EWW_NET, "keys | join(\"\\n\")") })
-
                 (system-graph-full :title hostname
                                    :icon "info"
                                    :value { kernel-status != "ok" ? kernel-status : "" }
