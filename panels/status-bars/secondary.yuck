@@ -13,11 +13,11 @@
 
 
            (centerbox :class "bar"
-                      :orientation "h"
+                      :orientation "horizontal"
 
                       (box :class "gravity left"
                            :halign "start"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :space-evenly false
                            :spacing 5
                            (bar-start-logo)
@@ -29,14 +29,14 @@
 
                       (box :class "gravity center"
                            :halign "center"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :space-evenly false
                            :spacing 5
                            (bar-player))
 
                       (box :class "gravity right"
                            :halign "end"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :space-evenly false
                            :spacing 5
                            (bar-language)

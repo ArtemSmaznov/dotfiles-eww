@@ -1,6 +1,6 @@
 (defwidget bar-language []
            (box :class "widget language"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
 
                 (bar-flag :lang kbd)))

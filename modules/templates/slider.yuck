@@ -1,6 +1,6 @@
 (defwidget slider [icon value onchange]
            (box :class "status-widget slider"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing status-bar-icon-spacing
 

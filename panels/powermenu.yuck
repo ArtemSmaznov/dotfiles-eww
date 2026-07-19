@@ -9,10 +9,10 @@
                                :height "100%")
 
            (centerbox :class "panel overlay power-menu"
-                      :orientation "v"
+                      :orientation "vertical"
 
                       (box)
-                      (box :orientation "h"
+                      (box :orientation "horizontal"
                            :halign "center"
                            :spacing 20
 
@@ -48,7 +48,7 @@
                                 :height 150
                                 :onclick "eww close powermenu-panel"
                                 :cursor "pointer"
-                                (box :orientation "v"
+                                (box :orientation "vertical"
                                      :vexpand true
                                      :space-evenly false
                                      (label :class "icon"
@@ -57,7 +57,7 @@
 
 (defwidget powermenu_entry [?class ?icon ?label ?hotkey ?onclick]
            (box :class "powermenu-entry"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
 
                 (button :class "powermenu-button ${class}"

@@ -20,7 +20,7 @@
 
 (defwidget autostart []
            (box :class "glass-module autostart-list"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
 
                 (config-heading :title "Autostart"
@@ -28,7 +28,7 @@
 
                 (for entry in autostart-enabled-apps
                      (box :class "entry toggle"
-                          :orientation "h"
+                          :orientation "horizontal"
                           :space-evenly false
 
                           (label :halign "start"

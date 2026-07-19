@@ -1,6 +1,6 @@
 (defwidget bar-player []
            (box :class "widget player"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing { status-bar-icon-spacing * 2 }
                 :halign "center"
@@ -27,7 +27,7 @@
 
 (defwidget bar-player-track-info []
            (box :class "track-info"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing 6
 
@@ -35,7 +35,7 @@
                  :transition "slideright"
                  :duration revealer-duration
                  :reveal { music-artist != "" }
-                 (box :orientation "h"
+                 (box :orientation "horizontal"
                       :space-evenly false
                       :spacing 6
                       (label :class "artist"
@@ -50,7 +50,7 @@
 
 (defwidget bar-player-flags []
            (box :class "playback-info"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing status-bar-icon-spacing
 
@@ -58,7 +58,7 @@
                  :transition "slideright"
                  :duration revealer-duration
                  :reveal { player-name == "mpd" }
-                 (box :orientation "h"
+                 (box :orientation "horizontal"
                       :space-evenly false
                       :spacing status-bar-icon-spacing
 
@@ -67,7 +67,7 @@
 
 (defwidget bar-player-volume []
            (box :class "volume"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing 6
 

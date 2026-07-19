@@ -17,7 +17,7 @@
                     :onrightclick onrightclick
 
                     (overlay
-                     (box :orientation "h"
+                     (box :orientation "horizontal"
                           :halign { label != "" ? "left" : "center" }
                           :valign "center"
                           :space-evenly false

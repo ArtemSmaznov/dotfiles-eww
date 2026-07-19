@@ -11,7 +11,7 @@
                       :y "40px")
 
            (box :class "panel quick-settings"
-                :orientation "v"
+                :orientation "vertical"
                 :halign "center"
                 :valign "start"
                 :vexpand true

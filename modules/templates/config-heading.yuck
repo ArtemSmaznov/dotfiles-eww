@@ -1,6 +1,6 @@
 (defwidget config-heading [?title ?onclose]
            (box :class "config heading"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing 15
 

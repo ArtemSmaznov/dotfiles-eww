@@ -10,7 +10,7 @@
                       :y "25px")
 
            (box :class "panel glass-module which-key"
-                :orientation "v"
+                :orientation "vertical"
                 :halign "center"
                 :space-evenly false
                 :spacing 18
@@ -22,7 +22,7 @@
 
 (defwidget key-chord []
            (box :class "key-chord"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing 15
 
@@ -41,12 +41,12 @@
 
 (defwidget key-map []
            (box :class "key-map"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing 18
 
                 (box :class "keys"
-                     :orientation "v"
+                     :orientation "vertical"
                      :space-evenly true
                      :spacing 6
                      (for bind in wm-keybinds-map
@@ -56,14 +56,14 @@
                                  :text { bind.modmask == "" ? bind.key : "${bind.modmask}-${bind.key}" } )))
 
                 (box :class "separators"
-                     :orientation "v"
+                     :orientation "vertical"
                      :space-evenly true
                      (for bind in wm-keybinds-map
                           (label :xalign 0.5
                                  :show-truncated false
                                  :text "➙" )))
 
-                (box :orientation "v"
+                (box :orientation "vertical"
                      :space-evenly true
                      (for bind in wm-keybinds-map
                           (label :class { bind.description =~ "^\\+" ? "sub-chords" : "descriptions" }

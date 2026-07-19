@@ -3,12 +3,12 @@
                      :duration revealer-duration
                      :reveal { ! quick-setting-submenu }
                      (box :class "quick-setting quick-toggles"
-                          :orientation "v"
+                          :orientation "vertical"
                           :space-evenly false
                           :spacing 10
 
                           (box :class "network"
-                               :orientation "h"
+                               :orientation "horizontal"
                                :space-evenly true
                                :spacing 10
 
@@ -30,7 +30,7 @@
                                              :label { vpn-status > 0 ? vpn-region : "" } ))
 
                           (box :class "other"
-                               :orientation "h"
+                               :orientation "horizontal"
                                :space-evenly true
                                :spacing 10
 
@@ -61,20 +61,20 @@
                                  :toggle-onchecked "~/.local/bin/btctl.sh on"
                                  :toggle-onunchecked "~/.local/bin/btctl.sh off"
 
-                                 (box :orientation "v"
+                                 (box :orientation "vertical"
                                       :spacing 10
                                       (for device in bt-devices-paired-json
                                            (eventbox :cursor "pointer"
                                                      :onclick "~/.local/bin/btctl.sh device toggle ${ device[0] }"
                                                      (box :class "entry ${ device[2] > 0 ? 'active' : '' }"
-                                                          :orientation "h"
+                                                          :orientation "horizontal"
                                                           :space-evenly false
                                                           :spacing 15
 
                                                           (label :class "icon"
                                                                  :text { device[1] } )
 
-                                                          (box :orientation "v"
+                                                          (box :orientation "vertical"
                                                                :space-evenly false
                                                                :valign "center"
                                                                :hexpand true

@@ -3,7 +3,7 @@
                      :duration revealer-duration
                      :reveal { battery-devices-json != "[]" }
                      (box :class "quick-setting charge-levels"
-                          :orientation "h"
+                          :orientation "horizontal"
                           :halign "end"
                           :space-evenly true
                           :spacing 10
@@ -20,7 +20,7 @@
                      :duration revealer-duration
                      :reveal { device-name != "" }
                      (button :class "glass-module radial-battery"
-                             :orientation "v"
+                             :orientation "vertical"
                              :halign "end"
                              :tooltip device-name
                              :onmiddleclick "~/.local/bin/btctl.sh device toggle ${ device-name }"

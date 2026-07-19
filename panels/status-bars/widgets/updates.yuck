@@ -16,7 +16,7 @@
                                           updates == 1001 ? "purple"      :
                                           updates == year ? "special"     :
                                           ""            }
-                          :orientation "h"
+                          :orientation "horizontal"
                           :space-evenly false
 
                           (icon :icon {

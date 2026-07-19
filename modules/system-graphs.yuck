@@ -4,7 +4,7 @@
 
 (defwidget system-graphs []
            (box :class "panel-monitor"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
                 :spacing 10
 
@@ -28,7 +28,7 @@
                                    :buttom_right uptime)
 
                 (box :class "row-1"
-                     :orientation "h"
+                     :orientation "horizontal"
                      :spacing 10
                      (system-graph-full :title "CPU"
                                         :icon "microchip"
@@ -60,7 +60,7 @@
                                         :buttom_left { formatbytes(ceil(EWW_RAM.used_mem), false, "si") }))
 
                 (box :class "row-2"
-                     :orientation "h"
+                     :orientation "horizontal"
                      :spacing 10
                      (system-graph-full :title "GPU"
                                         :icon "microchip"
@@ -80,7 +80,7 @@
                                         :buttom_left { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))
 
                 (box :class "row-3"
-                     :orientation "h"
+                     :orientation "horizontal"
                      :spacing 10
                      (system-graph-full :title "Net ↑"
                                         :icon "network-wired"

@@ -1,6 +1,6 @@
 (defwidget bar-uptime []
            (box :class "widget uptime"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 :spacing status-bar-icon-spacing
 

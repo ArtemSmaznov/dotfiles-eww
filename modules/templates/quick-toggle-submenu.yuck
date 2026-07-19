@@ -14,12 +14,12 @@
             :duration revealer-duration
             :reveal quick-setting-submenu
             (box :class "glass-module quick-setting submenu"
-                 :orientation "v"
+                 :orientation "vertical"
                  :space-evenly false
                  :spacing 10
 
                  (label :class "title" :text title)
-                 (box :orientation "v"
+                 (box :orientation "vertical"
                       :space-evenly false
                       (revealer :transition "slidedown"
                                 :duration revealer-duration
@@ -31,7 +31,7 @@
                                 (label :class "info"  :text info-on)))
 
                  (box :class "toggle"
-                      :orientation "h"
+                      :orientation "horizontal"
                       (label :halign "start"
                              :text toggle-label)
                       (eventbox :cursor "pointer"
@@ -43,12 +43,12 @@
                  (revealer :transition "slideup"
                            :duration revealer-duration
                            :reveal status
-                           (box :orientation "v"
+                           (box :orientation "vertical"
                                 :space-evenly false
                                 (children)))
 
                  (box :class "controls"
-                      :orientation "h"
+                      :orientation "horizontal"
                       (revealer
                        :transition "slideright"
                        :duration revealer-duration

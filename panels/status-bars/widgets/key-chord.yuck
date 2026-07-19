@@ -3,7 +3,7 @@
             :transition "slideleft"
             :duration revealer-duration
             :reveal { wm-key-chord != "" }
-            (box :orientation "h"
+            (box :orientation "horizontal"
                  :space-evenly false
 
                  (bar-separator)

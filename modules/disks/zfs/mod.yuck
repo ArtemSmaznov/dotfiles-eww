@@ -7,7 +7,7 @@
 
 (defwidget zfs-usage []
            (box :class "glass-module disk zfs usage"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
                 :spacing 50
 
@@ -17,7 +17,7 @@
 
 (defwidget zfs-pool [zpool]
            (box :class "zpool"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
 
                 (label :text "${zpool.name} ${round(zpool.size / 1024 / 1024 / 1024 / 1024, 2)} TB")
@@ -34,7 +34,7 @@
                           :reveal zfs-datasets-expand
 
                           (box :class "datasets"
-                               :orientation "v"
+                               :orientation "vertical"
 
                                (for dataset in { zpool.datasets }
                                     (zfs-dataset :name { dataset.name }
@@ -44,7 +44,7 @@
 
 (defwidget zfs-dataset [name used size]
            (box :class "mountpoint"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly true
                 :spacing 20
 
@@ -52,7 +52,7 @@
                        :text name)
 
                 (progress :class "metric"
-                          :orientation "h"
+                          :orientation "horizontal"
                           :valign "fill"
                           :vexpand true
                           :value { used / size * 100 })

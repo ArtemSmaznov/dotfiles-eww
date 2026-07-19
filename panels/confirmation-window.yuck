@@ -17,9 +17,9 @@
 (defvar dismiss-command "eww close confirmation-window")
 
 (defwidget confirmation-dialog []
-           (box :orientation "v"
+           (box :orientation "vertical"
                 confirmation-message
-                (box :orientation "h"
+                (box :orientation "horizontal"
                      (button :onclick "${yes-command} & ${dismiss-command}"
                              "yes")
                      (button :onclick dismiss-command

@@ -1,6 +1,6 @@
 (defwidget bar-time []
            (box :class "widget time"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
                 {time}))
 
@@ -8,7 +8,7 @@
            (eventbox :class "widget date"
                      :cursor "pointer"
                      :onclick "eww open --toggle --screen $(/home/artem/.config/hypr/scripts/get-current-monitor.sh id) calendar-window"
-                     (box :orientation "h"
+                     (box :orientation "horizontal"
                           :space-evenly false
                           :halign "center"
                           :spacing status-bar-icon-spacing

@@ -1,5 +1,5 @@
 (defwidget circular [icon value]
-  (box :orientation "h"
+  (box :orientation "horizontal"
        :class "progress status-widget"
        :space-evenly false
        (icon :icon icon)

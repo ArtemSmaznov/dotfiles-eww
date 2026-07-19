@@ -12,11 +12,11 @@
                       :height "35px")
 
            (centerbox :class "bar"
-                      :orientation "h"
+                      :orientation "horizontal"
 
                       (box :class "gravity left"
                            :halign "start"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :space-evenly false
                            :spacing 5
                            (bar-start-logo)
@@ -32,14 +32,14 @@
 
                       (box :class "gravity center"
                            :halign "center"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :space-evenly false
                            :spacing 15
                            (bar-player)
                            (bar-audio-output))
 
                       (box :class "gravity right"
-                           :orientation "h"
+                           :orientation "horizontal"
                            :halign "end"
                            :space-evenly false
                            :spacing 5

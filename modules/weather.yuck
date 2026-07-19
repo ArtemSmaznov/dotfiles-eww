@@ -4,7 +4,7 @@
                      :reveal { weather-current != "" }
                      :hexpand true
                      (box :class "quick-setting weather"
-                          :orientation "h"
+                          :orientation "horizontal"
                           :halign "start"
                           :space-evenly false
                           :spacing 15
@@ -15,17 +15,17 @@
 
 (defwidget weather-location [?name src]
            (box :class "glass-module location"
-                :orientation "v"
+                :orientation "vertical"
                 :halign "end"
                 :space-evenly false
 
                 (box :class "content"
-                     :orientation "h"
+                     :orientation "horizontal"
                      :space-evenly false
                      :spacing 40
 
                      (box :class "main"
-                          :orientation "v"
+                          :orientation "vertical"
                           :space-evenly false
 
                           (label :class "title"
@@ -33,7 +33,7 @@
                                  :text name)
 
                           (box :class "status"
-                               :orientation "h"
+                               :orientation "horizontal"
                                :space-evenly false
                                :valign "end"
 
@@ -57,7 +57,7 @@
                                                                                                 'not-available'                     }.svg"))
 
                           (box :class "lo-hi"
-                               :orientation "h"
+                               :orientation "horizontal"
                                :halign "end"
 
                                (weather-stat :class "blue"
@@ -66,12 +66,12 @@
                                              :widget { round( jq(src, '.main.temp_max'), 0 ) + "°C" })))
 
                      (box :class "extra"
-                          :orientation "v"
+                          :orientation "vertical"
                           :halign "end"
                           :space-evenly false
 
                           (box :class "status"
-                               :orientation "v"
+                               :orientation "vertical"
                                :valign "start"
                                :vexpand true
 
@@ -81,7 +81,7 @@
                                       :text "Feels like ${ round( jq(src, '.main.feels_like'), 0 ) }°C"))
 
                           (box :class "stats"
-                               :orientation "v"
+                               :orientation "vertical"
                                :valign "end"
 
                                (weather-stat :widget { replace(jq(src, '.weather[0].description'), '\"', '') })
@@ -101,7 +101,7 @@
 
 (defwidget weather-stat [?icon ?class widget]
            (box :class "stat ${ class }"
-                :orientation "h"
+                :orientation "horizontal"
                 :halign "end"
                 :space-evenly false
                 :spacing 10

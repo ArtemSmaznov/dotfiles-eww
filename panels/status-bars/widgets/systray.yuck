@@ -1,6 +1,6 @@
 (defwidget bar-system-tray []
            (systray :class "widget systray"
-                    :orientation "h"
+                    :orientation "horizontal"
                     :prepend-new true
                     :space-evenly true
                     :spacing 5

@@ -4,13 +4,13 @@
                      :reveal { music-title != "" }
 
                      (box :class "glass-module quick-setting music-player"
-                          :orientation "v"
+                          :orientation "vertical"
                           :space-evenly false
                           :width 600
                           :css "* { background: rgba(${music-album-cover-color}, 0.6); }"
 
                           (box :class "music-player-main-view"
-                               :orientation "h"
+                               :orientation "horizontal"
                                :space-evenly false
                                :spacing 15
 
@@ -51,7 +51,7 @@
                      :reveal { music-play-count > 0 || music-skip-count > 0 }
 
                      (box :class "music-player-rating"
-                          :orientation "v"
+                          :orientation "vertical"
                           :space-evenly false
                           :hexpand false
                           :vexpand true
@@ -64,7 +64,7 @@
                                            :text "star"))
 
                           (progress :class "rating-bar"
-                                    :orientation "v"
+                                    :orientation "vertical"
                                     :halign "center"
                                     :vexpand true
                                     :flipped true
@@ -85,7 +85,7 @@
                      :vexpand true
 
                      (box :class "music-player-content"
-                          :orientation "v"
+                          :orientation "vertical"
                           :space-evenly false
                           :spacing 0
 
@@ -106,11 +106,11 @@
 
 (defwidget music-player-content-main-view []
            (box :class "main-view"
-                :orientation "v"
+                :orientation "vertical"
                 :space-evenly false
 
                 (box :class "track-info"
-                     :orientation "h"
+                     :orientation "horizontal"
                      :hexpand true
                      :vexpand true
                      :space-evenly false
@@ -122,11 +122,11 @@
 
 (defwidget music-player-content-info-view []
            (box :class "info-view"
-                :orientation "h"
+                :orientation "horizontal"
                 :space-evenly false
 
                 (box :class "extra-info"
-                     :orientation "v"
+                     :orientation "vertical"
                      :hexpand true
 
                      (label :xalign 0 :text "rating: ${ music-rating }")
@@ -147,12 +147,12 @@
 
 (defwidget music-player-track-info []
            (box :class "music-player-track-info"
-                :orientation "v"
+                :orientation "vertical"
                 :hexpand true
                 :vexpand true
                 :space-evenly false
 
-                (box :orientation "v"
+                (box :orientation "vertical"
                      :hexpand true
                      :space-evenly false
                      :spacing 5
@@ -192,7 +192,7 @@
 
 (defwidget music-player-controls []
            (box :class "music-player-controls"
-                :orientation "h"
+                :orientation "horizontal"
                 :hexpand true
                 :spacing 3
                 :space-evenly false
@@ -255,7 +255,7 @@
                      :reveal { player-mouse-over-track-content }
 
                      (box :class "extra-buttons"
-                          :orientation "v"
+                          :orientation "vertical"
                           :valign "start"
 
                           (eventbox :cursor "pointer"

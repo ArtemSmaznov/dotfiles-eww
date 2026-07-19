@@ -1,5 +1,5 @@
 (defwidget bar-separator []
            (box :class "widget separator"
-                :orientation "h"
+                :orientation "horizontal"
                 :halign "center"
                 "|"))
