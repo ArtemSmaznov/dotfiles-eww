@@ -66,8 +66,7 @@
                                                              EWW_TEMPS.AMDGPU_EDGE >= "90" ? "red" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "70" ? "orange" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "50" ? "yellow" :
-                                                             "gray" }
-                                        )
+                                                             "gray" })
 
                      (system-graph-full :title "Swap"
                                         :icon "database"
@@ -79,13 +78,17 @@
                 (box :class "row-3"
                      :orientation "horizontal"
                      :spacing 10
-                     (system-graph-full :title "Net ↑"
-                                        :icon "network-wired"
-                                        :value "${ formatbytes(ceil(EWW_NET.eno1.NET_UP)) }/s"
-                                        :metric { EWW_NET.eno1.NET_UP })
-
                      (system-graph-full :title "Net ↓"
                                         :icon "network-wired"
                                         :value "${ formatbytes(ceil(EWW_NET.eno1.NET_DOWN)) }/s"
-                                        :metric { EWW_NET.eno1.NET_DOWN }))))
+                                        :value_color "green"
+                                        :metric { EWW_NET.eno1.NET_DOWN }
+                                        :metric_color "green")
+
+                     (system-graph-full :title "Net ↑"
+                                        :icon "network-wired"
+                                        :value "${ formatbytes(ceil(EWW_NET.eno1.NET_UP)) }/s"
+                                        :value_color "blue"
+                                        :metric { EWW_NET.eno1.NET_UP }
+                                        :metric_color "blue"))))
 

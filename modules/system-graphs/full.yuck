@@ -3,6 +3,7 @@
                                 ?value
                                  ?value_color
                                   ?metric
+                                   ?metric_color
                                    ?buttom_right
                                     ?buttom_right_color
                                      ?buttom_left
@@ -34,7 +35,8 @@
                           :reveal { metric != "" }
                           :transition "slidedown"
                           :duration revealer-duration
-                          (graph :vexpand true
+                          (graph :class "${ metric_color != '' ? metric_color : 'white' }"
+                                 :vexpand true
                                  :height 70
                                  :min min
                                  :max max
