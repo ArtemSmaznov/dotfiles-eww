@@ -1,4 +1,8 @@
-(defvar system-graph-time-range "5m")
+(defvar system-graph-time-range "15m")
+
+(defpoll MY_AMDGPU
+         :interval "2s"
+         "~/.config/eww/scripts/json-gpu.sh")
 
 (include "modules/system-graphs/full.yuck")
 
@@ -61,12 +65,20 @@
                      :spacing 10
                      (system-graph-full :title "GPU"
                                         :icon "microchip"
+                                        :value "${ MY_AMDGPU.avg }%"
+                                        :value_color {
+                                                      MY_AMDGPU.avg >= 95 ? "red" :
+                                                      MY_AMDGPU.avg >= 80 ? "orange" :
+                                                      MY_AMDGPU.avg >= 60 ? "yellow" :
+                                                      "green" }
+                                        :metric { MY_AMDGPU.avg }
                                         :buttom_right "${ round(EWW_TEMPS.AMDGPU_EDGE, 1) }°C"
                                         :buttom_right_color {
                                                              EWW_TEMPS.AMDGPU_EDGE >= "90" ? "red" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "70" ? "orange" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "50" ? "yellow" :
-                                                             "gray" })
+                                                             "gray" }
+                                        :buttom_left "${ formatbytes(MY_AMDGPU.vram.used, false) } / ${ formatbytes(MY_AMDGPU.vram.total, false) }")
 
                      (system-graph-full :title "Swap"
                                         :icon "database"
