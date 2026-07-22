@@ -4,10 +4,10 @@
                                  ?value_color
                                   ?metric
                                    ?metric_color
-                                   ?buttom_right
-                                    ?buttom_right_color
-                                     ?buttom_left
-                                      ?buttom_left_color
+                                   ?bottom_right
+                                    ?bottom_right_color
+                                     ?bottom_left
+                                      ?bottom_left_color
                                        ?min
                                         ?max]
 
@@ -47,14 +47,14 @@
                                  :value metric ))
 
                 (revealer :class "footer"
-                          :reveal { buttom_right != "" || buttom_left != "" }
+                          :reveal { bottom_right != "" || bottom_left != "" }
                           :transition "slidedown"
                           :duration revealer-duration
                           
                           (box :orientation "horizontal"
-                               (label :class "${ buttom_left_color != '' ? buttom_left_color : 'gray' }"
+                               (label :class "${ bottom_left_color != '' ? bottom_left_color : 'gray' }"
                                       :halign "start"
-                                      :text buttom_left)
-                               (label :class "${ buttom_right_color != '' ? buttom_right_color : 'gray' }"
+                                      :text bottom_left)
+                               (label :class "${ bottom_right_color != '' ? bottom_right_color : 'gray' }"
                                       :halign "end"
-                                      :text buttom_right)))))
+                                      :text bottom_right)))))

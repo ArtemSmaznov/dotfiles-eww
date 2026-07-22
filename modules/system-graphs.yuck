@@ -20,13 +20,13 @@
                                                  kernel-status == "update" ? "green" :
                                                  kernel-status == "reboot" ? "yellow" : 
                                                                "black" }
-                                   :buttom_left kernel
-                                   :buttom_left_color {
+                                   :bottom_left kernel
+                                   :bottom_left_color {
                                                        kernel-status == "ok"     ? "gray" :
                                                        kernel-status == "update" ? "green" :
                                                        kernel-status == "reboot" ? "yellow" : 
                                                                      "black" }
-                                   :buttom_right uptime)
+                                   :bottom_right uptime)
 
                 (box :class "row-1"
                      :orientation "horizontal"
@@ -40,13 +40,13 @@
                                                       EWW_CPU.avg >= 60 ? "yellow" :
                                                       "green" }
                                         :metric { EWW_CPU.avg }
-                                        :buttom_right "${ round(EWW_TEMPS.K10TEMP_TCTL, 1) }°C"
-                                        :buttom_right_color {
+                                        :bottom_right "${ round(EWW_TEMPS.K10TEMP_TCTL, 1) }°C"
+                                        :bottom_right_color {
                                                              EWW_TEMPS.K10TEMP_TCTL >= "90" ? "red" :
                                                              EWW_TEMPS.K10TEMP_TCTL >= "70" ? "orange" :
                                                              EWW_TEMPS.K10TEMP_TCTL >= "50" ? "yellow" :
                                                              "gray" }
-                                        :buttom_left "${ arraylength(EWW_CPU.cores) } cores")
+                                        :bottom_left "${ arraylength(EWW_CPU.cores) } cores")
 
                      (system-graph-full :title "Memory"
                                         :icon "memory"
@@ -57,8 +57,8 @@
                                                       EWW_RAM.used_mem_perc >= 65 ? "yellow" :
                                                       "green" }
                                         :metric { EWW_RAM.used_mem_perc }
-                                        :buttom_right { formatbytes(EWW_RAM.total_mem, false, "si") }
-                                        :buttom_left { formatbytes(ceil(EWW_RAM.used_mem), false, "si") }))
+                                        :bottom_right { formatbytes(EWW_RAM.total_mem, false, "si") }
+                                        :bottom_left { formatbytes(ceil(EWW_RAM.used_mem), false, "si") }))
 
                 (box :class "row-2"
                      :orientation "horizontal"
@@ -72,20 +72,20 @@
                                                       MY_AMDGPU.avg >= 60 ? "yellow" :
                                                       "green" }
                                         :metric { MY_AMDGPU.avg }
-                                        :buttom_right "${ round(EWW_TEMPS.AMDGPU_EDGE, 1) }°C"
-                                        :buttom_right_color {
+                                        :bottom_right "${ round(EWW_TEMPS.AMDGPU_EDGE, 1) }°C"
+                                        :bottom_right_color {
                                                              EWW_TEMPS.AMDGPU_EDGE >= "90" ? "red" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "70" ? "orange" :
                                                              EWW_TEMPS.AMDGPU_EDGE >= "50" ? "yellow" :
                                                              "gray" }
-                                        :buttom_left "${ formatbytes(MY_AMDGPU.vram.used, false) } / ${ formatbytes(MY_AMDGPU.vram.total, false) }")
+                                        :bottom_left "${ formatbytes(MY_AMDGPU.vram.used, false) } / ${ formatbytes(MY_AMDGPU.vram.total, false) }")
 
                      (system-graph-full :title "Swap"
                                         :icon "database"
                                         :metric { EWW_RAM.total_swap - EWW_RAM.free_swap }
                                         :primary_unit "%"
-                                        :buttom_right { formatbytes(EWW_RAM.total_swap, false, "si") }
-                                        :buttom_left { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))
+                                        :bottom_right { formatbytes(EWW_RAM.total_swap, false, "si") }
+                                        :bottom_left { formatbytes(ceil(EWW_RAM.total_swap - EWW_RAM.free_swap), false, "si") }))
 
                 (box :class "row-3"
                      :orientation "horizontal"
